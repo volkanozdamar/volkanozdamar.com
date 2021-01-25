@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"volkanozdamar.com","root":"/","images":"/images","scheme":"Mist","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+<meta name="description" content="Like an architecture history, software architecture has changed and evolved. First of all, people started to live in cave, then they build their shed and tent, from them shed and tent to today’s skysc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Monolithic vs. MicroService Architecture">
+<meta property="og:url" content="http://volkanozdamar.com/Monolithic-vs-MicroService-Architecture/index.html">
+<meta property="og:site_name" content="Volkan Özdamar">
+<meta property="og:description" content="Like an architecture history, software architecture has changed and evolved. First of all, people started to live in cave, then they build their shed and tent, from them shed and tent to today’s skysc">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://volkanozdamar.com/Monolithic-vs-MicroService-Architecture/microswerviceworld.png">
+<meta property="article:published_time" content="2020-08-03T13:30:00.000Z">
+<meta property="article:modified_time" content="2020-08-29T10:52:37.001Z">
+<meta property="article:author" content="Volkan Özdamar">
+<meta property="article:tag" content="Microservice">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://volkanozdamar.com/Monolithic-vs-MicroService-Architecture/microswerviceworld.png">
+
+
+<link rel="canonical" href="http://volkanozdamar.com/Monolithic-vs-MicroService-Architecture/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Monolithic vs. MicroService Architecture | Volkan Özdamar</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Volkan Özdamar</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Test Automation Specialist</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Monolithic-Architecture"><span class="nav-number">1.</span> <span class="nav-text">Monolithic Architecture</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Advantages-of-Monolithic"><span class="nav-number">1.1.</span> <span class="nav-text">Advantages of Monolithic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Disadvantages-of-Monolithic"><span class="nav-number">1.2.</span> <span class="nav-text">Disadvantages of Monolithic</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Microservice-Architecture"><span class="nav-number">2.</span> <span class="nav-text">Microservice Architecture</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Advantages-of-Monolithic-1"><span class="nav-number">2.1.</span> <span class="nav-text">Advantages of Monolithic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Disadvantages-of-Monolithic-1"><span class="nav-number">2.2.</span> <span class="nav-text">Disadvantages of Monolithic</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Which-one-is-the-best"><span class="nav-number">3.</span> <span class="nav-text">Which one is the best ?</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Volkan Özdamar</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://volkanozdamar.com/Monolithic-vs-MicroService-Architecture/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Volkan Özdamar">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Volkan Özdamar">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Monolithic vs. MicroService Architecture
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 03-08-2020 16:30:00" itemprop="dateCreated datePublished" datetime="2020-08-03T16:30:00+03:00">03-08-2020</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 29-08-2020 13:52:37" itemprop="dateModified" datetime="2020-08-29T13:52:37+03:00">29-08-2020</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Software-Development/" itemprop="url" rel="index"><span itemprop="name">Software Development</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/Monolithic-vs-MicroService-Architecture/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Monolithic-vs-MicroService-Architecture/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Like an architecture history, software architecture has changed and evolved. First of all, people started to live in cave, then they build their shed and tent, from them shed and tent to today’s skyscraper and apartment, lots of come a long way.<a id="more"></a> Like this, our software architecture started to evolve from early 2005.Microservices start to rise behind the hill and with Cloud Services, Docker and container orchestration, we have a more distributed, more scalable, and reliable solutions more than from the past. Why we choose that way and Is the old way still applicable for us? Let see what is the differences between monolith and microservices.</p>
+<h2 id="Monolithic-Architecture"><a href="#Monolithic-Architecture" class="headerlink" title="Monolithic Architecture"></a><strong>Monolithic Architecture</strong></h2><p>As a word monolith means monument or building made with a single massive stone or rock. With this perspective, if an application has one more module in a single repository, we can define it as a monolithic application.<br>This type of applications generally combination of single client, single server and single database. This singularity comes with some eases, but comes with some difficulties too. A big challenge with this type of application; update, upgrade or crash and restart scenarios affect whole system situation. This kind of architectures also tightly coupled with interdependencies and increased information flow.</p>
+<h3 id="Advantages-of-Monolithic"><a href="#Advantages-of-Monolithic" class="headerlink" title="Advantages of Monolithic"></a>Advantages of Monolithic</h3><ul>
+<li>Easy bug tracking and end to end testing</li>
+<li>Easy development</li>
+<li>Easy deployment (generally once a week and big)</li>
+</ul>
+<h3 id="Disadvantages-of-Monolithic"><a href="#Disadvantages-of-Monolithic" class="headerlink" title="Disadvantages of Monolithic"></a>Disadvantages of Monolithic</h3><ul>
+<li>Technology dependency, hard to implement new technologies</li>
+<li>Complexity of one code base</li>
+<li>Can be lead anti-pattens</li>
+<li>CI/CD difficult</li>
+<li>uncontrollable growth with every new feature</li>
+</ul>
+<h2 id="Microservice-Architecture"><a href="#Microservice-Architecture" class="headerlink" title="Microservice Architecture"></a><strong>Microservice Architecture</strong></h2><p>While monolithic applications is a single unified unit , microservices breaks it down into a collection of independent pieces.Like one piece a car toy versus a car maded with lego , every bricks has a unique job to done and create to whole system as together. These pieces can be deployable independently from each other, and has own logic , database , pipeline and codebases too.These applications communicate with each other through defined methods called APIs (Application Programming Interfaces).Big advantage of microservices scalability and reliability.</p>
+<h3 id="Advantages-of-Monolithic-1"><a href="#Advantages-of-Monolithic-1" class="headerlink" title="Advantages of Monolithic"></a>Advantages of Monolithic</h3><ul>
+<li>Independent components</li>
+<li>Easier to understanding</li>
+<li>Each service has its own codebase</li>
+<li>Loosely Coupled</li>
+<li>Scalability</li>
+<li>Reliablity</li>
+<li>Technology flexible</li>
+</ul>
+<h3 id="Disadvantages-of-Monolithic-1"><a href="#Disadvantages-of-Monolithic-1" class="headerlink" title="Disadvantages of Monolithic"></a>Disadvantages of Monolithic</h3><ul>
+<li>Integration testing is diffucult</li>
+<li>Deployment are more complex </li>
+<li>Operation cost for each apps<ul>
+<li>own repo</li>
+<li>own codebase and CI/CD</li>
+<li>own database</li>
+</ul>
+</li>
+<li>Additional hardware costs</li>
+</ul>
+<h2 id="Which-one-is-the-best"><a href="#Which-one-is-the-best" class="headerlink" title="Which one is the best ?"></a><strong>Which one is the best ?</strong></h2><p>There is no exact answer, it depends on your application size, team knowledge and your budget.</p>
+<p>If you a small team, don’t want to do not have performance bottlenecks, don’t want deal with Dev-Ops costs and have experiences with Monolithics frameworks, this could be best solution for you. Vice versa, if you have a big cluster and need to scalability and reliability and want to use one more technology in same time or want to experience to microservices, this could be best solution too.</p>
+ <img src="/Monolithic-vs-MicroService-Architecture/microswerviceworld.png" class="img-fluid" title="&#x2F;Monolithic-vs-MicroService-Architecture&#x2F;microswerviceworld.png" alt="Monolithic vs Microservices">
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Volkan Özdamar
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://volkanozdamar.com/Monolithic-vs-MicroService-Architecture/" title="Monolithic vs. MicroService Architecture">http://volkanozdamar.com/Monolithic-vs-MicroService-Architecture/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Microservice/" rel="tag"># Microservice</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Basic-Docker-Commands/" rel="prev" title="Basic Docker Commands">
+                  <i class="fa fa-chevron-left"></i> Basic Docker Commands
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Today-s-Ride/" rel="next" title="Today's Ride">
+                  Today's Ride <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Volkan Özdamar</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://volkanozdamar.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://volkanozdamar.com/Monolithic-vs-MicroService-Architecture/";
+    this.page.identifier = "Monolithic-vs-MicroService-Architecture/";
+    this.page.title = "Monolithic vs. MicroService Architecture";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://volkanozdamar.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"volkanozdamar.com","root":"/","images":"/images","scheme":"Mist","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+<meta name="description" content="Before this, I explained here, what is Docker, what is a container and why we are using it. I skip to installation because docker installation has differences in each operating system. You can follow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Basic Docker Commands">
+<meta property="og:url" content="http://volkanozdamar.com/Basic-Docker-Commands/index.html">
+<meta property="og:site_name" content="Volkan Özdamar">
+<meta property="og:description" content="Before this, I explained here, what is Docker, what is a container and why we are using it. I skip to installation because docker installation has differences in each operating system. You can follow">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://volkanozdamar.com/Basic-Docker-Commands/nginx.gif">
+<meta property="og:image" content="http://volkanozdamar.com/Basic-Docker-Commands/removecontainer.gif">
+<meta property="article:published_time" content="2020-06-28T17:10:00.000Z">
+<meta property="article:modified_time" content="2020-06-28T17:09:26.171Z">
+<meta property="article:author" content="Volkan Özdamar">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Container">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://volkanozdamar.com/Basic-Docker-Commands/nginx.gif">
+
+
+<link rel="canonical" href="http://volkanozdamar.com/Basic-Docker-Commands/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Basic Docker Commands | Volkan Özdamar</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Volkan Özdamar</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Test Automation Specialist</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#INFO-Commands"><span class="nav-number">1.</span> <span class="nav-text">INFO Commands</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Container-Management-Commands"><span class="nav-number">2.</span> <span class="nav-text">Container Management Commands</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logs-and-Tasks-Management"><span class="nav-number">3.</span> <span class="nav-text">Logs and Tasks Management</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Volkan Özdamar</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://volkanozdamar.com/Basic-Docker-Commands/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Volkan Özdamar">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Volkan Özdamar">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Basic Docker Commands
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 28-06-2020 20:10:00 / Modified: 20:09:26" itemprop="dateCreated datePublished" datetime="2020-06-28T20:10:00+03:00">28-06-2020</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/Basic-Docker-Commands/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Basic-Docker-Commands/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Before this, I explained <a href="https://volkanozdamar.com/Just-Another-Docker-Related-Post/">here</a>, what is Docker, what is a container and why we are using it. I skip to installation because docker installation has differences in each operating system. You can follow the official installation document from <a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/">here</a></p>
+<a id="more"></a>
+
+<h2 id="INFO-Commands"><a href="#INFO-Commands" class="headerlink" title="INFO Commands"></a><strong>INFO Commands</strong></h2><p>When you did to installation successfully, we can start to use docker. Open terminal or PowerShell and write these lines.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure>
+
+<p>This command will give you information about the version of your system and docker engine.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">Client: Docker Engine - Community</span><br><span class="line"> Version:           19.03.8</span><br><span class="line"> API version:       1.40</span><br><span class="line"> Go version:        go1.12.17</span><br><span class="line"> Git commit:        afacb8b</span><br><span class="line"> Built:             Wed Mar 11 01:21:11 2020</span><br><span class="line"> OS&#x2F;Arch:           darwin&#x2F;amd64</span><br><span class="line"> Experimental:      false</span><br><span class="line"></span><br><span class="line">Server: Docker Engine - Community</span><br><span class="line"> Engine:</span><br><span class="line">  Version:          19.03.8</span><br><span class="line">  API version:      1.40 (minimum version 1.12)</span><br><span class="line">  Go version:       go1.12.17</span><br><span class="line">  Git commit:       afacb8b</span><br><span class="line">  Built:            Wed Mar 11 01:29:16 2020</span><br><span class="line">  OS&#x2F;Arch:          linux&#x2F;amd64</span><br><span class="line">  Experimental:     false</span><br><span class="line"> containerd:</span><br><span class="line">  Version:          v1.2.13</span><br><span class="line">  GitCommit:        7ad184331fa3e55e52b890ea95e65ba581ae3429</span><br><span class="line"> runc:</span><br><span class="line">  Version:          1.0.0-rc10</span><br><span class="line">  GitCommit:        dc9208a3303feef5b3839f4323d9beb36df0a9dd</span><br><span class="line"> docker-init:</span><br><span class="line">  Version:          0.18.0</span><br><span class="line">  GitCommit:        fec3683</span><br></pre></td></tr></table></figure>
+
+<p>Another info command is “docker info” shows you informations about configuration values for engine </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure>
+
+<p>But what about if we write only “docker”.When we type to terminal or PowerShell only “docker” it prints to us an informative explanation about docker management commands, commands and their options.</p>
+<p>Simply we manage docker image and container like that</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker &lt;command&gt; &lt;sub-command&gt;</span><br></pre></td></tr></table></figure>
+<p>For instance, if we want to run a container we need to write</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container run</span><br></pre></td></tr></table></figure>
+<p>also, we can use this without command, but this is naming as an old way now.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run</span><br></pre></td></tr></table></figure>
+
+<h2 id="Container-Management-Commands"><a href="#Container-Management-Commands" class="headerlink" title="Container Management Commands"></a><strong>Container Management Commands</strong></h2><p>Container management command for creation, deletion start and stop for container.To explain that i choose to create nginx container.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container run --publish 80:80 --detach  --name webhost nginx</span><br></pre></td></tr></table></figure>
+
+<p>**  –detach or -d option runs container in the background.</p>
+<img src="/Basic-Docker-Commands/nginx.gif" class="img-fluid" title="Nginx Container Creation">
+
+<p>With this command Docker doing </p>
+<ul>
+<li>Pulling the image of nginx from docker hub if not exist locally</li>
+<li>Creates new container based of that image</li>
+<li>Gives a virtual ip  on a private network inside docker engine</li>
+<li>Reserve port 80 from the host machine and forwards to port 80 in container</li>
+<li>Starts container </li>
+</ul>
+<p>After container created , you can list all working containers , you should see your container as up and running</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container ls &#x2F;&#x2F; or docker ps (old way)</span><br></pre></td></tr></table></figure>
+
+<p>with -a flag you can list stopped container also.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container ls -a</span><br></pre></td></tr></table></figure>
+
+<p>If you want to learn details of your container configs , inspect command prints it as json </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container inspect webhost</span><br></pre></td></tr></table></figure> 
+
+<p>If we want to stop our container just need to write a command below with our container name.Remember , our container name was webhost.(When you don’t give a name a container , docker gives a random name for it.BTW, you can also use first 3 digits of your container id instead of name)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container stop webhost</span><br></pre></td></tr></table></figure>
+
+<p>To re-run stopped container we change stop as start .</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container start webhost</span><br></pre></td></tr></table></figure>
+
+
+<img src="/Basic-Docker-Commands/removecontainer.gif" class="img-fluid" title="Remove Container">
+
+<p>And lastly when we want to remove docker container , we use to ‘rm’ command.Before remove a container , you need to stop it.Docker gives a warning to prevent deletion of working containers like above.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container rm webhost</span><br></pre></td></tr></table></figure>
+
+<h2 id="Logs-and-Tasks-Management"><a href="#Logs-and-Tasks-Management" class="headerlink" title="Logs and Tasks Management"></a><strong>Logs and Tasks Management</strong></h2><p>If we used –detach and -d , still we can reach logs of the running container</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container logs webhost</span><br></pre></td></tr></table></figure>
+
+<p>and for the process list in one container.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container top &lt;containername&gt; </span><br></pre></td></tr></table></figure>
+
+<p>And todays last command coming for to reach performance stats for all containers</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container stats </span><br></pre></td></tr></table></figure> 
+
+
+<p>Credits:</p>
+<p>Owner of Thumbnail Image : <a target="_blank" rel="noopener" href="https://www.flickr.com/photos/astrid/33781330424/in/photolist-Tt99Bs-VXRLc1-j8M2r7-VKL4gv-2grxchA-29sdjNP-21xz7ya-2cTtBoh-XWKpnH-iDkRsC-W7vSy4-2cTtBpj-GD5khz-2UrYz4-HFyjza-DFDoBR-MnuQ9X-4LGK2-2Us2tK-3iYUQG-kBtjfV-2e8xWVa-9LvD3-KtZ2bx-kDQagt-He19d1-2ibCsiH-ioGRSb-nxzta-JUoerW-861Axu-R6hJZk-284EiPV-23f9m3E-j77HEs-6tUzp9-dvecBi-3EK4k-FPJXa2-jLmzoF-dcGZAo-DQE7mF-2h42pU-f3ZCWg-QWgZH-2h42w7-QWh8x-6nZwLN-6kU3eA-6t3HPV">Astrid Westvang</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Volkan Özdamar
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://volkanozdamar.com/Basic-Docker-Commands/" title="Basic Docker Commands">http://volkanozdamar.com/Basic-Docker-Commands/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Docker/" rel="tag"># Docker</a>
+              <a href="/tags/Container/" rel="tag"># Container</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Just-Another-Docker-Related-Post/" rel="prev" title="Just Another Docker Related Post">
+                  <i class="fa fa-chevron-left"></i> Just Another Docker Related Post
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Monolithic-vs-MicroService-Architecture/" rel="next" title="Monolithic vs. MicroService Architecture">
+                  Monolithic vs. MicroService Architecture <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Volkan Özdamar</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://volkanozdamar.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://volkanozdamar.com/Basic-Docker-Commands/";
+    this.page.identifier = "Basic-Docker-Commands/";
+    this.page.title = "Basic Docker Commands";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://volkanozdamar.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

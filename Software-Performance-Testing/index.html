@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"volkanozdamar.com","root":"/","images":"/images","scheme":"Mist","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+<meta name="description" content="Performance testing is a process to touch every department of your companies and a vital part of software development.Either mobile-centric companies or web-centric companies , if your user can’t get">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Software Performance Testing">
+<meta property="og:url" content="http://volkanozdamar.com/Software-Performance-Testing/index.html">
+<meta property="og:site_name" content="Volkan Özdamar">
+<meta property="og:description" content="Performance testing is a process to touch every department of your companies and a vital part of software development.Either mobile-centric companies or web-centric companies , if your user can’t get">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-12-25T16:40:31.000Z">
+<meta property="article:modified_time" content="2020-05-11T18:48:24.237Z">
+<meta property="article:author" content="Volkan Özdamar">
+<meta property="article:tag" content="Performance Testing">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://volkanozdamar.com/Software-Performance-Testing/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Software Performance Testing | Volkan Özdamar</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Volkan Özdamar</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Test Automation Specialist</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Reasons-of-Bad-performance"><span class="nav-number">1.</span> <span class="nav-text">The Reasons of Bad performance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Questions-for-Scale-your-app"><span class="nav-number">2.</span> <span class="nav-text">Questions for Scale your app</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Performance-Testing-Jargon"><span class="nav-number">3.</span> <span class="nav-text">Performance Testing Jargon</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Volkan Özdamar</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://volkanozdamar.com/Software-Performance-Testing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Volkan Özdamar">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Volkan Özdamar">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Software Performance Testing
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 25-12-2019 19:40:31" itemprop="dateCreated datePublished" datetime="2019-12-25T19:40:31+03:00">25-12-2019</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 11-05-2020 21:48:24" itemprop="dateModified" datetime="2020-05-11T21:48:24+03:00">11-05-2020</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Performance-Testing/" itemprop="url" rel="index"><span itemprop="name">Performance Testing</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/Software-Performance-Testing/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Software-Performance-Testing/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Performance testing is a process to touch every department of your companies and a vital part of software development.Either mobile-centric companies or web-centric companies , if your user can’t get what they want from you quickly , you will probably </p>
+<a id="more"></a>
+<p>see your users when they are using your opponent company website or mobile app on their devices after their undesired experience.</p>
+<blockquote><p>A well-performing application is one that lets the end user carry out a given task without undue perceived delay or irritation.</p>
+<footer><strong>Ian Molyneaux</strong><cite>The Art of Application Performance Testing [O'Reilly]</cite></footer></blockquote>
+<!-- more -->
+<p>Then , When and How you should start to performance testing? Before start to performance testing you should have some KPIs(Key Performance Indicators) to measure your performance.We can classify these KPIs , in the two main title.<strong>Service-Oriented indicators</strong> are your applications availability and response time.<strong>Efficiency-Oriented indicators</strong> are throughput and utilization capacity.</p>
+<p>In the big picture , performance is combination of  data of your client , the application software  ,your hosting infrastructure and 3rd party dependencies or providers.Therefore additionally you need to End-User Monitoring , analyze the user and client behaviours beside of performance testing.In that part , you need to strict communication with your teams out of your tech stack like user experience team, seller team, accounting team, advertisement team and social media team.Even call center should know what it is and the purpose of this process, because when your site performance getting slow, first impact will rise over there.According to your use case scenarios , you need to collect data from these teams and analyze causes and effects about to your performance.</p>
+<h2 id="The-Reasons-of-Bad-performance"><a href="#The-Reasons-of-Bad-performance" class="headerlink" title="The Reasons of Bad performance"></a><strong>The Reasons of Bad performance</strong></h2><p>Performance testing is not an activity you need to do before only deployment.It is a part of your whole software development lifecycle(SDLC) like every testing activity.You should start to think about your application performance at the design phase, to prevent time lost and unwanted situations.<br>When you skip that part and try to scale before deployment to live , a few days will be descend over like a nightmare to your team.Shortly you need to shift-left your performance testing.</p>
+<blockquote><p>A “performance by design” mindset lends itself to good performance, or at least the agility to change or reconfigure an application to cope with unexpected performance challenges.</p>
+<footer><strong>Ian Molyneaux</strong><cite>The Art of Application Performance Testing [O'Reilly]</cite></footer></blockquote>
+
+<h2 id="Questions-for-Scale-your-app"><a href="#Questions-for-Scale-your-app" class="headerlink" title="Questions for Scale your app"></a><strong>Questions for Scale your app</strong></h2><p>Performance Testing has not a standart approach.Still is it inside so many incognita.However , this question set will survive your team or yourself from the darkness.</p>
+<ul>
+<li>How many end users will actually use the application? </li>
+<li>Where are these end users located? </li>
+<li>How many of these end users will use it concurrently? </li>
+<li>How will the end users connect to the application? </li>
+<li>How many additional end users will require access to the application over time? </li>
+<li>What will the final application landscape look like in terms of the number and location of the servers? </li>
+<li>What effect will the application have on network capacity?</li>
+</ul>
+<h2 id="Performance-Testing-Jargon"><a href="#Performance-Testing-Jargon" class="headerlink" title="Performance Testing Jargon"></a><strong>Performance Testing Jargon</strong></h2><p>Like every discipline , performance testing have some terms and definitions.These are most common terms when you use performance test for scaling.</p>
+<p><strong>Duration</strong> - Total time of test execution<br><strong>ThinkTime</strong> - Estimated use time of real users<br><strong>Concurrent User</strong> - A User group doing same transaction in same time<br><strong>Transaction</strong> - A piece of software has start and end point for a purpose<br><strong>Simultaneous User</strong> - A User group doing same transaction one by one independently<br><strong>Virtual User</strong> - Simulated users by performance testing tool.We can calculate how many vuser we need with this short formula.</p>
+<pre><code>vUsers Required = Total Number of Transactions/ TransactionPerHour </code></pre>
+<p><strong>Pacing</strong> - Delays added to our scenarios to control the execution rates.To calculate pacing we can use this way,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">D &#x3D; Duration</span><br><span class="line">B &#x3D; Baseline time(total time taken by 1 Vu to complete 1 whole iteration)</span><br><span class="line">T &#x3D; Total amount of Think time in the script</span><br><span class="line">I &#x3D; Expected&#x2F;Target iteration</span><br><span class="line">R &#x3D; Residual time of the test window.</span><br><span class="line">R &#x3D; ( D - (T + B)*I)</span><br><span class="line">P &#x3D; Pacing interval</span><br><span class="line">Dividing the residual time by target iteration gives pacing interval</span><br><span class="line">Hence:</span><br><span class="line">P &#x3D; R&#x2F;I</span><br></pre></td></tr></table></figure>
+<p>[Note : This post combination of my notes from <a target="_blank" rel="noopener" href="https://learning.oreilly.com/library/view/the-art-of/9781491900536/">The Art of Application Performance Testing, 2nd Edition</a> written by Ian Molyneaux and my personal reviews.]</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Volkan Özdamar
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://volkanozdamar.com/Software-Performance-Testing/" title="Software Performance Testing">http://volkanozdamar.com/Software-Performance-Testing/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Performance-Testing/" rel="tag"># Performance Testing</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Integrate-Rest-Assured-and-Allure/" rel="prev" title="Integrate Rest Assured and Allure">
+                  <i class="fa fa-chevron-left"></i> Integrate Rest Assured and Allure
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Just-Another-Docker-Related-Post/" rel="next" title="Just Another Docker Related Post">
+                  Just Another Docker Related Post <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Volkan Özdamar</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://volkanozdamar.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://volkanozdamar.com/Software-Performance-Testing/";
+    this.page.identifier = "Software-Performance-Testing/";
+    this.page.title = "Software Performance Testing";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://volkanozdamar.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
