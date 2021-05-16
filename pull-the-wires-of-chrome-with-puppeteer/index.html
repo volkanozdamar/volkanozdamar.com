@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Everybody knows that , Chrome is market leader and its developer tools are better than other browsers’.It is useful for software developers and software testers.Honestly ; I’m using Mozilla Firefox mo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pull the wires of Chrome with Puppeteer">
+<meta property="og:url" content="http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/index.html">
+<meta property="og:site_name" content="Volkan Özdamar">
+<meta property="og:description" content="Everybody knows that , Chrome is market leader and its developer tools are better than other browsers’.It is useful for software developers and software testers.Honestly ; I’m using Mozilla Firefox mo">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/puppeteer.png">
+<meta property="article:published_time" content="2018-08-18T18:21:35.000Z">
+<meta property="article:modified_time" content="2021-05-16T14:30:23.586Z">
+<meta property="article:author" content="Volkan Özdamar">
+<meta property="article:tag" content="Chromedevtools">
+<meta property="article:tag" content="Google">
+<meta property="article:tag" content="Chrome">
+<meta property="article:tag" content="Puppeteer">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/puppeteer.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Pull the wires of Chrome with Puppeteer</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/true" title="Volkan Özdamar" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" "Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post " href="/install-all-selenium-drivers-with-one-command/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post " href="/hello-world/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top " href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post " href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&text=Pull the wires of Chrome with Puppeteer"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&title=Pull the wires of Chrome with Puppeteer"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&is_video=false&description=Pull the wires of Chrome with Puppeteer"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Pull the wires of Chrome with Puppeteer&body=Check out this article: http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&title=Pull the wires of Chrome with Puppeteer"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&title=Pull the wires of Chrome with Puppeteer"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&title=Pull the wires of Chrome with Puppeteer"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&title=Pull the wires of Chrome with Puppeteer"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&name=Pull the wires of Chrome with Puppeteer&description=&lt;p&gt;Everybody knows that , Chrome is market leader and its developer tools are better than other browsers’.It is useful for software developers and software testers.Honestly ; I’m using Mozilla Firefox more than 10 years ,but Chrome is heading straight for the top every day.&lt;/p&gt;
+&lt;p&gt;Last year , Chrome Team announced headless mode. Headless mode allows to us , running Chrome without GUI.Before that , everybody was using PhantomJs for headless test automation.Now we have got the powerful alternative to test and create automations , Puppeteer is an official tool for Chrome Headless by Google Chrome team.With Puppeteer you can use many features of Chrome Dev Tools with Chrome Headless.If it is not tl;dr for you , you can learn more on puppeteer’s GitHub page. Now , let’s get install puppeteer on our machine.&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&t=Pull the wires of Chrome with Puppeteer"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-we-need"><span class="toc-number">1.</span> <span class="toc-text">What we need :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mobile-Screen-Sizes"><span class="toc-number">2.</span> <span class="toc-text">Mobile Screen Sizes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Interacting-with-WebElements"><span class="toc-number">3.</span> <span class="toc-text">Interacting with WebElements</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Pull the wires of Chrome with Puppeteer
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Volkan Özdamar</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-08-18T18:21:35.000Z" itemprop="datePublished">2018-08-18</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/Puppeteer/">Puppeteer</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Chrome/" rel="tag">Chrome</a>, <a class="tag-link-link" href="/tags/Chromedevtools/" rel="tag">Chromedevtools</a>, <a class="tag-link-link" href="/tags/Google/" rel="tag">Google</a>, <a class="tag-link-link" href="/tags/Puppeteer/" rel="tag">Puppeteer</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>Everybody knows that , Chrome is market leader and its developer tools are better than other browsers’.It is useful for software developers and software testers.Honestly ; I’m using Mozilla Firefox more than 10 years ,but Chrome is heading straight for the top every day.</p>
+<p>Last year , Chrome Team announced headless mode. Headless mode allows to us , running Chrome without GUI.Before that , everybody was using PhantomJs for headless test automation.Now we have got the powerful alternative to test and create automations , Puppeteer is an official tool for Chrome Headless by Google Chrome team.With Puppeteer you can use many features of Chrome Dev Tools with Chrome Headless.If it is not tl;dr for you , you can learn more on puppeteer’s GitHub page. Now , let’s get install puppeteer on our machine.</p>
+<span id="more"></span>
+
+<h3 id="What-we-need"><a href="#What-we-need" class="headerlink" title="What we need :"></a>What we need :</h3><pre><code>Node 8+
+Cup of Coffeé
+</code></pre>
+<p>Yes we just need node, cus puppeteer includes its own -latest- chromium.Create a directory where you want to work.All steps are working on Mac and Windows10(use powershell).(I didn’t try on Linux :) )</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir puppeteerworkspace</span><br><span class="line">$ cd puppeteerworkspace</span><br></pre></td></tr></table></figure>
+<p>Then install Puppeteer with npm.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i --save puppeteer</span><br></pre></td></tr></table></figure>
+<p>It’s time to roll up our sleeves.Let’s try to take screenshot of my page.As a default , puppeteer taking screenshot of the whole page.If we write “fullPage:false” in our script ,it will get just visible part of page.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const puppeteer = require(&#x27;puppeteer&#x27;);</span><br><span class="line"></span><br><span class="line">(async () =&gt; &#123;</span><br><span class="line">  const browser = await puppeteer.launch();</span><br><span class="line">  const page = await browser.newPage();</span><br><span class="line">  await page.goto(&#x27;http://volkanozdamar.com&#x27;);</span><br><span class="line">  await page.screenshot(&#123;path: &#x27;mainpage.png&#x27;,fullPage:false&#125;);</span><br><span class="line">  await browser.close();</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>However, how we decide our screen size?Using setViewPort() function we can change our screen size.Additionally, we export the page as pdf.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const puppeteer = require(&#x27;puppeteer&#x27;);</span><br><span class="line"></span><br><span class="line">(async () =&gt; &#123;</span><br><span class="line">  const browser = await puppeteer.launch();</span><br><span class="line">  const page = await browser.newPage();</span><br><span class="line">  await page.setViewport(&#123;width:1920,height:1080&#125;);</span><br><span class="line">  await page.goto(&#x27;http://volkanozdamar.com&#x27;);</span><br><span class="line">  await page.pdf(&#123;path: &#x27;homepage.pdf&#x27;, format: &#x27;A4&#x27;&#125;);</span><br><span class="line">  await browser.close();</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<h3 id="Mobile-Screen-Sizes"><a href="#Mobile-Screen-Sizes" class="headerlink" title="Mobile Screen Sizes"></a>Mobile Screen Sizes</h3><p>What if we want to emulate mobile page?How we will memorize all screen sizes for all devices?Don’t worry, puppeteer has predefined device sizes inside.You can find those devices in “DeviceDescriptors.js”.Also you can create your own devices.Below code ; sample for iphone6.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const puppeteer = require(&#x27;puppeteer&#x27;);</span><br><span class="line">const devices = require(&#x27;puppeteer/DeviceDescriptors&#x27;);</span><br><span class="line">const iPhone = devices[&#x27;iPhone 6&#x27;];</span><br><span class="line"></span><br><span class="line">puppeteer.launch().then(async browser =&gt; &#123;</span><br><span class="line">  const page = await browser.newPage();</span><br><span class="line">  await page.emulate(iPhone);</span><br><span class="line">  await page.goto(&#x27;https://www.google.com&#x27;);</span><br><span class="line">  await page.screenshot(&#123;path: &#x27;mainpage.png&#x27;,fullPage:false&#125;);</span><br><span class="line">  await browser.close();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Beside all these, if you don’t want to as a headless , just write these lines,</p>
+<p>const browser = await puppeteer.launch({headless: false}); // default is true</p>
+<h3 id="Interacting-with-WebElements"><a href="#Interacting-with-WebElements" class="headerlink" title="Interacting with WebElements"></a>Interacting with WebElements</h3><p>To interact with a web element, Puppeteer using queryselector.I create a script making a Google Search.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const puppeteer = require(&#x27;puppeteer&#x27;);</span><br><span class="line"></span><br><span class="line">(async () =&gt; &#123;</span><br><span class="line">  const browser = await puppeteer.launch();</span><br><span class="line">  const page = await browser.newPage();</span><br><span class="line">  await page.goto(&#x27;https://google.com&#x27;);</span><br><span class="line">  await page.type(&#x27;#lst-ib&#x27;,&#x27;Puppeteer&#x27;);</span><br><span class="line">  await page.click(&#x27;input[name=&quot;btnK&quot;]&#x27;);</span><br><span class="line">  await browser.close();</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>These are short notes and my first look for Puppeteer -also first English post on my blog 🍺 — .I will write another post about puppeteer in the following times.Until that time EOF.(End of FUN!)</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-we-need"><span class="toc-number">1.</span> <span class="toc-text">What we need :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mobile-Screen-Sizes"><span class="toc-number">2.</span> <span class="toc-text">Mobile Screen Sizes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Interacting-with-WebElements"><span class="toc-number">3.</span> <span class="toc-text">Interacting with WebElements</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&text=Pull the wires of Chrome with Puppeteer"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&title=Pull the wires of Chrome with Puppeteer"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&is_video=false&description=Pull the wires of Chrome with Puppeteer"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Pull the wires of Chrome with Puppeteer&body=Check out this article: http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&title=Pull the wires of Chrome with Puppeteer"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&title=Pull the wires of Chrome with Puppeteer"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&title=Pull the wires of Chrome with Puppeteer"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&title=Pull the wires of Chrome with Puppeteer"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&name=Pull the wires of Chrome with Puppeteer&description=&lt;p&gt;Everybody knows that , Chrome is market leader and its developer tools are better than other browsers’.It is useful for software developers and software testers.Honestly ; I’m using Mozilla Firefox more than 10 years ,but Chrome is heading straight for the top every day.&lt;/p&gt;
+&lt;p&gt;Last year , Chrome Team announced headless mode. Headless mode allows to us , running Chrome without GUI.Before that , everybody was using PhantomJs for headless test automation.Now we have got the powerful alternative to test and create automations , Puppeteer is an official tool for Chrome Headless by Google Chrome team.With Puppeteer you can use many features of Chrome Dev Tools with Chrome Headless.If it is not tl;dr for you , you can learn more on puppeteer’s GitHub page. Now , let’s get install puppeteer on our machine.&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&t=Pull the wires of Chrome with Puppeteer"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2019-2021
+    Volkan Özdamar
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'volkanozdamar';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+</body>
+</html>
