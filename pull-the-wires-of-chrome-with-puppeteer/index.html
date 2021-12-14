@@ -1,11 +1,18 @@
-<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pull the wires of Chrome with Puppeteer | 🌋Volkan Özdamar</title><meta name="keywords" content="Chrome,Chromedevtools,Google,Puppeteer"><meta name="author" content="Volkan Özdamar"><meta name="copyright" content="Volkan Özdamar"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="Everybody knows that , Chrome is market leader and its developer tools are better than other browsers’.It is useful for software developers and software testers.Honestly ; I’m using Mozilla Firefox mo">
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Everybody knows that , Chrome is market leader and its developer tools are better than other browsers’.It is useful for software developers and software testers.Honestly ; I’m using Mozilla Firefox mo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pull the wires of Chrome with Puppeteer">
 <meta property="og:url" content="http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/index.html">
 <meta property="og:site_name" content="🌋Volkan Özdamar">
 <meta property="og:description" content="Everybody knows that , Chrome is market leader and its developer tools are better than other browsers’.It is useful for software developers and software testers.Honestly ; I’m using Mozilla Firefox mo">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/puppeteer.png">
 <meta property="article:published_time" content="2018-08-18T18:21:35.000Z">
 <meta property="article:modified_time" content="2021-01-25T17:45:41.590Z">
 <meta property="article:author" content="Volkan Özdamar">
@@ -14,170 +21,146 @@
 <meta property="article:tag" content="Google">
 <meta property="article:tag" content="Puppeteer">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/puppeteer.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//www.clarity.ms"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="msvalidate.01" content="E826510604DF9F42499A2D715BF424BC"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-124358484-1"></script><script>window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'UA-124358484-1');
-</script><script>(function(c,l,a,r,i,t,y){
-    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-})(window, document, "clarity", "script", "54x0yg2ppe");</script><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
-  copy: {
-    success: 'Copy successfully',
-    error: 'Copy error',
-    noSupport: 'The browser does not support'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  date_suffix: {
-    just: 'Just',
-    min: 'minutes ago',
-    hour: 'hours ago',
-    day: 'days ago',
-    month: 'months ago'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  source: {
-    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
-    },
-    fancybox: {
-      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
-    }
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isanchor: false
-};
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Pull the wires of Chrome with Puppeteer</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
 
-var saveToLocal = {
-  set: function setWithExpiry(key, value, ttl) {
-    const now = new Date()
-    const expiryDay = ttl * 86400000
-    const item = {
-      value: value,
-      expiry: now.getTime() + expiryDay,
-    }
-    localStorage.setItem(key, JSON.stringify(item))
-  },
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="🌋Volkan Özdamar" type="application/atom+xml">
+</head>
 
-  get: function getWithExpiry(key) {
-    const itemStr = localStorage.getItem(key)
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/projects_url">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/install-all-selenium-drivers-with-one-command/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/hello-world/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&text=Pull the wires of Chrome with Puppeteer"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&title=Pull the wires of Chrome with Puppeteer"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&is_video=false&description=Pull the wires of Chrome with Puppeteer"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Pull the wires of Chrome with Puppeteer&body=Check out this article: http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&title=Pull the wires of Chrome with Puppeteer"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&title=Pull the wires of Chrome with Puppeteer"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&title=Pull the wires of Chrome with Puppeteer"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&title=Pull the wires of Chrome with Puppeteer"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&name=Pull the wires of Chrome with Puppeteer&description=&lt;p&gt;Everybody knows that , Chrome is market leader and its developer tools are better than other browsers’.It is useful for software developers and software testers.Honestly ; I’m using Mozilla Firefox more than 10 years ,but Chrome is heading straight for the top every day.&lt;/p&gt;
+&lt;p&gt;Last year , Chrome Team announced headless mode. Headless mode allows to us , running Chrome without GUI.Before that , everybody was using PhantomJs for headless test automation.Now we have got the powerful alternative to test and create automations , Puppeteer is an official tool for Chrome Headless by Google Chrome team.With Puppeteer you can use many features of Chrome Dev Tools with Chrome Headless.If it is not tl;dr for you , you can learn more on puppeteer’s GitHub page. Now , let’s get install puppeteer on our machine.&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&t=Pull the wires of Chrome with Puppeteer"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
 
-    if (!itemStr) {
-      return undefined
-    }
-    const item = JSON.parse(itemStr)
-    const now = new Date()
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-we-need"><span class="toc-number">1.</span> <span class="toc-text">What we need :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mobile-Screen-Sizes"><span class="toc-number">2.</span> <span class="toc-text">Mobile Screen Sizes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Interacting-with-WebElements"><span class="toc-number">3.</span> <span class="toc-text">Interacting with WebElements</span></a></li></ol>
+    </div>
+  </span>
+</div>
 
-    if (now.getTime() > item.expiry) {
-      localStorage.removeItem(key)
-      return undefined
-    }
-    return item.value
-  }
-}
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Pull the wires of Chrome with Puppeteer
+    </h1>
 
-// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
-const getScript = url => new Promise((resolve, reject) => {
-  const script = document.createElement('script')
-  script.src = url
-  script.async = true
-  script.onerror = reject
-  script.onload = script.onreadystatechange = function() {
-    const loadState = this.readyState
-    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-    script.onload = script.onreadystatechange = null
-    resolve()
-  }
-  document.head.appendChild(script)
-})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
-  isPost: true,
-  isHome: false,
-  isHighlightShrink: false,
-  isToc: true,
-  postUpdate: '25-01-2021 20:45:41'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
 
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(function () {  window.activateDarkMode = function () {
-    document.documentElement.setAttribute('data-theme', 'dark')
-    if (document.querySelector('meta[name="theme-color"]') !== null) {
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-    }
-  }
-  window.activateLightMode = function () {
-    document.documentElement.setAttribute('data-theme', 'light')
-   if (document.querySelector('meta[name="theme-color"]') !== null) {
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-    }
-  }
-  const autoChangeMode = 'false'
-  const t = saveToLocal.get('theme')
-  if (autoChangeMode === '1') {
-    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-    if (t === undefined) {
-      if (isLightMode) activateLightMode()
-      else if (isDarkMode) activateDarkMode()
-      else if (isNotSpecified || hasNoSupport) {
-        const now = new Date()
-        const hour = now.getHours()
-        const isNight = hour <= 6 || hour >= 18
-        isNight ? activateDarkMode() : activateLightMode()
-      }
-      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-        if (saveToLocal.get('theme') === undefined) {
-          e.matches ? activateDarkMode() : activateLightMode()
-        }
-      })
-    } else if (t === 'light') activateLightMode()
-    else activateDarkMode()
-  } else if (autoChangeMode === '2') {
-    const now = new Date()
-    const hour = now.getHours()
-    const isNight = hour <= 6 || hour >= 18
-    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
-    else if (t === 'light') activateLightMode()
-    else activateDarkMode()
-  } else {
-    if (t === 'dark') activateDarkMode()
-    else if (t === 'light') activateLightMode()
-  }const asideStatus = saveToLocal.get('aside-status')
-if (asideStatus !== undefined) {
-   if (asideStatus === 'hide') {
-     document.documentElement.classList.add('hide-aside')
-   } else {
-     document.documentElement.classList.remove('hide-aside')
-   }
-}})()</script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="🌋Volkan Özdamar" type="application/atom+xml">
-</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://avatars.githubusercontent.com/u/1964248?s=460&amp;u=792543a830cc78d83c2f684e68e26b74fc2e5347&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">16</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">21</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">11</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/AboutMe/"><i class="fa-fw fas fa-tags"></i><span> About Me</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/pull-the-wires-of-chrome-with-puppeteer/puppeteer.png)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">🌋Volkan Özdamar</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/AboutMe/"><i class="fa-fw fas fa-tags"></i><span> About Me</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Pull the wires of Chrome with Puppeteer</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-08-18T18:21:35.000Z" title="Created 18-08-2018 21:21:35">18-08-2018</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-01-25T17:45:41.590Z" title="Updated 25-01-2021 20:45:41">25-01-2021</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Puppeteer/">Puppeteer</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>Everybody knows that , Chrome is market leader and its developer tools are better than other browsers’.It is useful for software developers and software testers.Honestly ; I’m using Mozilla Firefox more than 10 years ,but Chrome is heading straight for the top every day.</p>
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Volkan Özdamar</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-08-18T18:21:35.000Z" itemprop="datePublished">18-08-2018</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/Puppeteer/">Puppeteer</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Chrome/" rel="tag">Chrome</a>, <a class="tag-link-link" href="/tags/Chromedevtools/" rel="tag">Chromedevtools</a>, <a class="tag-link-link" href="/tags/Google/" rel="tag">Google</a>, <a class="tag-link-link" href="/tags/Puppeteer/" rel="tag">Puppeteer</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>Everybody knows that , Chrome is market leader and its developer tools are better than other browsers’.It is useful for software developers and software testers.Honestly ; I’m using Mozilla Firefox more than 10 years ,but Chrome is heading straight for the top every day.</p>
 <p>Last year , Chrome Team announced headless mode. Headless mode allows to us , running Chrome without GUI.Before that , everybody was using PhantomJs for headless test automation.Now we have got the powerful alternative to test and create automations , Puppeteer is an official tool for Chrome Headless by Google Chrome team.With Puppeteer you can use many features of Chrome Dev Tools with Chrome Headless.If it is not tl;dr for you , you can learn more on puppeteer’s GitHub page. Now , let’s get install puppeteer on our machine.</p>
 <a id="more"></a>
 
@@ -198,37 +181,144 @@ Cup of Coffeé</code></pre>
 <h3 id="Interacting-with-WebElements"><a href="#Interacting-with-WebElements" class="headerlink" title="Interacting with WebElements"></a>Interacting with WebElements</h3><p>To interact with a web element, Puppeteer using queryselector.I create a script making a Google Search.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const puppeteer &#x3D; require(&#39;puppeteer&#39;);</span><br><span class="line"></span><br><span class="line">(async () &#x3D;&gt; &#123;</span><br><span class="line">  const browser &#x3D; await puppeteer.launch();</span><br><span class="line">  const page &#x3D; await browser.newPage();</span><br><span class="line">  await page.goto(&#39;https:&#x2F;&#x2F;google.com&#39;);</span><br><span class="line">  await page.type(&#39;#lst-ib&#39;,&#39;Puppeteer&#39;);</span><br><span class="line">  await page.click(&#39;input[name&#x3D;&quot;btnK&quot;]&#39;);</span><br><span class="line">  await browser.close();</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
 <p>These are short notes and my first look for Puppeteer -also first English post on my blog 🍺 — .I will write another post about puppeteer in the following times.Until that time EOF.(End of FUN!)</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Volkan Özdamar</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/">http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Chrome/">Chrome</a><a class="post-meta__tags" href="/tags/Chromedevtools/">Chromedevtools</a><a class="post-meta__tags" href="/tags/Google/">Google</a><a class="post-meta__tags" href="/tags/Puppeteer/">Puppeteer</a></div><div class="post_share"><div class="social-share" data-image="/pull-the-wires-of-chrome-with-puppeteer/puppeteer.png" data-sites="facebook,twitter"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/install-all-selenium-drivers-with-one-command/"><img class="prev-cover" src="https://www.netwoven.com/wp-content/uploads/2017/10/selenium.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Install All Selenium WebDrivers with One Command</div></div></a></div><div class="next-post pull-right"><a href="/hello-world/"><img class="next-cover" src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Hello World</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://avatars.githubusercontent.com/u/1964248?s=460&amp;u=792543a830cc78d83c2f684e68e26b74fc2e5347&amp;v=4" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Volkan Özdamar</div><div class="author-info__description">Volkan Özdamar</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">16</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">21</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">11</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/volkanozdamar" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:volkan@volkanozdamar.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-we-need"><span class="toc-number">1.</span> <span class="toc-text">What we need :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mobile-Screen-Sizes"><span class="toc-number">2.</span> <span class="toc-text">Mobile Screen Sizes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Interacting-with-WebElements"><span class="toc-number">3.</span> <span class="toc-text">Interacting with WebElements</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Run-your-Crossbrowser-Tests-With-Docker/" title="Run your Crossbrowser Tests With Docker">Run your Crossbrowser Tests With Docker</a><time datetime="2020-12-07T11:10:00.000Z" title="Created 07-12-2020 14:10:00">07-12-2020</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Today-s-Ride/" title="Today's Ride">Today's Ride</a><time datetime="2020-09-27T11:34:02.000Z" title="Created 27-09-2020 14:34:02">27-09-2020</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Monolithic-vs-MicroService-Architecture/" title="Monolithic vs. MicroService Architecture">Monolithic vs. MicroService Architecture</a><time datetime="2020-08-03T13:30:00.000Z" title="Created 03-08-2020 16:30:00">03-08-2020</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Basic-Docker-Commands/" title="Basic Docker Commands">Basic Docker Commands</a><time datetime="2020-06-28T17:10:00.000Z" title="Created 28-06-2020 20:10:00">28-06-2020</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/Just-Another-Docker-Related-Post/" title="Just Another Docker Related Post">Just Another Docker Related Post</a><time datetime="2020-05-11T19:43:52.000Z" title="Created 11-05-2020 22:43:52">11-05-2020</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Volkan Özdamar</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>function loadDisqus () {
-  var disqus_config = function () {
-    this.page.url = 'http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/'
-    this.page.identifier = 'pull-the-wires-of-chrome-with-puppeteer/'
-    this.page.title = 'Pull the wires of Chrome with Puppeteer'
-  };
 
-  window.disqusReset = () => {
-    DISQUS.reset({
-      reload: true,
-      config: disqus_config
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-we-need"><span class="toc-number">1.</span> <span class="toc-text">What we need :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mobile-Screen-Sizes"><span class="toc-number">2.</span> <span class="toc-text">Mobile Screen Sizes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Interacting-with-WebElements"><span class="toc-number">3.</span> <span class="toc-text">Interacting with WebElements</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&text=Pull the wires of Chrome with Puppeteer"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&title=Pull the wires of Chrome with Puppeteer"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&is_video=false&description=Pull the wires of Chrome with Puppeteer"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Pull the wires of Chrome with Puppeteer&body=Check out this article: http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&title=Pull the wires of Chrome with Puppeteer"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&title=Pull the wires of Chrome with Puppeteer"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&title=Pull the wires of Chrome with Puppeteer"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&title=Pull the wires of Chrome with Puppeteer"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&name=Pull the wires of Chrome with Puppeteer&description=&lt;p&gt;Everybody knows that , Chrome is market leader and its developer tools are better than other browsers’.It is useful for software developers and software testers.Honestly ; I’m using Mozilla Firefox more than 10 years ,but Chrome is heading straight for the top every day.&lt;/p&gt;
+&lt;p&gt;Last year , Chrome Team announced headless mode. Headless mode allows to us , running Chrome without GUI.Before that , everybody was using PhantomJs for headless test automation.Now we have got the powerful alternative to test and create automations , Puppeteer is an official tool for Chrome Headless by Google Chrome team.With Puppeteer you can use many features of Chrome Dev Tools with Chrome Headless.If it is not tl;dr for you , you can learn more on puppeteer’s GitHub page. Now , let’s get install puppeteer on our machine.&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&t=Pull the wires of Chrome with Puppeteer"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    Volkan Özdamar
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/projects_url">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
     })
-  }
+  })
+  </script>
 
-  if (window.DISQUS) disqusReset()
-  else {
-    (function() { 
-      var d = document, s = d.createElement('script');
-      s.src = 'https://volkanozdamar.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  }
-}
 
-if ('Disqus' === 'Disqus' || !false) {
-  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
-  else loadDisqus()
-} else {
-  function loadOtherComment () {
-    loadDisqus()
-  }
-}
-</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
