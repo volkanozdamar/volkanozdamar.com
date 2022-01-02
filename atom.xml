@@ -6,7 +6,7 @@
   <link href="http://volkanozdamar.com/atom.xml" rel="self"/>
   
   <link href="http://volkanozdamar.com/"/>
-  <updated>2022-01-02T12:35:26.299Z</updated>
+  <updated>2022-01-02T17:55:17.054Z</updated>
   <id>http://volkanozdamar.com/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>What is Kotlin?</title>
     <link href="http://volkanozdamar.com/What-is-Kotlin/"/>
     <id>http://volkanozdamar.com/What-is-Kotlin/</id>
-    <published>2022-01-07T17:00:00.000Z</published>
-    <updated>2022-01-02T12:35:26.299Z</updated>
+    <published>2022-01-02T17:00:00.000Z</published>
+    <updated>2022-01-02T17:55:17.054Z</updated>
     
     <content type="html"><![CDATA[ <img src="/What-is-Kotlin/banner.png" class="img-fluid" title="&#x2F;What-is-Kotlin&#x2F;banner.png"><p>Hi, this will become a short “What it is” article about Kotlin.I’m planning to learn Kotlin together with you in this blog in the following posts.Shortly, it is a JVM language. Like other JVM languages, it’s structured on the Java Language and comes with some additional features. At the end of the day, it creates Java bytecode for you. This means you can use all Java libraries with Kotlin or vice-versa.Then, what makes Kotlin special and so popular compared to the others? Let’s see the main features. </p><h2 id="Name-Origin"><a href="#Name-Origin" class="headerlink" title="Name Origin"></a><strong>Name Origin</strong></h2><p>It takes its name from an island located near the head of the Gulf of Finlad and west of Saint Petersburg in the Baltic Sea.Do you know any language which it takes its name from an island? … Who said Java …</p><h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a><strong>Features</strong></h2><ul><li>Language for General Purposes </li><li>Object-Oriented and Functional </li><li>Static Typed </li><li>Open Source (Apache 2.0) </li><li>Developed by Jetbrains </li><li>Since 2017, it has been the official language for Android development. </li></ul><p>As you see, the hallmarks of Kotlin are that it is an official language for Android development and developed by Jetbrains. This means it comes with full support for the most popular Java IDE, IntelliJ, and, on top of that, Google supports and takes part in its development. Jetbrains and Google are members of the Kotlin Foundation, which is supporting the development of Kotlin now.</p><h2 id="Beyond-Android"><a href="#Beyond-Android" class="headerlink" title="Beyond Android"></a><strong>Beyond Android</strong></h2><h3 id="Backend-Development"><a href="#Backend-Development" class="headerlink" title="Backend Development"></a><strong>Backend Development</strong></h3><p>As i said before , you can use Java libraries with Kotlin.When we talk about backend development with Java , the biggest player Spring comes first.Also you can use modern frameworks to create your back-end infrastructure developed Kotlin-first like KTOR.</p><h3 id="Frontend-Development"><a href="#Frontend-Development" class="headerlink" title="Frontend  Development"></a><strong>Frontend  Development</strong></h3><p>With  <a href="https://kotlinlang.org/docs/js-overview.html" title="Kotlin/JS">Kotlin/JS</a> you can be a  fullstack web developer using Kotlin.</p><h3 id="MultiPlatform-Development"><a href="#MultiPlatform-Development" class="headerlink" title="MultiPlatform  Development"></a><strong>MultiPlatform  Development</strong></h3><p>This is the most exciting thing for me about Kotlin. With <a href="https://kotlinlang.org/lp/mobile/" title="MultiPlatform  Development">MultiPlatform  Development</a>; beside of Android , you can create an application for Android, iPhones and the Apple Watch in the same project and same codebase additionally writing only platform specific code.</p>]]></content>
     
