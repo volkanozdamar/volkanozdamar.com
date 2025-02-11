@@ -68,7 +68,12 @@
     
 	<!-- mathjax -->
 	
-<meta name="generator" content="Hexo 5.3.0"></head>
+<!-- hexo injector head_end start --><style type="text/css">
+.CodeMirror-lines,.line,.code-output,.code,.token {
+    font-size: 16px;
+    line-height: 22px;
+}
+</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
 
 <body class="max-width mx-auto px3 ltr">
     
@@ -179,7 +184,7 @@
     <p>In programming languages data types using to represent and understand the value of data.Beside of that , we can decide what operations can be performed on data.Each programming languages has same approaches generally , but it is not standartized and every languages has their data type classification.</p>
 <p>In Python , we’ve got </p>
 <p>-Numbers<br>-Boolean<br>-Strings</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p><strong>NUMBERS</strong></p>
 <p>Any numeric value classified as Number.These numbers has types according to their represented data.These are integers , floats and complex numbers.In Python 3 , the limit is only computer memory for decide to how long data will be represent.However float values are represented as 64-bit double-precisions.</p>
@@ -210,11 +215,11 @@
 </tr>
 </tbody></table>
 <p>Some examples with integers</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; 3</span><br><span class="line">3</span><br><span class="line">&gt;&gt;&gt; type(999002)</span><br><span class="line">&lt;class &#39;int&#39;&gt;</span><br><span class="line">&gt;&gt;&gt; 0b10110</span><br><span class="line">22</span><br><span class="line">&gt;&gt;&gt; 0o5</span><br><span class="line">5</span><br><span class="line">&gt;&gt;&gt; 0o12</span><br><span class="line">10</span><br><span class="line">&gt;&gt;&gt; 0x21</span><br><span class="line">33</span><br><span class="line">&gt;&gt;&gt; type(0x0124)</span><br><span class="line">&lt;class &#39;int&#39;&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; 3</span><br><span class="line">3</span><br><span class="line">&gt;&gt;&gt; type(999002)</span><br><span class="line">&lt;class &#x27;int&#x27;&gt;</span><br><span class="line">&gt;&gt;&gt; 0b10110</span><br><span class="line">22</span><br><span class="line">&gt;&gt;&gt; 0o5</span><br><span class="line">5</span><br><span class="line">&gt;&gt;&gt; 0o12</span><br><span class="line">10</span><br><span class="line">&gt;&gt;&gt; 0x21</span><br><span class="line">33</span><br><span class="line">&gt;&gt;&gt; type(0x0124)</span><br><span class="line">&lt;class &#x27;int&#x27;&gt;</span><br></pre></td></tr></table></figure>
 <p>type() method returns class type of the argument(object) passed as parameter.</p>
 <p>-<em>Floats</em></p>
 <p>Float number are fractional.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; 3.2</span><br><span class="line">3.2                                                                                                                     </span><br><span class="line">&gt;&gt;&gt; -45.6</span><br><span class="line">-45.6                                                                                                                   </span><br><span class="line">&gt;&gt;&gt; type(412.0004)                                                                                                      </span><br><span class="line">&lt;class &#39;float&#39;&gt;                                                                                                         </span><br><span class="line">&gt;&gt;&gt; 1e6                                                                                                                 </span><br><span class="line">1000000.0 </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; 3.2</span><br><span class="line">3.2                                                                                                                     </span><br><span class="line">&gt;&gt;&gt; -45.6</span><br><span class="line">-45.6                                                                                                                   </span><br><span class="line">&gt;&gt;&gt; type(412.0004)                                                                                                      </span><br><span class="line">&lt;class &#x27;float&#x27;&gt;                                                                                                         </span><br><span class="line">&gt;&gt;&gt; 1e6                                                                                                                 </span><br><span class="line">1000000.0 </span><br></pre></td></tr></table></figure>
 
 <p>E-notation is known as exponential notation or scientific notation.1e6 is equivalent to 1×10⁶.</p>
 
@@ -284,7 +289,7 @@
     Copyright &copy;
     
     
-    2018-2023
+    2018-2024
     Volkan Özdamar
   </div>
   <div class="footer-right">
@@ -387,5 +392,20 @@
       }());
   </script>
 
-</body>
+<!-- hexo injector body_end start --><script src="https://unpkg.com/kotlin-playground@1" data-server data-version></script>
+<script>
+
+if(typeof ktpgOptions !== 'undefined'){
+    KotlinPlayground('.kotlin-code',ktpgOptions)
+}else{
+    KotlinPlayground('.kotlin-code')
+}
+window.addEventListener('pjax:complete', event => {
+    if(typeof ktpgOptions !== 'undefined'){
+        KotlinPlayground('.kotlin-code',ktpgOptions)
+    }else{
+        KotlinPlayground('.kotlin-code')
+    }
+});
+</script><!-- hexo injector body_end end --></body>
 </html>

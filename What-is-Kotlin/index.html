@@ -70,7 +70,12 @@
     
 	<!-- mathjax -->
 	
-<meta name="generator" content="Hexo 5.3.0"></head>
+<!-- hexo injector head_end start --><style type="text/css">
+.CodeMirror-lines,.line,.code-output,.code,.token {
+    font-size: 16px;
+    line-height: 22px;
+}
+</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
 
 <body class="max-width mx-auto px3 ltr">
     
@@ -188,11 +193,11 @@
 <li>Static Typed </li>
 <li>Open Source (Apache 2.0) </li>
 <li>Developed by Jetbrains </li>
-<li>Since 2017, it has been the official language for Android development. </li>
+<li>Since 2017, it has been the official language for Android development.</li>
 </ul>
 <p>As you see, the hallmarks of Kotlin are that it is an official language for Android development and developed by Jetbrains. This means it comes with full support for the most popular Java IDE, IntelliJ, and, on top of that, Google supports and takes part in its development. Jetbrains and Google are members of the Kotlin Foundation, which is supporting the development of Kotlin now.</p>
 <h2 id="Beyond-Android"><a href="#Beyond-Android" class="headerlink" title="Beyond Android"></a><strong>Beyond Android</strong></h2><h3 id="Backend-Development"><a href="#Backend-Development" class="headerlink" title="Backend Development"></a><strong>Backend Development</strong></h3><p>As i said before , you can use Java libraries with Kotlin.When we talk about backend development with Java , the biggest player Spring comes first.Also you can use modern frameworks to create your back-end infrastructure developed Kotlin-first like KTOR.</p>
-<h3 id="Frontend-Development"><a href="#Frontend-Development" class="headerlink" title="Frontend  Development"></a><strong>Frontend  Development</strong></h3><p>With  <a target="_blank" rel="noopener" href="https://kotlinlang.org/docs/js-overview.html" title="Kotlin/JS">Kotlin/JS</a> you can be a  fullstack web developer using Kotlin.</p>
+<h3 id="Frontend-Development"><a href="#Frontend-Development" class="headerlink" title="Frontend  Development"></a><strong>Frontend  Development</strong></h3><p>With  <a target="_blank" rel="noopener" href="https://kotlinlang.org/docs/js-overview.html" title="Kotlin/JS">Kotlin&#x2F;JS</a> you can be a  fullstack web developer using Kotlin.</p>
 <h3 id="MultiPlatform-Development"><a href="#MultiPlatform-Development" class="headerlink" title="MultiPlatform  Development"></a><strong>MultiPlatform  Development</strong></h3><p>This is the most exciting thing for me about Kotlin. With <a target="_blank" rel="noopener" href="https://kotlinlang.org/lp/mobile/" title="MultiPlatform  Development">MultiPlatform  Development</a>; beside of Android , you can create an application for Android, iPhones and the Apple Watch in the same project and same codebase additionally writing only platform specific code.</p>
 
   </div>
@@ -259,7 +264,7 @@
     Copyright &copy;
     
     
-    2018-2023
+    2018-2024
     Volkan Özdamar
   </div>
   <div class="footer-right">
@@ -362,5 +367,20 @@
       }());
   </script>
 
-</body>
+<!-- hexo injector body_end start --><script src="https://unpkg.com/kotlin-playground@1" data-server data-version></script>
+<script>
+
+if(typeof ktpgOptions !== 'undefined'){
+    KotlinPlayground('.kotlin-code',ktpgOptions)
+}else{
+    KotlinPlayground('.kotlin-code')
+}
+window.addEventListener('pjax:complete', event => {
+    if(typeof ktpgOptions !== 'undefined'){
+        KotlinPlayground('.kotlin-code',ktpgOptions)
+    }else{
+        KotlinPlayground('.kotlin-code')
+    }
+});
+</script><!-- hexo injector body_end end --></body>
 </html>

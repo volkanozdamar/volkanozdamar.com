@@ -75,7 +75,12 @@
     
 	<!-- mathjax -->
 	
-<meta name="generator" content="Hexo 5.3.0"></head>
+<!-- hexo injector head_end start --><style type="text/css">
+.CodeMirror-lines,.line,.code-output,.code,.token {
+    font-size: 16px;
+    line-height: 22px;
+}
+</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
 
 <body class="max-width mx-auto px3 ltr">
     
@@ -183,9 +188,11 @@
   <div class="content" itemprop="articleBody">
     <p>Did you ever want to install or upgrade all Selenium WebDrivers using one line commmand? On windows you can do it with a Chocolately.Chocolatey is a package manager for windows and yummy way to software installation.</p>
 <p>Firstly , you need to install chocolately.To do it , open command prompt as an administrator then write this lines.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@&quot;%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command &quot;iex ((New-Object System.Net.WebClient).DownloadString(&#39;https:&#x2F;&#x2F;chocolatey.org&#x2F;install.ps1&#39;))&quot; &amp;&amp; SET &quot;PATH&#x3D;%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@&quot;%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command &quot;iex ((New-Object System.Net.WebClient).DownloadString(&#x27;https://chocolatey.org/install.ps1&#x27;))&quot; &amp;&amp; SET &quot;PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&quot;</span><br></pre></td></tr></table></figure>
+
 <p>If installation is success , now you can install drivers</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco install selenium-all-drivers </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco install selenium-all-drivers </span><br></pre></td></tr></table></figure>
+
 <p>List of installed Web Drivers</p>
 <ul>
 <li>selenium-opera-driver </li>
@@ -193,14 +200,15 @@
 <li>selenium-edge-driver </li>
 <li>selenium-all-drivers </li>
 <li>selenium-gecko-driver </li>
-<li>selenium-chrome-driver </li>
+<li>selenium-chrome-driver</li>
 </ul>
 <p>All Selenium Web Drivers will be installed on under “C:\tools\selenium” directory.Don’t forget to add this path as “System Environments Variable” </p>
  <img src="/install-all-selenium-drivers-with-one-command/drivers.png" class="img-fluid">
 
 
 <h3 id="Upgrade"><a href="#Upgrade" class="headerlink" title="Upgrade"></a>Upgrade</h3><p>Upgrading is similar to installation , just change the install variable as upgrade.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco upgrade selenium-all-drivers</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco upgrade selenium-all-drivers</span><br></pre></td></tr></table></figure>
+
 
 
   </div>
@@ -267,7 +275,7 @@
     Copyright &copy;
     
     
-    2018-2023
+    2018-2024
     Volkan Özdamar
   </div>
   <div class="footer-right">
@@ -370,5 +378,20 @@
       }());
   </script>
 
-</body>
+<!-- hexo injector body_end start --><script src="https://unpkg.com/kotlin-playground@1" data-server data-version></script>
+<script>
+
+if(typeof ktpgOptions !== 'undefined'){
+    KotlinPlayground('.kotlin-code',ktpgOptions)
+}else{
+    KotlinPlayground('.kotlin-code')
+}
+window.addEventListener('pjax:complete', event => {
+    if(typeof ktpgOptions !== 'undefined'){
+        KotlinPlayground('.kotlin-code',ktpgOptions)
+    }else{
+        KotlinPlayground('.kotlin-code')
+    }
+});
+</script><!-- hexo injector body_end end --></body>
 </html>

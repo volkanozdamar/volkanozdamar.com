@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+
+    <!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(92093378, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/92093378" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+    <meta name="description" content="Define VariablesIn Kotlin, like many other programming languages, we use variables to store and manipulate data. These variables act as containers that hold individual pieces of data. The size of each">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin Variables and Data Types">
+<meta property="og:url" content="http://volkanozdamar.com/Kotlin-variables-and-data-types/index.html">
+<meta property="og:site_name" content="Volkan 🌋 Özdamar">
+<meta property="og:description" content="Define VariablesIn Kotlin, like many other programming languages, we use variables to store and manipulate data. These variables act as containers that hold individual pieces of data. The size of each">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://volkanozdamar.com/Kotlin-variables-and-data-types/numbers.jpg">
+<meta property="article:published_time" content="2024-02-24T12:18:30.000Z">
+<meta property="article:modified_time" content="2024-03-26T15:46:04.485Z">
+<meta property="article:author" content="Volkan Özdamar">
+<meta property="article:tag" content="Kotlin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://volkanozdamar.com/Kotlin-variables-and-data-types/numbers.jpg">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Kotlin Variables and Data Types</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/true" title="Volkan 🌋 Özdamar" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<!-- hexo injector head_end start --><style type="text/css">
+.CodeMirror-lines,.line,.code-output,.code,.token {
+    font-size: 16px;
+    line-height: 22px;
+}
+</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Archives</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/volkanozdamar">Github</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/A-real-companion-for-health-Amazfit-PowerBuds-Pro/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://volkanozdamar.com/Kotlin-variables-and-data-types/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://volkanozdamar.com/Kotlin-variables-and-data-types/&text=Kotlin Variables and Data Types"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://volkanozdamar.com/Kotlin-variables-and-data-types/&title=Kotlin Variables and Data Types"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://volkanozdamar.com/Kotlin-variables-and-data-types/&is_video=false&description=Kotlin Variables and Data Types"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Kotlin Variables and Data Types&body=Check out this article: http://volkanozdamar.com/Kotlin-variables-and-data-types/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://volkanozdamar.com/Kotlin-variables-and-data-types/&title=Kotlin Variables and Data Types"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://volkanozdamar.com/Kotlin-variables-and-data-types/&title=Kotlin Variables and Data Types"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://volkanozdamar.com/Kotlin-variables-and-data-types/&title=Kotlin Variables and Data Types"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://volkanozdamar.com/Kotlin-variables-and-data-types/&title=Kotlin Variables and Data Types"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://volkanozdamar.com/Kotlin-variables-and-data-types/&name=Kotlin Variables and Data Types&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://volkanozdamar.com/Kotlin-variables-and-data-types/&t=Kotlin Variables and Data Types"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Define-Variables"><span class="toc-number">1.</span> <span class="toc-text">Define Variables</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-val-is-not-immutable-but-readonly"><span class="toc-number">1.1.</span> <span class="toc-text">Why val is not immutable but readonly ?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Numbers-Data-Types"><span class="toc-number">1.2.</span> <span class="toc-text">Numbers Data Types</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Integer-Types"><span class="toc-number">2.</span> <span class="toc-text">Integer Types</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Floating-Point-Types"><span class="toc-number">3.</span> <span class="toc-text">Floating Point Types</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Character-Types"><span class="toc-number">3.1.</span> <span class="toc-text">Character Types</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boolean-Types"><span class="toc-number">3.2.</span> <span class="toc-text">Boolean Types</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Arrays"><span class="toc-number">3.3.</span> <span class="toc-text">Arrays</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Kotlin Variables and Data Types
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Volkan Özdamar</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-02-24T12:18:30.000Z" itemprop="datePublished">24-02-2024</time>
+        
+        (Updated: <time datetime="2024-03-26T15:46:04.485Z" itemprop="dateModified">26-03-2024</time>)
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Kotlin/" rel="tag">Kotlin</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="Define-Variables"><a href="#Define-Variables" class="headerlink" title="Define Variables"></a>Define Variables</h1><p>In Kotlin, like many other programming languages, we use variables to store and manipulate data. These variables act as containers that hold individual pieces of data. The size of each container depends on the data type it stores, which determines the amount of memory allocated to it.</p>
+<p>To define variables in Kotlin, we use two keywords:</p>
+<ul>
+<li>val: This keyword is used to create read-only variables, often referred to as immutable. While the value stored in a val variable cannot be changed after assignment, these variables are not strictly immutable in the sense that their internal state cannot be modified.</li>
+<li>var: This keyword is used to create mutable variables, which allow you to change the value stored in the variable after its initial assignment.</li>
+</ul>
+<p>After these keywords, you need to assign a meaningful name to your variable. Specifying the data type is generally optional, as Kotlin can often infer the type based on the assigned value. Like below , even we don’t specify surname’s and gravity’s types , they inferred as String and Double automatically.</p>
+<figure class="highlight kotlin"><pre class="language-kotlin"><code class="kotlin-code" lines="false" auto-indent="4" indent="4" theme="default">fun main(){
+    val name : String &#x3D; &quot;Volkan&quot;
+    val surName &#x3D; &quot;Özdamar&quot;
+
+    var numberPi : Double &#x3D; 3.14
+    var gravity  &#x3D; 9.81
+}</code></pre></figure>
+
+<p>In Kotlin every thing is an object and we can say that on the contrary of Java , Kotlin has no primitive types.However in conversion from Kotlin code to bytecode , with some optimisations primitive types are converting as primitive java equivalances.</p>
+<p>Compare our example and it’s decompiled version.You will see our varibles converted as Primitive Types.</p>
+<figure class="highlight plaintext"><figcaption><span>[decompiled.java] [lang:java]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import kotlin.Metadata;</span><br><span class="line"></span><br><span class="line">@Metadata(</span><br><span class="line">   mv = &#123;1, 9, 0&#125;,</span><br><span class="line">   k = 2,</span><br><span class="line">   d1 = &#123;&quot;\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u001a\u0006\u0010\u0000\u001a\u00020\u0001¨\u0006\u0002&quot;&#125;,</span><br><span class="line">   d2 = &#123;&quot;main&quot;, &quot;&quot;, &quot;helloworld&quot;&#125;</span><br><span class="line">)</span><br><span class="line">public final class MainKt &#123;</span><br><span class="line">   public static final void main() &#123;</span><br><span class="line">      String name = &quot;Volkan&quot;;</span><br><span class="line">      String surName = &quot;Özdamar&quot;;</span><br><span class="line">      double numberPi = 3.14;</span><br><span class="line">      double gravity = 9.81;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   // $FF: synthetic method</span><br><span class="line">   public static void main(String[] var0) &#123;</span><br><span class="line">      main();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Why-val-is-not-immutable-but-readonly"><a href="#Why-val-is-not-immutable-but-readonly" class="headerlink" title="Why val is not immutable but readonly ?"></a>Why val is not immutable but readonly ?</h2><p>The value you’re assigned to the variable is used to create a new object.If you declare the variable using val, the reference to the object stays in the variable forever and can’t be replaced. You can see <em>availableSpace</em> value depends to other variables value.Because of that is not immutable but read-only.</p>
+<figure class="highlight kotlin"><pre class="language-kotlin"><code class="kotlin-code" lines="false" auto-indent="4" indent="4" theme="default">public class Box {
+    var width: Int &#x3D; 20
+    var height: Int &#x3D; 40
+    var length: Int &#x3D; 50
+    var usedSpace: Int &#x3D; 0
+
+    val availableSpace: Int
+    get(){
+        return (width * height * length) - usedSpace
+    }
+}</code></pre></figure>
+
+<a href="https://xabaras.medium.com/kotlin-val-is-read-only-not-immutable-585ce2e5359b" title="[medium] [Kotlin: val is read-only not immutable]" target="">For more read Paolo Montalto&#39;s post</a>
+
+<p>Kotlin has the same standard types that you’d expect from a mainstream programming language. These are Numbers, Characters , Booleans, Arrays and String.</p>
+<h2 id="Numbers-Data-Types"><a href="#Numbers-Data-Types" class="headerlink" title="Numbers Data Types"></a>Numbers Data Types</h2> <img src="/Kotlin-variables-and-data-types/numbers.jpg" class="img-fluid" title="&#x2F;Kotlin-variables-and-data-types&#x2F;numbers.jpg" alt="Numbers">
+
+<p>Number types are divided into two groups , Integer types and Floating Types</p>
+<h1 id="Integer-Types"><a href="#Integer-Types" class="headerlink" title="Integer Types"></a>Integer Types</h1><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Size (bits)</th>
+<th>Min value</th>
+<th>Max value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Byte</td>
+<td>8</td>
+<td>-128</td>
+<td>127</td>
+</tr>
+<tr>
+<td>Short</td>
+<td>16</td>
+<td>-32768</td>
+<td>32767</td>
+</tr>
+<tr>
+<td>Int</td>
+<td>32</td>
+<td>-2,147,483,648 (-2<sup>31</sup>)</td>
+<td>2,147,483,647 (2<sup>31</sup> - 1)</td>
+</tr>
+<tr>
+<td>Long</td>
+<td>64</td>
+<td>-9,223,372,036,854,775,808 (-2<sup>63</sup>)</td>
+<td>9,223,372,036,854,775,807 (2<sup>63</sup> - 1)</td>
+</tr>
+</tbody></table>
+<figure class="highlight kotlin"><pre class="language-kotlin"><code class="kotlin-code" lines="false" auto-indent="4" indent="4" theme="default">fun main(args : Array&lt;String&gt;) {
+    var b1: Byte &#x3D; Byte.MIN_VALUE 
+    var b2: Byte &#x3D; Byte.MAX_VALUE 
+    println(&quot;Smallest byte value: &quot; +b1) 
+    println(&quot;Largest byte value: &quot; +b2) 
+ 
+    var S1: Short &#x3D; Short.MIN_VALUE 
+    var S2: Short &#x3D; Short.MAX_VALUE 
+    println(&quot;Smallest short value: &quot; +S1) 
+    println(&quot;Largest short value: &quot; +S2) 
+ 
+    var I1: Int &#x3D; Int.MIN_VALUE 
+    var I2: Int &#x3D; Int.MAX_VALUE 
+    println(&quot;Smallest integer value: &quot; +I1) 
+    println(&quot;Largest integer value: &quot; +I2) 
+ 
+    var L1: Long &#x3D; Long.MIN_VALUE 
+    var L2: Long &#x3D; Long.MAX_VALUE 
+    println(&quot;Smallest long integer value: &quot; +L1) 
+    println(&quot;Largest long integer value: &quot; +L2) 
+} </code></pre></figure>
+<h1 id="Floating-Point-Types"><a href="#Floating-Point-Types" class="headerlink" title="Floating Point Types"></a>Floating Point Types</h1><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Size (bits)</th>
+<th>Min value</th>
+<th>Max value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Float</td>
+<td>32</td>
+<td>1.40129846432481707e-45</td>
+<td>3.40282346638528860e+38</td>
+</tr>
+<tr>
+<td>Double</td>
+<td>16</td>
+<td>4.94065645841246544e-324</td>
+<td>1.79769313486231570e+308</td>
+</tr>
+</tbody></table>
+<figure class="highlight kotlin"><pre class="language-kotlin"><code class="kotlin-code" lines="false" auto-indent="4" indent="4" theme="default">fun main(args : Array&lt;String&gt;) {
+    var F1: Float &#x3D; Float.MIN_VALUE 
+    var F2: Float &#x3D; Float.MAX_VALUE 
+    println(&quot;Smallest Float value: &quot; +F1) 
+    println(&quot;Largest Float value: &quot; + F2) 
+ 
+    var D1: Double &#x3D; Double.MIN_VALUE 
+    var D2: Double &#x3D; Double.MAX_VALUE 
+    println(&quot;Smallest Double value: &quot; + D1) 
+    println(&quot;Largest Double value: &quot; + D2) 
+} </code></pre></figure>
+<h2 id="Character-Types"><a href="#Character-Types" class="headerlink" title="Character Types"></a>Character Types</h2><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Size (bits)</th>
+<th>Min value</th>
+<th>Max value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Char</td>
+<td>4</td>
+<td>-128</td>
+<td>127</td>
+</tr>
+</tbody></table>
+<h2 id="Boolean-Types"><a href="#Boolean-Types" class="headerlink" title="Boolean Types"></a>Boolean Types</h2><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Size (bits)</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Boolean</td>
+<td>1</td>
+<td>true or false</td>
+</tr>
+</tbody></table>
+<h2 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h2><p>Arrays in Kotlin, like in many other programming languages, are a fundamental data structure that can be used to store multiple values of the same type in a single variable. Here are some reasons why we might use arrays in Kotlin:</p>
+<p>Efficient Storage: Arrays allow you to store multiple items of the same type in a single variable, which can make your code more efficient and easier to read.</p>
+<p>Indexed Access: Each element in an array has a unique index, starting from 0. This allows for quick access to any element in the array, which can be very useful in certain algorithms.</p>
+<p>Iteration: Arrays can be easily iterated over, which is useful when you want to perform an operation on each element in the collection.</p>
+<p>Fixed Size: Arrays have a fixed size once they are created. This can be useful when you know exactly how many elements you need to store.</p>
+<p>Interoperability: Kotlin’s Array class provides interoperability with Java and other JVM languages. This is important when working in a mixed-language codebase.</p>
+<p>Here’s a simple example of how to declare and initialize an array in Kotlin:</p>
+<p>val numbers &#x3D; arrayOf(1, 2, 3, 4, 5)<br>And here’s how you might access elements and iterate over an array:</p>
+<p>val firstNumber &#x3D; numbers[0] &#x2F;&#x2F; Access the first element</p>
+<p>for (number in numbers) { &#x2F;&#x2F; Iterate over the array<br>    println(number)<br>}<br>Remember, while arrays can be very useful, they are not always the best tool for the job. Kotlin also provides other collection types, like List, Set, and Map, which might be more appropriate depending on your specific needs.</p>
+<p>In Kotlin, there are two types of arrays: primitive arrays and class arrays.</p>
+<ol>
+<li><p>Primitive Arrays:</p>
+<ul>
+<li>Primitive arrays are used to store elements of primitive data types such as Int, Long, Float, etc.</li>
+<li>These arrays are more memory-efficient as they directly store the values in a contiguous memory block.</li>
+<li>Primitive arrays cannot store null values. They always have default values based on the data type (e.g., 0 for Int, false for Boolean).</li>
+<li>Primitive arrays have a fixed size that cannot be changed once created.</li>
+</ul>
+</li>
+<li><p>Class Arrays:</p>
+<ul>
+<li>Class arrays are used to store elements of class types or nullable types.</li>
+<li>Class arrays store references to objects rather than the actual values.</li>
+<li>Class arrays can store null values.</li>
+<li>Class arrays have a dynamic size and can be resized using functions like <code>Array.copyOf()</code> or <code>Array.resize()</code>.</li>
+</ul>
+</li>
+</ol>
+<p>Here’s an example to illustrate the difference:</p>
+<figure class="highlight kotlin"><pre class="language-kotlin"><code class="kotlin-code" lines="false" auto-indent="4" indent="4" theme="default">&#x2F;&#x2F; Primitive array
+val primitiveArray: IntArray &#x3D; intArrayOf(1, 2, 3)
+println(primitiveArray[0]) &#x2F;&#x2F; Output: 1
+
+&#x2F;&#x2F; Class array
+val classArray: Array&lt;Int?&gt; &#x3D; arrayOf(1, 2, null)
+println(classArray[0]) &#x2F;&#x2F; Output: 1</code></pre></figure>
+
+
+<p>In the above example, <code>primitiveArray</code> is a primitive array of type <code>IntArray</code> that stores integer values directly. On the other hand, <code>classArray</code> is a class array of type <code>Array&lt;Int?&gt;</code> that stores references to <code>Int</code> objects, including a null value.</p>
+<p>It’s important to choose the appropriate array type based on your requirements to optimize memory usage and handle nullable values effectively.</p>
+
+  </div>
+</article>
+
+
+    <div class="blog-post-comments">
+        <div id="utterances_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Archives</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/volkanozdamar">Github</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Define-Variables"><span class="toc-number">1.</span> <span class="toc-text">Define Variables</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-val-is-not-immutable-but-readonly"><span class="toc-number">1.1.</span> <span class="toc-text">Why val is not immutable but readonly ?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Numbers-Data-Types"><span class="toc-number">1.2.</span> <span class="toc-text">Numbers Data Types</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Integer-Types"><span class="toc-number">2.</span> <span class="toc-text">Integer Types</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Floating-Point-Types"><span class="toc-number">3.</span> <span class="toc-text">Floating Point Types</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Character-Types"><span class="toc-number">3.1.</span> <span class="toc-text">Character Types</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boolean-Types"><span class="toc-number">3.2.</span> <span class="toc-text">Boolean Types</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Arrays"><span class="toc-number">3.3.</span> <span class="toc-text">Arrays</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://volkanozdamar.com/Kotlin-variables-and-data-types/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://volkanozdamar.com/Kotlin-variables-and-data-types/&text=Kotlin Variables and Data Types"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://volkanozdamar.com/Kotlin-variables-and-data-types/&title=Kotlin Variables and Data Types"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://volkanozdamar.com/Kotlin-variables-and-data-types/&is_video=false&description=Kotlin Variables and Data Types"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Kotlin Variables and Data Types&body=Check out this article: http://volkanozdamar.com/Kotlin-variables-and-data-types/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://volkanozdamar.com/Kotlin-variables-and-data-types/&title=Kotlin Variables and Data Types"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://volkanozdamar.com/Kotlin-variables-and-data-types/&title=Kotlin Variables and Data Types"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://volkanozdamar.com/Kotlin-variables-and-data-types/&title=Kotlin Variables and Data Types"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://volkanozdamar.com/Kotlin-variables-and-data-types/&title=Kotlin Variables and Data Types"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://volkanozdamar.com/Kotlin-variables-and-data-types/&name=Kotlin Variables and Data Types&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://volkanozdamar.com/Kotlin-variables-and-data-types/&t=Kotlin Variables and Data Types"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2024
+    Volkan Özdamar
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Archives</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/volkanozdamar">Github</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124358484-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-124358484-1');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+    <script type="text/javascript">
+      var utterances_repo = 'volkanozdamar/volkanozdamar.com';
+      var utterances_issue_term = 'pathname';
+      var utterances_label = 'Comment';
+      var utterances_theme = 'github-dark';
+
+      (function(){
+          var script = document.createElement('script');
+
+          script.src = 'https://utteranc.es/client.js';
+          script.setAttribute('repo', utterances_repo);
+          script.setAttribute('issue-term', 'pathname');
+          script.setAttribute('label', utterances_label);
+          script.setAttribute('theme', utterances_theme);
+          script.setAttribute('crossorigin', 'anonymous');
+          script.async = true;
+          (document.getElementById('utterances_thread')).appendChild(script);
+      }());
+  </script>
+
+<!-- hexo injector body_end start --><script src="https://unpkg.com/kotlin-playground@1" data-server data-version></script>
+<script>
+
+if(typeof ktpgOptions !== 'undefined'){
+    KotlinPlayground('.kotlin-code',ktpgOptions)
+}else{
+    KotlinPlayground('.kotlin-code')
+}
+window.addEventListener('pjax:complete', event => {
+    if(typeof ktpgOptions !== 'undefined'){
+        KotlinPlayground('.kotlin-code',ktpgOptions)
+    }else{
+        KotlinPlayground('.kotlin-code')
+    }
+});
+</script><!-- hexo injector body_end end --></body>
+</html>

@@ -74,7 +74,12 @@
     
 	<!-- mathjax -->
 	
-<meta name="generator" content="Hexo 5.3.0"></head>
+<!-- hexo injector head_end start --><style type="text/css">
+.CodeMirror-lines,.line,.code-output,.code,.token {
+    font-size: 16px;
+    line-height: 22px;
+}
+</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
 
 <body class="max-width mx-auto px3 ltr">
     
@@ -97,6 +102,8 @@
     <br/>
     <span id="actions">
       <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/Kotlin-variables-and-data-types/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" aria-label="Next post" href="/What-is-Kotlin/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -201,12 +208,12 @@
 <p><strong>Other Features</strong></p>
 <p>If we are done talking about health functions, these headphones come with</p>
 <ul>
-<li>  IP55 dust- and water-resistant</li>
-<li>  Bluetooth version: BT 5.0, BLE</li>
-<li>  Active Noise Cancellation up to 40dB</li>
-<li>  3-mic Call Noise-reduction</li>
-<li>  Voice Assistant integration (Siri, Google Assistant)</li>
-<li>  Google Fast Pair</li>
+<li>IP55 dust- and water-resistant</li>
+<li>Bluetooth version: BT 5.0, BLE</li>
+<li>Active Noise Cancellation up to 40dB</li>
+<li>3-mic Call Noise-reduction</li>
+<li>Voice Assistant integration (Siri, Google Assistant)</li>
+<li>Google Fast Pair</li>
 </ul>
 <p><strong>Sound Quality</strong></p>
 <p>I treat sound quality at the end. The sound quality is impressive. So smooth and it has equalizer support with ZEPP app. I can just say basses are not powerful but as a TWS headphone this is not big deal for me.</p>
@@ -279,7 +286,7 @@
     Copyright &copy;
     
     
-    2018-2023
+    2018-2024
     Volkan Özdamar
   </div>
   <div class="footer-right">
@@ -382,5 +389,20 @@
       }());
   </script>
 
-</body>
+<!-- hexo injector body_end start --><script src="https://unpkg.com/kotlin-playground@1" data-server data-version></script>
+<script>
+
+if(typeof ktpgOptions !== 'undefined'){
+    KotlinPlayground('.kotlin-code',ktpgOptions)
+}else{
+    KotlinPlayground('.kotlin-code')
+}
+window.addEventListener('pjax:complete', event => {
+    if(typeof ktpgOptions !== 'undefined'){
+        KotlinPlayground('.kotlin-code',ktpgOptions)
+    }else{
+        KotlinPlayground('.kotlin-code')
+    }
+});
+</script><!-- hexo injector body_end end --></body>
 </html>

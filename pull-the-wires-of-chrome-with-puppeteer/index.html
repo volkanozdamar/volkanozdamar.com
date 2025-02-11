@@ -71,7 +71,12 @@
     
 	<!-- mathjax -->
 	
-<meta name="generator" content="Hexo 5.3.0"></head>
+<!-- hexo injector head_end start --><style type="text/css">
+.CodeMirror-lines,.line,.code-output,.code,.token {
+    font-size: 16px;
+    line-height: 22px;
+}
+</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
 
 <body class="max-width mx-auto px3 ltr">
     
@@ -180,24 +185,25 @@
   <div class="content" itemprop="articleBody">
     <p>Everybody knows that , Chrome is market leader and its developer tools are better than other browsers’.It is useful for software developers and software testers.Honestly ; I’m using Mozilla Firefox more than 10 years ,but Chrome is heading straight for the top every day.</p>
 <p>Last year , Chrome Team announced headless mode. Headless mode allows to us , running Chrome without GUI.Before that , everybody was using PhantomJs for headless test automation.Now we have got the powerful alternative to test and create automations , Puppeteer is an official tool for Chrome Headless by Google Chrome team.With Puppeteer you can use many features of Chrome Dev Tools with Chrome Headless.If it is not tl;dr for you , you can learn more on puppeteer’s GitHub page. Now , let’s get install puppeteer on our machine.</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h3 id="What-we-need"><a href="#What-we-need" class="headerlink" title="What we need :"></a>What we need :</h3><pre><code>Node 8+
-Cup of Coffeé</code></pre>
+Cup of Coffeé
+</code></pre>
 <p>Yes we just need node, cus puppeteer includes its own -latest- chromium.Create a directory where you want to work.All steps are working on Mac and Windows10(use powershell).(I didn’t try on Linux :) )</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir puppeteerworkspace</span><br><span class="line">$ cd puppeteerworkspace</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir puppeteerworkspace</span><br><span class="line">$ cd puppeteerworkspace</span><br></pre></td></tr></table></figure>
 <p>Then install Puppeteer with npm.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i --save puppeteer</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i --save puppeteer</span><br></pre></td></tr></table></figure>
 <p>It’s time to roll up our sleeves.Let’s try to take screenshot of my page.As a default , puppeteer taking screenshot of the whole page.If we write “fullPage:false” in our script ,it will get just visible part of page.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const puppeteer &#x3D; require(&#39;puppeteer&#39;);</span><br><span class="line"></span><br><span class="line">(async () &#x3D;&gt; &#123;</span><br><span class="line">  const browser &#x3D; await puppeteer.launch();</span><br><span class="line">  const page &#x3D; await browser.newPage();</span><br><span class="line">  await page.goto(&#39;http:&#x2F;&#x2F;volkanozdamar.com&#39;);</span><br><span class="line">  await page.screenshot(&#123;path: &#39;mainpage.png&#39;,fullPage:false&#125;);</span><br><span class="line">  await browser.close();</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const puppeteer = require(&#x27;puppeteer&#x27;);</span><br><span class="line"></span><br><span class="line">(async () =&gt; &#123;</span><br><span class="line">  const browser = await puppeteer.launch();</span><br><span class="line">  const page = await browser.newPage();</span><br><span class="line">  await page.goto(&#x27;http://volkanozdamar.com&#x27;);</span><br><span class="line">  await page.screenshot(&#123;path: &#x27;mainpage.png&#x27;,fullPage:false&#125;);</span><br><span class="line">  await browser.close();</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
 <p>However, how we decide our screen size?Using setViewPort() function we can change our screen size.Additionally, we export the page as pdf.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const puppeteer &#x3D; require(&#39;puppeteer&#39;);</span><br><span class="line"></span><br><span class="line">(async () &#x3D;&gt; &#123;</span><br><span class="line">  const browser &#x3D; await puppeteer.launch();</span><br><span class="line">  const page &#x3D; await browser.newPage();</span><br><span class="line">  await page.setViewport(&#123;width:1920,height:1080&#125;);</span><br><span class="line">  await page.goto(&#39;http:&#x2F;&#x2F;volkanozdamar.com&#39;);</span><br><span class="line">  await page.pdf(&#123;path: &#39;homepage.pdf&#39;, format: &#39;A4&#39;&#125;);</span><br><span class="line">  await browser.close();</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const puppeteer = require(&#x27;puppeteer&#x27;);</span><br><span class="line"></span><br><span class="line">(async () =&gt; &#123;</span><br><span class="line">  const browser = await puppeteer.launch();</span><br><span class="line">  const page = await browser.newPage();</span><br><span class="line">  await page.setViewport(&#123;width:1920,height:1080&#125;);</span><br><span class="line">  await page.goto(&#x27;http://volkanozdamar.com&#x27;);</span><br><span class="line">  await page.pdf(&#123;path: &#x27;homepage.pdf&#x27;, format: &#x27;A4&#x27;&#125;);</span><br><span class="line">  await browser.close();</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
 <h3 id="Mobile-Screen-Sizes"><a href="#Mobile-Screen-Sizes" class="headerlink" title="Mobile Screen Sizes"></a>Mobile Screen Sizes</h3><p>What if we want to emulate mobile page?How we will memorize all screen sizes for all devices?Don’t worry, puppeteer has predefined device sizes inside.You can find those devices in “DeviceDescriptors.js”.Also you can create your own devices.Below code ; sample for iphone6.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const puppeteer &#x3D; require(&#39;puppeteer&#39;);</span><br><span class="line">const devices &#x3D; require(&#39;puppeteer&#x2F;DeviceDescriptors&#39;);</span><br><span class="line">const iPhone &#x3D; devices[&#39;iPhone 6&#39;];</span><br><span class="line"></span><br><span class="line">puppeteer.launch().then(async browser &#x3D;&gt; &#123;</span><br><span class="line">  const page &#x3D; await browser.newPage();</span><br><span class="line">  await page.emulate(iPhone);</span><br><span class="line">  await page.goto(&#39;https:&#x2F;&#x2F;www.google.com&#39;);</span><br><span class="line">  await page.screenshot(&#123;path: &#39;mainpage.png&#39;,fullPage:false&#125;);</span><br><span class="line">  await browser.close();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const puppeteer = require(&#x27;puppeteer&#x27;);</span><br><span class="line">const devices = require(&#x27;puppeteer/DeviceDescriptors&#x27;);</span><br><span class="line">const iPhone = devices[&#x27;iPhone 6&#x27;];</span><br><span class="line"></span><br><span class="line">puppeteer.launch().then(async browser =&gt; &#123;</span><br><span class="line">  const page = await browser.newPage();</span><br><span class="line">  await page.emulate(iPhone);</span><br><span class="line">  await page.goto(&#x27;https://www.google.com&#x27;);</span><br><span class="line">  await page.screenshot(&#123;path: &#x27;mainpage.png&#x27;,fullPage:false&#125;);</span><br><span class="line">  await browser.close();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>Beside all these, if you don’t want to as a headless , just write these lines,</p>
-<p>const browser = await puppeteer.launch({headless: false}); // default is true</p>
+<p>const browser &#x3D; await puppeteer.launch({headless: false}); &#x2F;&#x2F; default is true</p>
 <h3 id="Interacting-with-WebElements"><a href="#Interacting-with-WebElements" class="headerlink" title="Interacting with WebElements"></a>Interacting with WebElements</h3><p>To interact with a web element, Puppeteer using queryselector.I create a script making a Google Search.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const puppeteer &#x3D; require(&#39;puppeteer&#39;);</span><br><span class="line"></span><br><span class="line">(async () &#x3D;&gt; &#123;</span><br><span class="line">  const browser &#x3D; await puppeteer.launch();</span><br><span class="line">  const page &#x3D; await browser.newPage();</span><br><span class="line">  await page.goto(&#39;https:&#x2F;&#x2F;google.com&#39;);</span><br><span class="line">  await page.type(&#39;#lst-ib&#39;,&#39;Puppeteer&#39;);</span><br><span class="line">  await page.click(&#39;input[name&#x3D;&quot;btnK&quot;]&#39;);</span><br><span class="line">  await browser.close();</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const puppeteer = require(&#x27;puppeteer&#x27;);</span><br><span class="line"></span><br><span class="line">(async () =&gt; &#123;</span><br><span class="line">  const browser = await puppeteer.launch();</span><br><span class="line">  const page = await browser.newPage();</span><br><span class="line">  await page.goto(&#x27;https://google.com&#x27;);</span><br><span class="line">  await page.type(&#x27;#lst-ib&#x27;,&#x27;Puppeteer&#x27;);</span><br><span class="line">  await page.click(&#x27;input[name=&quot;btnK&quot;]&#x27;);</span><br><span class="line">  await browser.close();</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
 <p>These are short notes and my first look for Puppeteer -also first English post on my blog 🍺 — .I will write another post about puppeteer in the following times.Until that time EOF.(End of FUN!)</p>
 
   </div>
@@ -265,7 +271,7 @@ Cup of Coffeé</code></pre>
     Copyright &copy;
     
     
-    2018-2023
+    2018-2024
     Volkan Özdamar
   </div>
   <div class="footer-right">
@@ -368,5 +374,20 @@ Cup of Coffeé</code></pre>
       }());
   </script>
 
-</body>
+<!-- hexo injector body_end start --><script src="https://unpkg.com/kotlin-playground@1" data-server data-version></script>
+<script>
+
+if(typeof ktpgOptions !== 'undefined'){
+    KotlinPlayground('.kotlin-code',ktpgOptions)
+}else{
+    KotlinPlayground('.kotlin-code')
+}
+window.addEventListener('pjax:complete', event => {
+    if(typeof ktpgOptions !== 'undefined'){
+        KotlinPlayground('.kotlin-code',ktpgOptions)
+    }else{
+        KotlinPlayground('.kotlin-code')
+    }
+});
+</script><!-- hexo injector body_end end --></body>
 </html>

@@ -68,7 +68,12 @@
     
 	<!-- mathjax -->
 	
-<meta name="generator" content="Hexo 5.3.0"></head>
+<!-- hexo injector head_end start --><style type="text/css">
+.CodeMirror-lines,.line,.code-output,.code,.token {
+    font-size: 16px;
+    line-height: 22px;
+}
+</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
 
 <body class="max-width mx-auto px3 ltr">
     
@@ -175,7 +180,7 @@
 
   <div class="content" itemprop="articleBody">
     <p>Performance testing is a process to touch every department of your companies and a vital part of software development.Either mobile-centric companies or web-centric companies , if your user can’t get what they want from you quickly , you will probably </p>
-<a id="more"></a>
+<span id="more"></span>
 <p>see your users when they are using your opponent company website or mobile app on their devices after their undesired experience.</p>
 <blockquote><p>A well-performing application is one that lets the end user carry out a given task without undue perceived delay or irritation.</p>
 <footer><strong>Ian Molyneaux</strong><cite>The Art of Application Performance Testing [O'Reilly]</cite></footer></blockquote>
@@ -198,9 +203,11 @@
 </ul>
 <h2 id="Performance-Testing-Jargon"><a href="#Performance-Testing-Jargon" class="headerlink" title="Performance Testing Jargon"></a><strong>Performance Testing Jargon</strong></h2><p>Like every discipline , performance testing have some terms and definitions.These are most common terms when you use performance test for scaling.</p>
 <p><strong>Duration</strong> - Total time of test execution<br><strong>ThinkTime</strong> - Estimated use time of real users<br><strong>Concurrent User</strong> - A User group doing same transaction in same time<br><strong>Transaction</strong> - A piece of software has start and end point for a purpose<br><strong>Simultaneous User</strong> - A User group doing same transaction one by one independently<br><strong>Virtual User</strong> - Simulated users by performance testing tool.We can calculate how many vuser we need with this short formula.</p>
-<pre><code>vUsers Required = Total Number of Transactions/ TransactionPerHour </code></pre>
+<pre><code>vUsers Required = Total Number of Transactions/ TransactionPerHour 
+</code></pre>
 <p><strong>Pacing</strong> - Delays added to our scenarios to control the execution rates.To calculate pacing we can use this way,</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">D &#x3D; Duration</span><br><span class="line">B &#x3D; Baseline time(total time taken by 1 Vu to complete 1 whole iteration)</span><br><span class="line">T &#x3D; Total amount of Think time in the script</span><br><span class="line">I &#x3D; Expected&#x2F;Target iteration</span><br><span class="line">R &#x3D; Residual time of the test window.</span><br><span class="line">R &#x3D; ( D - (T + B)*I)</span><br><span class="line">P &#x3D; Pacing interval</span><br><span class="line">Dividing the residual time by target iteration gives pacing interval</span><br><span class="line">Hence:</span><br><span class="line">P &#x3D; R&#x2F;I</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">D = Duration</span><br><span class="line">B = Baseline time(total time taken by 1 Vu to complete 1 whole iteration)</span><br><span class="line">T = Total amount of Think time in the script</span><br><span class="line">I = Expected/Target iteration</span><br><span class="line">R = Residual time of the test window.</span><br><span class="line">R = ( D - (T + B)*I)</span><br><span class="line">P = Pacing interval</span><br><span class="line">Dividing the residual time by target iteration gives pacing interval</span><br><span class="line">Hence:</span><br><span class="line">P = R/I</span><br></pre></td></tr></table></figure>
+
 <p>[Note : This post combination of my notes from <a target="_blank" rel="noopener" href="https://learning.oreilly.com/library/view/the-art-of/9781491900536/">The Art of Application Performance Testing, 2nd Edition</a> written by Ian Molyneaux and my personal reviews.]</p>
 
   </div>
@@ -267,7 +274,7 @@
     Copyright &copy;
     
     
-    2018-2023
+    2018-2024
     Volkan Özdamar
   </div>
   <div class="footer-right">
@@ -370,5 +377,20 @@
       }());
   </script>
 
-</body>
+<!-- hexo injector body_end start --><script src="https://unpkg.com/kotlin-playground@1" data-server data-version></script>
+<script>
+
+if(typeof ktpgOptions !== 'undefined'){
+    KotlinPlayground('.kotlin-code',ktpgOptions)
+}else{
+    KotlinPlayground('.kotlin-code')
+}
+window.addEventListener('pjax:complete', event => {
+    if(typeof ktpgOptions !== 'undefined'){
+        KotlinPlayground('.kotlin-code',ktpgOptions)
+    }else{
+        KotlinPlayground('.kotlin-code')
+    }
+});
+</script><!-- hexo injector body_end end --></body>
 </html>

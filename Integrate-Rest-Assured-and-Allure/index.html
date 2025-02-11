@@ -71,7 +71,12 @@
     
 	<!-- mathjax -->
 	
-<meta name="generator" content="Hexo 5.3.0"></head>
+<!-- hexo injector head_end start --><style type="text/css">
+.CodeMirror-lines,.line,.code-output,.code,.token {
+    font-size: 16px;
+    line-height: 22px;
+}
+</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
 
 <body class="max-width mx-auto px3 ltr">
     
@@ -178,19 +183,20 @@
 
   <div class="content" itemprop="articleBody">
     <p>Rest Assured and Allure Report is two popular tool for testing.Rest Assured is using for API testing and Allure Report is using for create detailed reports about tests.To see our request and response more detailed using this tools we need to add a line to </p>
-<a id="more"></a>
+<span id="more"></span>
 <p>our Rest Assured tests.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.filter(new AllureRestAssured())</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.filter(new AllureRestAssured())</span><br></pre></td></tr></table></figure>
 <p>First add maven dependeny in your pom.xml file.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;io.qameta.allure&#x2F;allure-rest-assured --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.qameta.allure&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;allure-rest-assured&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.13.0&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-rest-assured --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.qameta.allure&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;allure-rest-assured&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.13.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
 
 <p>Simple example for how to use</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public void planetsCheck() &#123;</span><br><span class="line">    Response response &#x3D; given()</span><br><span class="line">            .filter(new AllureRestAssured())</span><br><span class="line">            .when()</span><br><span class="line">            .get(&quot;https:&#x2F;&#x2F;swapi.co&#x2F;api&#x2F;&quot;).then()</span><br><span class="line">            .extract().response();</span><br><span class="line">    Assert.assertEquals(response.statusCode(), 200);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public void planetsCheck() &#123;</span><br><span class="line">    Response response = given()</span><br><span class="line">            .filter(new AllureRestAssured())</span><br><span class="line">            .when()</span><br><span class="line">            .get(&quot;https://swapi.co/api/&quot;).then()</span><br><span class="line">            .extract().response();</span><br><span class="line">    Assert.assertEquals(response.statusCode(), 200);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Second way is with RequestSpecBuilder</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spec &#x3D; new RequestSpecBuilder()</span><br><span class="line">                .setContentType(ContentType.JSON)</span><br><span class="line">                ...</span><br><span class="line">                .addFilter(new AllureRestAssured())</span><br><span class="line">                ...</span><br><span class="line">                .build();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spec = new RequestSpecBuilder()</span><br><span class="line">                .setContentType(ContentType.JSON)</span><br><span class="line">                ...</span><br><span class="line">                .addFilter(new AllureRestAssured())</span><br><span class="line">                ...</span><br><span class="line">                .build();</span><br></pre></td></tr></table></figure>
 <p>To create our report first run these command after test run.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean test allure:report</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean test allure:report</span><br></pre></td></tr></table></figure>
 <p>Our test report should be located in allure-report folder and should look like below.</p>
 <img src="/Integrate-Rest-Assured-and-Allure/allure-report.png" class="img-fluid">
 
@@ -259,7 +265,7 @@
     Copyright &copy;
     
     
-    2018-2023
+    2018-2024
     Volkan Özdamar
   </div>
   <div class="footer-right">
@@ -362,5 +368,20 @@
       }());
   </script>
 
-</body>
+<!-- hexo injector body_end start --><script src="https://unpkg.com/kotlin-playground@1" data-server data-version></script>
+<script>
+
+if(typeof ktpgOptions !== 'undefined'){
+    KotlinPlayground('.kotlin-code',ktpgOptions)
+}else{
+    KotlinPlayground('.kotlin-code')
+}
+window.addEventListener('pjax:complete', event => {
+    if(typeof ktpgOptions !== 'undefined'){
+        KotlinPlayground('.kotlin-code',ktpgOptions)
+    }else{
+        KotlinPlayground('.kotlin-code')
+    }
+});
+</script><!-- hexo injector body_end end --></body>
 </html>

@@ -74,7 +74,12 @@
     
 	<!-- mathjax -->
 	
-<meta name="generator" content="Hexo 5.3.0"></head>
+<!-- hexo injector head_end start --><style type="text/css">
+.CodeMirror-lines,.line,.code-output,.code,.token {
+    font-size: 16px;
+    line-height: 22px;
+}
+</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
 
 <body class="max-width mx-auto px3 ltr">
     
@@ -180,7 +185,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>In 2013, a hosting company known as dotCloud, released an open-source project named as Docker and with that move they opened a new era in Computer Virtualization and I.T. industry. This old company still continue its life at San Fransisco with a little <a id="more"></a> change, they are known as now.<a target="_blank" rel="noopener" href="https://www.docker.com/blog/dotcloud-is-becoming-docker-inc/">Docker Inc. </a> now.</p>
+    <p>In 2013, a hosting company known as dotCloud, released an open-source project named as Docker and with that move they opened a new era in Computer Virtualization and I.T. industry. This old company still continue its life at San Fransisco with a little <span id="more"></span> change, they are known as now.<a target="_blank" rel="noopener" href="https://www.docker.com/blog/dotcloud-is-becoming-docker-inc/">Docker Inc. </a> now.</p>
  <img src="/Just-Another-Docker-Related-Post/hq.jpeg" class="img-fluid" title="https:&#x2F;&#x2F;www.flickr.com&#x2F;photos&#x2F;willbuckner&#x2F;31549699548" alt="Docker HQ, San Francisco, California (Credit: Will Buckner )">
 
 
@@ -191,7 +196,7 @@
 <p>Docker LifeCycleDocker has two main version , Community Edition(CE) and Enterprise Edition(EE).CE is unpaid version of Docker and has two relase type,Egde and Stable.<br>Edge is updating monthly and it is beta version.Stable and EE has same release cycle and updating with 3 months interval.Except that , E.E. has 1 year support and some additional features.</p>
 <h2 id="Docker-Images"><a href="#Docker-Images" class="headerlink" title="Docker Images"></a><strong>Docker Images</strong></h2><p>Docker images read-only and immutable construction set , for creating the environment you want.You can create your customized images or directly download created images from Docker Hub or your own hosted a container image registry.</p>
 <h2 id="Virtual-Machines"><a href="#Virtual-Machines" class="headerlink" title="Virtual Machines"></a><strong>Virtual Machines</strong></h2><p>End of 00’s power of computer chips are increased and we create our infrastructure with Virtual Machine instead of real devices. With Virtual Machine(VM) technology, you can share your hardware resources on one computer with separated Virtual Machines. Each VM require reserved hard disk installed OS on this disk and virtual components reserved from the host machine. This reduced hardware costs however, maintenance cost increased cus managing this machine and reserve a resource for each machine needs to proficiency.</p>
-<h2 id="Then-What-is-Containers"><a href="#Then-What-is-Containers" class="headerlink" title="Then , What is Containers ?"></a><strong>Then , What is Containers ?</strong></h2><p>Simply containers, virtual layers to run your apps and services abstractly on each one on Docker with self-reliant off your host operating system.No matter, which operating system running on your computer, Docker runs your docker containers on your machine. Contrary to old VMs, containers run on the same machine and share the OS kernel with other containers. When doing that, Docker does not do Hardware-level process isolation, the processes of each container are isolating from each other. This feature makes Docker fast and more manageable beside on VMs.<br> Just notice that Docker has two type containers, commonly preferred one is Linux containers and you can use this containers on every OS. Other alternative is Windows containers, uses Hyper-V* and works with Windows 10 Pro/Enterprise or Windows Server 2016.No concern if you have the other versions of Windows. With Virtual Box you can run Docker containers on your system but it will be a reason of a Lil’ bit headache for you.<br>*On Windows , Hyper-V runs a Linux VM(Moby-LinuxVM) to run Docker and Linux containers.</p>
+<h2 id="Then-What-is-Containers"><a href="#Then-What-is-Containers" class="headerlink" title="Then , What is Containers ?"></a><strong>Then , What is Containers ?</strong></h2><p>Simply containers, virtual layers to run your apps and services abstractly on each one on Docker with self-reliant off your host operating system.No matter, which operating system running on your computer, Docker runs your docker containers on your machine. Contrary to old VMs, containers run on the same machine and share the OS kernel with other containers. When doing that, Docker does not do Hardware-level process isolation, the processes of each container are isolating from each other. This feature makes Docker fast and more manageable beside on VMs.<br> Just notice that Docker has two type containers, commonly preferred one is Linux containers and you can use this containers on every OS. Other alternative is Windows containers, uses Hyper-V* and works with Windows 10 Pro&#x2F;Enterprise or Windows Server 2016.No concern if you have the other versions of Windows. With Virtual Box you can run Docker containers on your system but it will be a reason of a Lil’ bit headache for you.<br>*On Windows , Hyper-V runs a Linux VM(Moby-LinuxVM) to run Docker and Linux containers.</p>
  <img src="/Just-Another-Docker-Related-Post/dockervsvm.png" class="img-fluid" title="https:&#x2F;&#x2F;www.docker.com&#x2F;resources&#x2F;what-container" alt="Docker vs. Virtual Machine">
 
 
@@ -199,7 +204,7 @@
 <h2 id="What-is-Inside-of-Containers"><a href="#What-is-Inside-of-Containers" class="headerlink" title="What is Inside of Containers ?"></a><strong>What is Inside of Containers ?</strong></h2><p>Containers has a real operating system and environment variables.We are defining which operating system should be run on with  which environment variables and  setup of our software projects and dependencies.</p>
 <h2 id="Benefits-of-Containerization"><a href="#Benefits-of-Containerization" class="headerlink" title="Benefits of Containerization"></a><strong>Benefits of Containerization</strong></h2> <img src="/Just-Another-Docker-Related-Post/landscape.png" class="img-fluid" title="https:&#x2F;&#x2F;landscape.cncf.io&#x2F;" alt="CNCF Landscape">
 
-<p>Docker popularity puts it  under a wide range support umberalla with tons of DevOps, CI /CD tools and cloud services.Additionally Docker provide some benefits coming  from its nature.</p>
+<p>Docker popularity puts it  under a wide range support umberalla with tons of DevOps, CI &#x2F;CD tools and cloud services.Additionally Docker provide some benefits coming  from its nature.</p>
 <ul>
 <li>Environmental Isolation </li>
 <li>Lightweight Virtualization</li>
@@ -272,7 +277,7 @@
     Copyright &copy;
     
     
-    2018-2023
+    2018-2024
     Volkan Özdamar
   </div>
   <div class="footer-right">
@@ -375,5 +380,20 @@
       }());
   </script>
 
-</body>
+<!-- hexo injector body_end start --><script src="https://unpkg.com/kotlin-playground@1" data-server data-version></script>
+<script>
+
+if(typeof ktpgOptions !== 'undefined'){
+    KotlinPlayground('.kotlin-code',ktpgOptions)
+}else{
+    KotlinPlayground('.kotlin-code')
+}
+window.addEventListener('pjax:complete', event => {
+    if(typeof ktpgOptions !== 'undefined'){
+        KotlinPlayground('.kotlin-code',ktpgOptions)
+    }else{
+        KotlinPlayground('.kotlin-code')
+    }
+});
+</script><!-- hexo injector body_end end --></body>
 </html>

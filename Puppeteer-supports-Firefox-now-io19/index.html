@@ -31,7 +31,7 @@
 <meta property="og:description" content="Puppeteer is browser test automation tool developed by Chrome Developer Team.It is announced Chrome Dev Summit 2017 first, and released at January 2018.This node based library increases popularity day">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-05-16T16:25:02.000Z">
-<meta property="article:modified_time" content="2021-01-25T17:44:05.000Z">
+<meta property="article:modified_time" content="2024-02-03T14:35:48.493Z">
 <meta property="article:author" content="Volkan Özdamar">
 <meta property="article:tag" content="Chromedevtools">
 <meta property="article:tag" content="Google">
@@ -71,7 +71,12 @@
     
 	<!-- mathjax -->
 	
-<meta name="generator" content="Hexo 5.3.0"></head>
+<!-- hexo injector head_end start --><style type="text/css">
+.CodeMirror-lines,.line,.code-output,.code,.token {
+    font-size: 16px;
+    line-height: 22px;
+}
+</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
 
 <body class="max-width mx-auto px3 ltr">
     
@@ -152,7 +157,7 @@
       
         <time datetime="2019-05-16T16:25:02.000Z" itemprop="datePublished">16-05-2019</time>
         
-        (Updated: <time datetime="2021-01-25T17:44:05.000Z" itemprop="dateModified">25-01-2021</time>)
+        (Updated: <time datetime="2024-02-03T14:35:48.493Z" itemprop="dateModified">03-02-2024</time>)
         
       
     </div>
@@ -177,14 +182,30 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>Puppeteer is browser test automation tool developed by Chrome Developer Team.It is announced Chrome Dev Summit 2017 first, and released at January 2018.This node based library increases popularity day by day.Puppeteer promises that ease to use , 100x faster test run , working with CI/CD pipelines like travis.To make quick intoduction to puppeteer please read my post about Puppeteer <a href="https://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/">from this link</a></p>
-<p>Last week , in Google I/O ,Chrome developers announced new features of Puppeteer.By virtue of collabration of Mozilla , Puppeteer now support Firefox too.It is experimental phase now and 90% of project is done.You can easily find <a target="_blank" rel="noopener" href="https://aslushnikov.github.io/ispuppeteerfirefoxready/">from this link</a>  which API’s are ready.To write a script for firefox you need to change just one line after when you installed firefox-puppeteer.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const puppeteer &#x3D; require(&#39;puppeteer-firefox&#39;)</span><br></pre></td></tr></table></figure>
-<p>Another improvement announced about mobile device profile set.Puppeteer comes with 100+ device profile to test your modern web pages with real device sizes.Also you can test your web pages with new “Offline Mode” support, without cutting your connection of device.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">await page.setOfflineMode(true)</span><br></pre></td></tr></table></figure>
-<p>If you want to learn more depth about new features watch video in below</p>
-<div class="video-container"><iframe src="https://www.youtube.com/embed/MbnATLCuKI4" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
+    <p>Puppeteer is browser test automation tool developed by Chrome Developer Team.It is announced Chrome Dev Summit 2017 first, and released at January 2018.This node based library increases popularity day by day.Puppeteer promises that ease to use , 100x faster test run , working with CI&#x2F;CD pipelines like travis.To make quick intoduction to puppeteer please read my post about Puppeteer <a href="https://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/">from this link</a></p>
+<p>Last week , in Google I&#x2F;O ,Chrome developers announced new features of Puppeteer.By virtue of collabration of Mozilla , Puppeteer now support Firefox too.It is experimental phase now and 90% of project is done.You can easily find <a target="_blank" rel="noopener" href="https://aslushnikov.github.io/ispuppeteerfirefoxready/">from this link</a>  which API’s are ready.To write a script for firefox you need to change just one line after when you installed firefox-puppeteer.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const puppeteer = require(&#x27;puppeteer-firefox&#x27;)</span><br></pre></td></tr></table></figure>
 
+<p>Another improvement announced about mobile device profile set.Puppeteer comes with 100+ device profile to test your modern web pages with real device sizes.Also you can test your web pages with new “Offline Mode” support, without cutting your connection of device.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">await page.setOfflineMode(true)</span><br></pre></td></tr></table></figure>
+<p>If you want to learn more depth about new features watch video in below</p>
+<style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/MbnATLCuKI4" allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
   </div>
 </article>
 
@@ -249,7 +270,7 @@
     Copyright &copy;
     
     
-    2018-2023
+    2018-2024
     Volkan Özdamar
   </div>
   <div class="footer-right">
@@ -352,5 +373,20 @@
       }());
   </script>
 
-</body>
+<!-- hexo injector body_end start --><script src="https://unpkg.com/kotlin-playground@1" data-server data-version></script>
+<script>
+
+if(typeof ktpgOptions !== 'undefined'){
+    KotlinPlayground('.kotlin-code',ktpgOptions)
+}else{
+    KotlinPlayground('.kotlin-code')
+}
+window.addEventListener('pjax:complete', event => {
+    if(typeof ktpgOptions !== 'undefined'){
+        KotlinPlayground('.kotlin-code',ktpgOptions)
+    }else{
+        KotlinPlayground('.kotlin-code')
+    }
+});
+</script><!-- hexo injector body_end end --></body>
 </html>

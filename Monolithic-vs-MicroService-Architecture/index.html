@@ -70,7 +70,12 @@
     
 	<!-- mathjax -->
 	
-<meta name="generator" content="Hexo 5.3.0"></head>
+<!-- hexo injector head_end start --><style type="text/css">
+.CodeMirror-lines,.line,.code-output,.code,.token {
+    font-size: 16px;
+    line-height: 22px;
+}
+</style><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head>
 
 <body class="max-width mx-auto px3 ltr">
     
@@ -176,7 +181,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>Like an architecture history, software architecture has changed and evolved. First of all, people started to live in cave, then they build their shed and tent, from them shed and tent to today’s skyscraper and apartment, lots of come a long way.<a id="more"></a> Like this, our software architecture started to evolve from early 2005.Microservices start to rise behind the hill and with Cloud Services, Docker and container orchestration, we have a more distributed, more scalable, and reliable solutions more than from the past. Why we choose that way and Is the old way still applicable for us? Let see what is the differences between monolith and microservices.</p>
+    <p>Like an architecture history, software architecture has changed and evolved. First of all, people started to live in cave, then they build their shed and tent, from them shed and tent to today’s skyscraper and apartment, lots of come a long way.<span id="more"></span> Like this, our software architecture started to evolve from early 2005.Microservices start to rise behind the hill and with Cloud Services, Docker and container orchestration, we have a more distributed, more scalable, and reliable solutions more than from the past. Why we choose that way and Is the old way still applicable for us? Let see what is the differences between monolith and microservices.</p>
 <h2 id="Monolithic-Architecture"><a href="#Monolithic-Architecture" class="headerlink" title="Monolithic Architecture"></a><strong>Monolithic Architecture</strong></h2><p>As a word monolith means monument or building made with a single massive stone or rock. With this perspective, if an application has one more module in a single repository, we can define it as a monolithic application.<br>This type of applications generally combination of single client, single server and single database. This singularity comes with some eases, but comes with some difficulties too. A big challenge with this type of application; update, upgrade or crash and restart scenarios affect whole system situation. This kind of architectures also tightly coupled with interdependencies and increased information flow.</p>
 <h3 id="Advantages-of-Monolithic"><a href="#Advantages-of-Monolithic" class="headerlink" title="Advantages of Monolithic"></a>Advantages of Monolithic</h3><ul>
 <li>Easy bug tracking and end to end testing</li>
@@ -187,7 +192,7 @@
 <li>Technology dependency, hard to implement new technologies</li>
 <li>Complexity of one code base</li>
 <li>Can be lead anti-pattens</li>
-<li>CI/CD difficult</li>
+<li>CI&#x2F;CD difficult</li>
 <li>uncontrollable growth with every new feature</li>
 </ul>
 <h2 id="Microservice-Architecture"><a href="#Microservice-Architecture" class="headerlink" title="Microservice Architecture"></a><strong>Microservice Architecture</strong></h2><p>While monolithic applications is a single unified unit , microservices breaks it down into a collection of independent pieces.Like one piece a car toy versus a car maded with lego , every bricks has a unique job to done and create to whole system as together. These pieces can be deployable independently from each other, and has own logic , database , pipeline and codebases too.These applications communicate with each other through defined methods called APIs (Application Programming Interfaces).Big advantage of microservices scalability and reliability.</p>
@@ -205,7 +210,7 @@
 <li>Deployment are more complex </li>
 <li>Operation cost for each apps<ul>
 <li>own repo</li>
-<li>own codebase and CI/CD</li>
+<li>own codebase and CI&#x2F;CD</li>
 <li>own database</li>
 </ul>
 </li>
@@ -280,7 +285,7 @@
     Copyright &copy;
     
     
-    2018-2023
+    2018-2024
     Volkan Özdamar
   </div>
   <div class="footer-right">
@@ -383,5 +388,20 @@
       }());
   </script>
 
-</body>
+<!-- hexo injector body_end start --><script src="https://unpkg.com/kotlin-playground@1" data-server data-version></script>
+<script>
+
+if(typeof ktpgOptions !== 'undefined'){
+    KotlinPlayground('.kotlin-code',ktpgOptions)
+}else{
+    KotlinPlayground('.kotlin-code')
+}
+window.addEventListener('pjax:complete', event => {
+    if(typeof ktpgOptions !== 'undefined'){
+        KotlinPlayground('.kotlin-code',ktpgOptions)
+    }else{
+        KotlinPlayground('.kotlin-code')
+    }
+});
+</script><!-- hexo injector body_end end --></body>
 </html>
