@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Docker Commands</title>
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Basic Docker Commands">
+    <meta property="og:description" content="A blog post by Volkan Özdamar">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://volkanozdamar.com/">
+    <meta property="og:image" content="https://volkanozdamar.com/images/logo.png">
+    <meta property="og:site_name" content="Volkan Özdamar's Blog">
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@volkanozdamar">
+    <meta name="twitter:title" content="Basic Docker Commands">
+    <meta name="twitter:description" content="A blog post by Volkan Özdamar">
+    <meta name="twitter:image" content="https://volkanozdamar.com/images/logo.png">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://unpkg.com/kotlin-playground@1" data-selector="code.language-kotlinplay"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6306708342544146"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    <header role="banner" class="site-header">
+        <div class="header-content">
+            <h1>Volkan Özdamar</h1>
+            <img src="images/logo.png" alt="Volkan Özdamar's Blog Logo" class="site-logo">
+        </div>
+            <nav class="main-navigation">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="archive.html"><i class="fas fa-archive"></i> Archive</a></li>
+                    <li><a href="https://twitter.com/volkanozdamar" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="https://bsky.app/profile/volkanozdamar.com" target="_blank"><i class="fas fa-cloud"></i> Bluesky</a></li>
+                    <li><a href="https://github.com/volkanozdamar" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+                </ul>
+            </nav>
+    </header>
+    <main id="main-content" role="main">        <article>
+            <div class="post-header">
+                <h1>Basic Docker Commands</h1>
+                <div class="post-tags">
+                        <span class="tag"><a href="tags/Docker.html">Docker</a></span>
+                        <span class="tag"><a href="tags/Container.html">Container</a></span>
+                </div>
+                <div class="post-date" aria-label="Posted on 28-06-2020">28-06-2020</div>                 
+            </div>
+            <div id="l2it-audio-player">
+                            <script>
+                    function initListen2It() {
+                        Listen2It.init({
+                            url: window.location.href,
+                            org_id: 'L0ZSy2WsVe',
+                            integration_id: '0YLYzZF0Sz',
+                            container: '#l2it-audio-player'
+                        });
+                    }
+                    function initialize(i,t){var n;i.getElementById(t)?initListen2It():((n=i.createElement("script")).id=t,n.async=!0,n.src="https://widget.getlisten2it.com/widget.min.js",n.onload=initListen2It,i.head.appendChild(n))}function initiateCall(){initialize(document,"listen2it-widget")}window.addEventListener?window.addEventListener("load",initiateCall,!1):window.attachEvent("load",initiateCall,!1);
+                </script>
+            </div>
+            <div class="post-content">
+                <p>Before this, I explained <a href="https://volkanozdamar.com/Just-Another-Docker-Related-Post/">here</a>, what is Docker, what is a container and why we are using it. I skip to installation because docker installation has differences in each operating system. You can follow the official installation document from <a href="https://docs.docker.com/engine/install/">here</a></p>
+<h2><strong>INFO Commands</strong></h2>
+<p>When you did to installation successfully, we can start to use docker. Open terminal or PowerShell and write these lines.</p>
+<pre><code>docker version
+</code></pre>
+<p>This command will give you information about the version of your system and docker engine.</p>
+<pre><code>Client: Docker Engine - Community
+ Version:           19.03.8
+ API version:       1.40
+ Go version:        go1.12.17
+ Git commit:        afacb8b
+ Built:             Wed Mar 11 01:21:11 2020
+ OS/Arch:           darwin/amd64
+ Experimental:      false
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          19.03.8
+  API version:      1.40 (minimum version 1.12)
+  Go version:       go1.12.17
+  Git commit:       afacb8b
+  Built:            Wed Mar 11 01:29:16 2020
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          v1.2.13
+  GitCommit:        7ad184331fa3e55e52b890ea95e65ba581ae3429
+ runc:
+  Version:          1.0.0-rc10
+  GitCommit:        dc9208a3303feef5b3839f4323d9beb36df0a9dd
+ docker-init:
+  Version:          0.18.0
+  GitCommit:        fec3683
+</code></pre>
+<p>Another info command is &quot;docker info&quot; shows you informations about configuration values for engine</p>
+<pre><code>docker info
+</code></pre>
+<p>But what about if we write only “docker”.When we type to terminal or PowerShell only “docker” it prints to us an informative explanation about docker management commands, commands and their options.</p>
+<p>Simply we manage docker image and container like that</p>
+<pre><code>docker &lt;command&gt; &lt;sub-command&gt;
+</code></pre>
+<p>For instance, if we want to run a container we need to write</p>
+<pre><code>docker container run
+</code></pre>
+<p>also, we can use this without command, but this is naming as an old way now.</p>
+<pre><code>docker run
+</code></pre>
+<h2><strong>Container Management Commands</strong></h2>
+<p>Container management command for creation, deletion start and stop for container.To explain that i choose to create nginx container.</p>
+<pre><code>docker container run --publish 80:80 --detach  --name webhost nginx
+</code></pre>
+<p>**  --detach or -d option runs container in the background.</p>
+<p><img src="images/Basic-Docker-Commands/nginx.gif" alt="Nginx Container Creation" title="Nginx Container Creation" /></p>
+<p>With this command Docker doing</p>
+<ul>
+<li>Pulling the image of nginx from docker hub if not exist locally</li>
+<li>Creates new container based of that image</li>
+<li>Gives a virtual ip  on a private network inside docker engine</li>
+<li>Reserve port 80 from the host machine and forwards to port 80 in container</li>
+<li>Starts container</li>
+</ul>
+<p>After container created , you can list all working containers , you should see your container as up and running</p>
+<pre><code>docker container ls // or docker ps (old way)
+</code></pre>
+<p>with -a flag you can list stopped container also.</p>
+<pre><code>docker container ls -a
+</code></pre>
+<p>If you want to learn details of your container configs , inspect command prints it as json</p>
+<pre><code>docker container inspect webhost
+</code></pre>
+<p>If we want to stop our container just need to write a command below with our container name.Remember , our container name was webhost.(When you don't give a name a container , docker gives a random name for it.BTW, you can also use first 3 digits of your container id instead of name)</p>
+<pre><code>docker container stop webhost
+</code></pre>
+<p>To re-run stopped container we change stop as start .</p>
+<pre><code>docker container start webhost
+</code></pre>
+<p><img src="images/Basic-Docker-Commands/removecontainer.gif" alt="Remove Container" title="Remove Container" /></p>
+<p>And lastly when we want to remove docker container , we use to 'rm' command.Before remove a container , you need to stop it.Docker gives a warning to prevent deletion of working containers like above.</p>
+<pre><code>docker container rm webhost
+</code></pre>
+<h2><strong>Logs and Tasks Management</strong></h2>
+<p>If we used --detach and -d , still we can reach logs of the running container</p>
+<pre><code>docker container logs webhost
+</code></pre>
+<p>and for the process list in one container.</p>
+<pre><code>docker container top &lt;containername&gt; 
+</code></pre>
+<p>And todays last command coming for to reach performance stats for all containers</p>
+<pre><code>docker container stats 
+</code></pre>
+
+            </div>
+        </article>
+        <nav role="navigation" aria-label="Post navigation">
+            <p><a href="index.html" aria-label="Back to home page">← Back to Home</a></p>
+        </nav>
+        <div class="comments-section">
+            <script src="https://utteranc.es/client.js"
+                    repo="volkanozdamar/blog"
+                    issue-term="title"
+                    theme="github-dark"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+</main>
+    <footer class="site-footer">
+        <div class="license-notice">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+            </a>
+            <p>Unless otherwise stated, all blog content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolithic vs. MicroService Architecture</title>
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Monolithic vs. MicroService Architecture">
+    <meta property="og:description" content="A blog post by Volkan Özdamar">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://volkanozdamar.com/">
+    <meta property="og:image" content="https://volkanozdamar.com/images/logo.png">
+    <meta property="og:site_name" content="Volkan Özdamar's Blog">
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@volkanozdamar">
+    <meta name="twitter:title" content="Monolithic vs. MicroService Architecture">
+    <meta name="twitter:description" content="A blog post by Volkan Özdamar">
+    <meta name="twitter:image" content="https://volkanozdamar.com/images/logo.png">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://unpkg.com/kotlin-playground@1" data-selector="code.language-kotlinplay"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6306708342544146"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    <header role="banner" class="site-header">
+        <div class="header-content">
+            <h1>Volkan Özdamar</h1>
+            <img src="images/logo.png" alt="Volkan Özdamar's Blog Logo" class="site-logo">
+        </div>
+            <nav class="main-navigation">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="archive.html"><i class="fas fa-archive"></i> Archive</a></li>
+                    <li><a href="https://twitter.com/volkanozdamar" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="https://bsky.app/profile/volkanozdamar.com" target="_blank"><i class="fas fa-cloud"></i> Bluesky</a></li>
+                    <li><a href="https://github.com/volkanozdamar" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+                </ul>
+            </nav>
+    </header>
+    <main id="main-content" role="main">        <article>
+            <div class="post-header">
+                <h1>Monolithic vs. MicroService Architecture</h1>
+                <div class="post-tags">
+                        <span class="tag"><a href="tags/Microservice.html">Microservice</a></span>
+                </div>
+                <div class="post-date" aria-label="Posted on 03-08-2020">03-08-2020</div>                 
+            </div>
+            <div id="l2it-audio-player">
+                            <script>
+                    function initListen2It() {
+                        Listen2It.init({
+                            url: window.location.href,
+                            org_id: 'L0ZSy2WsVe',
+                            integration_id: '0YLYzZF0Sz',
+                            container: '#l2it-audio-player'
+                        });
+                    }
+                    function initialize(i,t){var n;i.getElementById(t)?initListen2It():((n=i.createElement("script")).id=t,n.async=!0,n.src="https://widget.getlisten2it.com/widget.min.js",n.onload=initListen2It,i.head.appendChild(n))}function initiateCall(){initialize(document,"listen2it-widget")}window.addEventListener?window.addEventListener("load",initiateCall,!1):window.attachEvent("load",initiateCall,!1);
+                </script>
+            </div>
+            <div class="post-content">
+                <p>Like an architecture history, software architecture has changed and evolved. First of all, people started to live in cave, then they build their shed and tent, from them shed and tent to today's skyscraper and apartment, lots of come a long way.<!-- more--> Like this, our software architecture started to evolve from early 2005.Microservices start to rise behind the hill and with Cloud Services, Docker and container orchestration, we have a more distributed, more scalable, and reliable solutions more than from the past. Why we choose that way and Is the old way still applicable for us? Let see what is the differences between monolith and microservices.</p>
+<h2><strong>Monolithic Architecture</strong></h2>
+<p>As a word monolith means monument or building made with a single massive stone or rock. With this perspective, if an application has one more module in a single repository, we can define it as a monolithic application.
+This type of applications generally combination of single client, single server and single database. This singularity comes with some eases, but comes with some difficulties too. A big challenge with this type of application; update, upgrade or crash and restart scenarios affect whole system situation. This kind of architectures also tightly coupled with interdependencies and increased information flow.</p>
+<h3>Advantages of Monolithic</h3>
+<ul>
+<li>Easy bug tracking and end to end testing</li>
+<li>Easy development</li>
+<li>Easy deployment (generally once a week and big)</li>
+</ul>
+<h3>Disadvantages of Monolithic</h3>
+<ul>
+<li>Technology dependency, hard to implement new technologies</li>
+<li>Complexity of one code base</li>
+<li>Can be lead anti-pattens</li>
+<li>CI/CD difficult</li>
+<li>uncontrollable growth with every new feature</li>
+</ul>
+<h2><strong>Microservice Architecture</strong></h2>
+<p>While monolithic applications is a single unified unit , microservices breaks it down into a collection of independent pieces.Like one piece a car toy versus a car maded with lego , every bricks has a unique job to done and create to whole system as together. These pieces can be deployable independently from each other, and has own logic , database , pipeline and codebases too.These applications communicate with each other through defined methods called APIs (Application Programming Interfaces).Big advantage of microservices scalability and reliability.</p>
+<h3>Advantages of Monolithic</h3>
+<ul>
+<li>Independent components</li>
+<li>Easier to understanding</li>
+<li>Each service has its own codebase</li>
+<li>Loosely Coupled</li>
+<li>Scalability</li>
+<li>Reliablity</li>
+<li>Technology flexible</li>
+</ul>
+<h3>Disadvantages of Monolithic</h3>
+<ul>
+<li>Integration testing is diffucult</li>
+<li>Deployment are more complex</li>
+<li>Operation cost for each apps
+<ul>
+<li>own repo</li>
+<li>own codebase and CI/CD</li>
+<li>own database</li>
+</ul>
+</li>
+<li>Additional hardware costs</li>
+</ul>
+<h2><strong>Which one is the best ?</strong></h2>
+<p>There is no exact answer, it depends on your application size, team knowledge and your budget.</p>
+<p>If you a small team, don't want to do not have performance bottlenecks, don't want deal with Dev-Ops costs and have experiences with Monolithics frameworks, this could be best solution for you. Vice versa, if you have a big cluster and need to scalability and reliability and want to use one more technology in same time or want to experience to microservices, this could be best solution too.</p>
+<p><img src="images/Monolithic-vs-MicroService-Architecture/microswerviceworld.png" alt="Monolithic vs Microservices" title="Monolithic vs Microservices" /></p>
+
+            </div>
+        </article>
+        <nav role="navigation" aria-label="Post navigation">
+            <p><a href="index.html" aria-label="Back to home page">← Back to Home</a></p>
+        </nav>
+        <div class="comments-section">
+            <script src="https://utteranc.es/client.js"
+                    repo="volkanozdamar/blog"
+                    issue-term="title"
+                    theme="github-dark"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+</main>
+    <footer class="site-footer">
+        <div class="license-notice">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+            </a>
+            <p>Unless otherwise stated, all blog content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

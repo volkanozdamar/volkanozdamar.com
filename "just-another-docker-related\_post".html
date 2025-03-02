@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"Just Another Docker Related\_Post"</title>
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content=""Just Another Docker Related\_Post"">
+    <meta property="og:description" content="A blog post by Volkan Özdamar">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://volkanozdamar.com/">
+    <meta property="og:image" content="https://volkanozdamar.com/images/logo.jpg">
+    <meta property="og:site_name" content="Volkan Özdamar's Blog">
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@volkanozdamar">
+    <meta name="twitter:title" content=""Just Another Docker Related\_Post"">
+    <meta name="twitter:description" content="A blog post by Volkan Özdamar">
+    <meta name="twitter:image" content="https://volkanozdamar.com/images/logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://unpkg.com/kotlin-playground@1" data-selector="code.language-kotlinplay"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6306708342544146"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    <header role="banner" class="site-header">
+        <div class="header-content">
+            <h1>Volkan Özdamar</h1>
+            <img src="images/logo.jpg" alt="Volkan Özdamar's Blog Logo" class="site-logo">
+        </div>
+            <nav class="main-navigation">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="archive.html"><i class="fas fa-archive"></i> Archive</a></li>
+                    <li><a href="https://twitter.com/volkanozdamar" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="https://bsky.app/profile/volkanozdamar.com" target="_blank"><i class="fas fa-cloud"></i> Bluesky</a></li>
+                    <li><a href="https://github.com/volkanozdamar" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+                </ul>
+            </nav>
+    </header>
+    <main id="main-content" role="main">        <article>
+            <div class="post-header">
+                <h1>"Just Another Docker Related\_Post"</h1>
+                <div class="post-tags">
+                        <span class="tag"><a href="tags/Docker.html">Docker</a></span>
+                        <span class="tag"><a href="tags/Container.html">Container</a></span>
+                </div>
+                <div class="post-date" aria-label="Posted on 11-05-2020">11-05-2020</div>                 
+            </div>
+            <div id="l2it-audio-player">
+                            <script>
+                    function initListen2It() {
+                        Listen2It.init({
+                            url: window.location.href,
+                            org_id: 'L0ZSy2WsVe',
+                            integration_id: '0YLYzZF0Sz',
+                            container: '#l2it-audio-player'
+                        });
+                    }
+                    function initialize(i,t){var n;i.getElementById(t)?initListen2It():((n=i.createElement("script")).id=t,n.async=!0,n.src="https://widget.getlisten2it.com/widget.min.js",n.onload=initListen2It,i.head.appendChild(n))}function initiateCall(){initialize(document,"listen2it-widget")}window.addEventListener?window.addEventListener("load",initiateCall,!1):window.attachEvent("load",initiateCall,!1);
+                </script>
+            </div>
+            <div class="post-content">
+                <p>In 2013, a hosting company known as dotCloud, released an open-source project named as Docker and with that move they opened a new era in Computer Virtualization and I.T. industry. This old company still continue its life at San Fransisco with a little change, they are known as now.<a href="https://www.docker.com/blog/dotcloud-is-becoming-docker-inc/">Docker Inc.</a> now.</p>
+<p><img src="https://www.flickr.com/photos/willbuckner/31549699548" alt="Docker HQ, San Francisco, California (Credit: Will Buckner )" title="Image Title" /></p>
+<p>As a term, Docker has two meaning for us. One of them is operaring system based virtualization technology to run containers -Docker Platform- , other is a tool for the building and sharing of containerized applications and services -Docker Engine-.</p>
+<h2><strong>Docker Platform Versions and Life Cycle</strong></h2>
+<p>{% img img-fluid /Just-Another-Docker-Related-Post/lifecycle.png ' &quot;https://www.docker.com/blog/docker-enterprise-edition/&quot; &quot;Docker LifeCycle&quot;'%}</p>
+<p>Docker LifeCycleDocker has two main version , Community Edition(CE) and Enterprise Edition(EE).CE is unpaid version of Docker and has two relase type,Egde and Stable.
+Edge is updating monthly and it is beta version.Stable and EE has same release cycle and updating with 3 months interval.Except that , E.E. has 1 year support and some additional features.</p>
+<h2><strong>Docker Images</strong></h2>
+<p>Docker images read-only and immutable construction set , for creating the environment you want.You can create your customized images or directly download created images from Docker Hub or your own hosted a container image registry.</p>
+<h2><strong>Virtual Machines</strong></h2>
+<p>End of 00's power of computer chips are increased and we create our infrastructure with Virtual Machine instead of real devices. With Virtual Machine(VM) technology, you can share your hardware resources on one computer with separated Virtual Machines. Each VM require reserved hard disk installed OS on this disk and virtual components reserved from the host machine. This reduced hardware costs however, maintenance cost increased cus managing this machine and reserve a resource for each machine needs to proficiency.</p>
+<h2><strong>Then , What is Containers ?</strong></h2>
+<p>Simply containers, virtual layers to run your apps and services abstractly on each one on Docker with self-reliant off your host operating system.No matter, which operating system running on your computer, Docker runs your docker containers on your machine. Contrary to old VMs, containers run on the same machine and share the OS kernel with other containers. When doing that, Docker does not do Hardware-level process isolation, the processes of each container are isolating from each other. This feature makes Docker fast and more manageable beside on VMs.
+ Just notice that Docker has two type containers, commonly preferred one is Linux containers and you can use this containers on every OS. Other alternative is Windows containers, uses Hyper-V* and works with Windows 10 Pro/Enterprise or Windows Server 2016.No concern if you have the other versions of Windows. With Virtual Box you can run Docker containers on your system but it will be a reason of a Lil' bit headache for you.
+*On Windows , Hyper-V runs a Linux VM(Moby-LinuxVM) to run Docker and Linux containers.</p>
+<p>{% img img-fluid /Just-Another-Docker-Related-Post/dockervsvm.png ' &quot;https://www.docker.com/resources/what-container&quot; &quot;Docker vs. Virtual Machine&quot;'%}</p>
+<h2><strong>What is Inside of Containers ?</strong></h2>
+<p>Containers has a real operating system and environment variables.We are defining which operating system should be run on with  which environment variables and  setup of our software projects and dependencies.</p>
+<h2><strong>Benefits of Containerization</strong></h2>
+<p>{% img img-fluid /Just-Another-Docker-Related-Post/landscape.png ' &quot;https://landscape.cncf.io/&quot; &quot;CNCF Landscape&quot;'%}</p>
+<p>Docker popularity puts it  under a wide range support umberalla with tons of DevOps, CI /CD tools and cloud services.Additionally Docker provide some benefits coming  from its nature.</p>
+<ul>
+<li>Environmental Isolation </li>
+<li>Lightweight Virtualization</li>
+<li>Raises productivity</li>
+<li>Standardize CI&amp;CD</li>
+<li>Easy Portable &amp; Scalable</li>
+</ul>
+
+            </div>
+        </article>
+        <nav role="navigation" aria-label="Post navigation">
+            <p><a href="index.html" aria-label="Back to home page">← Back to Home</a></p>
+        </nav>
+        <div class="comments-section">
+            <script src="https://utteranc.es/client.js"
+                    repo="volkanozdamar/blog"
+                    issue-term="title"
+                    theme="github-dark"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+</main>
+    <script src="js/main.js"></script>
+</body>
+</html>

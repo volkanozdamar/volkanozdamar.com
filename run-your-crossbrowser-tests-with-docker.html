@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run your Crossbrowser Tests With Docker</title>
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Run your Crossbrowser Tests With Docker">
+    <meta property="og:description" content="A blog post by Volkan Özdamar">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://volkanozdamar.com/">
+    <meta property="og:image" content="https://volkanozdamar.com/images/logo.png">
+    <meta property="og:site_name" content="Volkan Özdamar's Blog">
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@volkanozdamar">
+    <meta name="twitter:title" content="Run your Crossbrowser Tests With Docker">
+    <meta name="twitter:description" content="A blog post by Volkan Özdamar">
+    <meta name="twitter:image" content="https://volkanozdamar.com/images/logo.png">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://unpkg.com/kotlin-playground@1" data-selector="code.language-kotlinplay"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6306708342544146"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    <header role="banner" class="site-header">
+        <div class="header-content">
+            <h1>Volkan Özdamar</h1>
+            <img src="images/logo.png" alt="Volkan Özdamar's Blog Logo" class="site-logo">
+        </div>
+            <nav class="main-navigation">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="archive.html"><i class="fas fa-archive"></i> Archive</a></li>
+                    <li><a href="https://twitter.com/volkanozdamar" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="https://bsky.app/profile/volkanozdamar.com" target="_blank"><i class="fas fa-cloud"></i> Bluesky</a></li>
+                    <li><a href="https://github.com/volkanozdamar" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+                </ul>
+            </nav>
+    </header>
+    <main id="main-content" role="main">        <article>
+            <div class="post-header">
+                <h1>Run your Crossbrowser Tests With Docker</h1>
+                <div class="post-tags">
+                        <span class="tag"><a href="tags/Docker.html">Docker</a></span>
+                        <span class="tag"><a href="tags/Container.html">Container</a></span>
+                        <span class="tag"><a href="tags/Selenium.html">Selenium</a></span>
+                </div>
+                <div class="post-date" aria-label="Posted on 07-12-2020">07-12-2020</div>                 
+            </div>
+            <div id="l2it-audio-player">
+                            <script>
+                    function initListen2It() {
+                        Listen2It.init({
+                            url: window.location.href,
+                            org_id: 'L0ZSy2WsVe',
+                            integration_id: '0YLYzZF0Sz',
+                            container: '#l2it-audio-player'
+                        });
+                    }
+                    function initialize(i,t){var n;i.getElementById(t)?initListen2It():((n=i.createElement("script")).id=t,n.async=!0,n.src="https://widget.getlisten2it.com/widget.min.js",n.onload=initListen2It,i.head.appendChild(n))}function initiateCall(){initialize(document,"listen2it-widget")}window.addEventListener?window.addEventListener("load",initiateCall,!1):window.attachEvent("load",initiateCall,!1);
+                </script>
+            </div>
+            <div class="post-content">
+                <p>Selenium Grid is the best way to run your Selenium based tests as Dockerized and parallel with wide range browser choice.Selenium Grid based on with Hub-Node concept.The one hub as a main machine creates one or one more node and runs test on these nodes.With that simply Selenium Hub provides you</p>
+<ul>
+<li>Central entry point for all tests</li>
+<li>Management and control of the nodes / environment where the browsers run</li>
+<li>Scaling</li>
+<li>Running tests in parallel</li>
+<li>Cross platform testing</li>
+<li>Load balancing</li>
+</ul>
+<p>To run our tests with Selenium Grid we need to some dependencies on our maven project.</p>
+<ul>
+<li>TestNg</li>
+<li>WebDriverManager</li>
+<li>Selenium-Java</li>
+<li>Selenium-Remote-Driver</li>
+</ul>
+<p>On our test we need to use RemoteWebDriver instead of WebDriver.And we can do it simply adding WebDriverManager in our &quot;pom.xml&quot;.WebDrivermanager is a library which allows to automate the management of the drivers required by Selenium WebDriver.</p>
+<script src="https://gist.github.com/volkanozdamar/66103dd2b900b5fe9ba21a6664c56645.js"></script>
+<p>Our code will be like this on the Setup.</p>
+<pre><code>    RemoteWebDriver driver;
+    @Parameters({&quot;Port&quot;})
+    @BeforeTest
+    public void setup(String Port) throws MalformedURLException {
+        if(Port.equalsIgnoreCase(&quot;9001&quot;))
+        {
+            driver = new RemoteWebDriver(new URL(&quot;http:localhost:4444/wd/hub&quot;), DesiredCapabilities.chrome());
+            driver.manage().window().maximize();
+        }
+        else if(Port.equalsIgnoreCase(&quot;9002&quot;)){
+            driver = new RemoteWebDriver(new URL(&quot;http:localhost:4444/wd/hub&quot;), DesiredCapabilities.firefox());
+            driver.manage().window().maximize();
+        }
+</code></pre>
+<p>To setup our dockerized environment , we can use Dockerfile on our system.Below example we have a hub with port 4444 and nodes of these hub via Chrome node and Firefox node.These all nodes had their ports also.Save the below lines on your root path as a &quot;Dockerfile.yaml&quot;.</p>
+<script src="https://gist.github.com/volkanozdamar/e1792bf0e3a2ed50ae9bcf8a09433a12.js"></script>
+<p>The simple command will create all of nodes and hub for us.</p>
+<pre><code>docker-compose up -d
+</code></pre>
+<p>And to connect and run our tests on the hub , simply we can create test sets named as &quot;Chrome&quot; and &quot;Firefox&quot;.With that we can classify which tests will run on which browser we wanted.Our testng.xml file will be like.</p>
+<script src="https://gist.github.com/volkanozdamar/33ad7b0a225da0ea9bfe28aa7e2b254d.js"></script>
+<p>If you done everything correctly your test will run with this command</p>
+<pre><code>mvn clean test -Dmaven.repo.local=.m2/repository
+
+</code></pre>
+
+            </div>
+        </article>
+        <nav role="navigation" aria-label="Post navigation">
+            <p><a href="index.html" aria-label="Back to home page">← Back to Home</a></p>
+        </nav>
+        <div class="comments-section">
+            <script src="https://utteranc.es/client.js"
+                    repo="volkanozdamar/blog"
+                    issue-term="title"
+                    theme="github-dark"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+</main>
+    <footer class="site-footer">
+        <div class="license-notice">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+            </a>
+            <p>Unless otherwise stated, all blog content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

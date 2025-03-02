@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puppeteer supports Firefox now</title>
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Puppeteer supports Firefox now">
+    <meta property="og:description" content="A blog post by Volkan Özdamar">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://volkanozdamar.com/">
+    <meta property="og:image" content="https://volkanozdamar.com/images/logo.png">
+    <meta property="og:site_name" content="Volkan Özdamar's Blog">
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@volkanozdamar">
+    <meta name="twitter:title" content="Puppeteer supports Firefox now">
+    <meta name="twitter:description" content="A blog post by Volkan Özdamar">
+    <meta name="twitter:image" content="https://volkanozdamar.com/images/logo.png">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://unpkg.com/kotlin-playground@1" data-selector="code.language-kotlinplay"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6306708342544146"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    <header role="banner" class="site-header">
+        <div class="header-content">
+            <h1>Volkan Özdamar</h1>
+            <img src="images/logo.png" alt="Volkan Özdamar's Blog Logo" class="site-logo">
+        </div>
+            <nav class="main-navigation">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="archive.html"><i class="fas fa-archive"></i> Archive</a></li>
+                    <li><a href="https://twitter.com/volkanozdamar" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="https://bsky.app/profile/volkanozdamar.com" target="_blank"><i class="fas fa-cloud"></i> Bluesky</a></li>
+                    <li><a href="https://github.com/volkanozdamar" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+                </ul>
+            </nav>
+    </header>
+    <main id="main-content" role="main">        <article>
+            <div class="post-header">
+                <h1>Puppeteer supports Firefox now</h1>
+                <div class="post-tags">
+                        <span class="tag"><a href="tags/Chromedevtools.html">Chromedevtools</a></span>
+                        <span class="tag"><a href="tags/Google.html">Google</a></span>
+                        <span class="tag"><a href="tags/Chrome.html">Chrome</a></span>
+                        <span class="tag"><a href="tags/Puppeteer.html">Puppeteer</a></span>
+                </div>
+                <div class="post-date" aria-label="Posted on 16-05-2019">16-05-2019</div>                 
+            </div>
+            <div id="l2it-audio-player">
+                            <script>
+                    function initListen2It() {
+                        Listen2It.init({
+                            url: window.location.href,
+                            org_id: 'L0ZSy2WsVe',
+                            integration_id: '0YLYzZF0Sz',
+                            container: '#l2it-audio-player'
+                        });
+                    }
+                    function initialize(i,t){var n;i.getElementById(t)?initListen2It():((n=i.createElement("script")).id=t,n.async=!0,n.src="https://widget.getlisten2it.com/widget.min.js",n.onload=initListen2It,i.head.appendChild(n))}function initiateCall(){initialize(document,"listen2it-widget")}window.addEventListener?window.addEventListener("load",initiateCall,!1):window.attachEvent("load",initiateCall,!1);
+                </script>
+            </div>
+            <div class="post-content">
+                <p>Puppeteer is browser test automation tool developed by Chrome Developer Team.It is announced Chrome Dev Summit 2017 first, and released at January 2018.This node based library increases popularity day by day.Puppeteer promises that ease to use , 100x faster test run , working with CI/CD pipelines like travis.To make quick intoduction to puppeteer please read my post about Puppeteer <a href="https://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/">from this link</a></p>
+<p>Last week , in Google I/O ,Chrome developers announced new features of Puppeteer.By virtue of collabration of Mozilla , Puppeteer now support Firefox too.It is experimental phase now and 90% of project is done.You can easily find <a href="https://aslushnikov.github.io/ispuppeteerfirefoxready/">from this link</a>  which API’s are ready.To write a script for firefox you need to change just one line after when you installed firefox-puppeteer.</p>
+<pre><code>const puppeteer = require('puppeteer-firefox')
+</code></pre>
+<p>Another improvement announced about mobile device profile set.Puppeteer comes with 100+ device profile to test your modern web pages with real device sizes.Also you can test your web pages with new “Offline Mode” support, without cutting your connection of device.</p>
+<pre><code class="language-language-javascript">await page.setOfflineMode(true)
+</code></pre>
+<p>If you want to learn more depth about new features watch video in below</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MbnATLCuKI4?si=DSqyOdhXw7dzTeID" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            </div>
+        </article>
+        <nav role="navigation" aria-label="Post navigation">
+            <p><a href="index.html" aria-label="Back to home page">← Back to Home</a></p>
+        </nav>
+        <div class="comments-section">
+            <script src="https://utteranc.es/client.js"
+                    repo="volkanozdamar/blog"
+                    issue-term="title"
+                    theme="github-dark"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+</main>
+    <footer class="site-footer">
+        <div class="license-notice">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+            </a>
+            <p>Unless otherwise stated, all blog content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kotlin Variables and Data Types</title>
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Kotlin Variables and Data Types">
+    <meta property="og:description" content="A blog post by Volkan Özdamar">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://volkanozdamar.com/">
+    <meta property="og:image" content="https://volkanozdamar.com/images/logo.png">
+    <meta property="og:site_name" content="Volkan Özdamar's Blog">
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@volkanozdamar">
+    <meta name="twitter:title" content="Kotlin Variables and Data Types">
+    <meta name="twitter:description" content="A blog post by Volkan Özdamar">
+    <meta name="twitter:image" content="https://volkanozdamar.com/images/logo.png">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://unpkg.com/kotlin-playground@1" data-selector="code.language-kotlinplay"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6306708342544146"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    <header role="banner" class="site-header">
+        <div class="header-content">
+            <h1>Volkan Özdamar</h1>
+            <img src="images/logo.png" alt="Volkan Özdamar's Blog Logo" class="site-logo">
+        </div>
+            <nav class="main-navigation">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="archive.html"><i class="fas fa-archive"></i> Archive</a></li>
+                    <li><a href="https://twitter.com/volkanozdamar" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="https://bsky.app/profile/volkanozdamar.com" target="_blank"><i class="fas fa-cloud"></i> Bluesky</a></li>
+                    <li><a href="https://github.com/volkanozdamar" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+                </ul>
+            </nav>
+    </header>
+    <main id="main-content" role="main">        <article>
+            <div class="post-header">
+                <h1>Kotlin Variables and Data Types</h1>
+                <div class="post-tags">
+                        <span class="tag"><a href="tags/Kotlin.html">Kotlin</a></span>
+                </div>
+                <div class="post-date" aria-label="Posted on 24-02-2024">24-02-2024</div>                 
+            </div>
+            <div id="l2it-audio-player">
+                            <script>
+                    function initListen2It() {
+                        Listen2It.init({
+                            url: window.location.href,
+                            org_id: 'L0ZSy2WsVe',
+                            integration_id: '0YLYzZF0Sz',
+                            container: '#l2it-audio-player'
+                        });
+                    }
+                    function initialize(i,t){var n;i.getElementById(t)?initListen2It():((n=i.createElement("script")).id=t,n.async=!0,n.src="https://widget.getlisten2it.com/widget.min.js",n.onload=initListen2It,i.head.appendChild(n))}function initiateCall(){initialize(document,"listen2it-widget")}window.addEventListener?window.addEventListener("load",initiateCall,!1):window.attachEvent("load",initiateCall,!1);
+                </script>
+            </div>
+            <div class="post-content">
+                <h1>Define Variables</h1>
+<p>In Kotlin, like many other programming languages, we use variables to store and manipulate data. These variables act as containers that hold individual pieces of data. The size of each container depends on the data type it stores, which determines the amount of memory allocated to it.</p>
+<p>To define variables in Kotlin, we use two keywords:</p>
+<ul>
+<li>val: This keyword is used to create read-only variables, often referred to as immutable. While the value stored in a val variable cannot be changed after assignment, these variables are not strictly immutable in the sense that their internal state cannot be modified.</li>
+<li>var: This keyword is used to create mutable variables, which allow you to change the value stored in the variable after its initial assignment.</li>
+</ul>
+<p>After these keywords, you need to assign a meaningful name to your variable. Specifying the data type is generally optional, as Kotlin can often infer the type based on the assigned value. Like below , even we don't specify surname's and gravity's types , they inferred as String and Double automatically.</p>
+<pre><code class="language-kotlinplay">fun main(){
+    val name : String = &quot;Volkan&quot;
+    val surName = &quot;Özdamar&quot;
+
+    var numberPi : Double = 3.14
+    var gravity  = 9.81
+}
+</code></pre>
+<p>In Kotlin every thing is an object and we can say that on the contrary of Java , Kotlin has no primitive types.However in conversion from Kotlin code to bytecode , with some optimisations primitive types are converting as primitive java equivalances.</p>
+<p>Compare our example and it's decompiled version.You will see our varibles converted as Primitive Types.</p>
+<pre><code>import kotlin.Metadata;
+
+@Metadata(
+   mv = {1, 9, 0},
+   k = 2,
+   d1 = {&quot;\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u001a\u0006\u0010\u0000\u001a\u00020\u0001¨\u0006\u0002&quot;},
+   d2 = {&quot;main&quot;, &quot;&quot;, &quot;helloworld&quot;}
+)
+public final class MainKt {
+   public static final void main() {
+      String name = &quot;Volkan&quot;;
+      String surName = &quot;Özdamar&quot;;
+      double numberPi = 3.14;
+      double gravity = 9.81;
+   }
+
+   // $FF: synthetic method
+   public static void main(String[] var0) {
+      main();
+   }
+}
+</code></pre>
+<h2>Why val is not immutable but readonly ?</h2>
+<p>The value you're assigned to the variable is used to create a new object.If you declare the variable using val, the reference to the object stays in the variable forever and can't be replaced. You can see <em>availableSpace</em> value depends to other variables value.Because of that is not immutable but read-only.</p>
+<pre><code class="language-kotlinplay">public class Box {
+    var width: Int = 20
+    var height: Int = 40
+    var length: Int = 50
+    var usedSpace: Int = 0
+
+    val availableSpace: Int
+    get(){
+        return (width * height * length) - usedSpace
+    }
+}
+</code></pre>
+<p>{% link For more read
+Paolo Montalto's post https://xabaras.medium.com/kotlin-val-is-read-only-not-immutable-585ce2e5359b [medium] [Kotlin: val is read-only not immutable] %}</p>
+<p>Kotlin has the same standard types that you’d expect from a mainstream programming language. These are Numbers, Characters , Booleans, Arrays and String.</p>
+<h2>Numbers Data Types</h2>
+<p>{% img img-fluid /Kotlin-variables-and-data-types/numbers.jpg ' &quot;/Kotlin-variables-and-data-types/numbers.jpg&quot; &quot;Numbers&quot;'%}</p>
+<p>Number types are divided into two groups , Integer types and Floating Types</p>
+<h1>Integer Types</h1>
+<table>
+<thead>
+<tr><th>Type</th><th>Size (bits)</th><th>Min value</th><th>Max value</th></tr>
+</thead>
+<tbody>
+<tr><td>Byte</td><td>8</td><td>-128</td><td>127</td></tr>
+<tr><td>Short</td><td>16</td><td>-32768</td><td>32767</td></tr>
+<tr><td>Int</td><td>32</td><td>-2,147,483,648 (-2<sup>31</sup>)</td><td>2,147,483,647 (2<sup>31</sup> - 1)</td></tr>
+<tr><td>Long</td><td>64</td><td>-9,223,372,036,854,775,808 (-2<sup>63</sup>)</td><td>9,223,372,036,854,775,807 (2<sup>63</sup> - 1)</td></tr>
+</tbody>
+</table>
+<pre><code class="language-kotlinplay">fun main(args : Array&lt;String&gt;) {
+    var b1: Byte = Byte.MIN_VALUE 
+    var b2: Byte = Byte.MAX_VALUE 
+    println(&quot;Smallest byte value: &quot; +b1) 
+    println(&quot;Largest byte value: &quot; +b2) 
+ 
+    var S1: Short = Short.MIN_VALUE 
+    var S2: Short = Short.MAX_VALUE 
+    println(&quot;Smallest short value: &quot; +S1) 
+    println(&quot;Largest short value: &quot; +S2) 
+ 
+    var I1: Int = Int.MIN_VALUE 
+    var I2: Int = Int.MAX_VALUE 
+    println(&quot;Smallest integer value: &quot; +I1) 
+    println(&quot;Largest integer value: &quot; +I2) 
+ 
+    var L1: Long = Long.MIN_VALUE 
+    var L2: Long = Long.MAX_VALUE 
+    println(&quot;Smallest long integer value: &quot; +L1) 
+    println(&quot;Largest long integer value: &quot; +L2) 
+} 
+</code></pre>
+<h1>Floating Point Types</h1>
+<table>
+<thead>
+<tr><th>Type</th><th>Size (bits)</th><th>Min value</th><th>Max value</th></tr>
+</thead>
+<tbody>
+<tr><td>Float</td><td>32</td><td>1.40129846432481707e-45</td><td>3.40282346638528860e+38</td></tr>
+<tr><td>Double</td><td>16</td><td>4.94065645841246544e-324</td><td>1.79769313486231570e+308</td></tr>
+</tbody>
+</table>
+<pre><code class="language-kotlinplay">fun main(args : Array&lt;String&gt;) {
+    var F1: Float = Float.MIN_VALUE 
+    var F2: Float = Float.MAX_VALUE 
+    println(&quot;Smallest Float value: &quot; +F1) 
+    println(&quot;Largest Float value: &quot; + F2) 
+ 
+    var D1: Double = Double.MIN_VALUE 
+    var D2: Double = Double.MAX_VALUE 
+    println(&quot;Smallest Double value: &quot; + D1) 
+    println(&quot;Largest Double value: &quot; + D2) 
+} 
+</code></pre>
+<h2>Character Types</h2>
+<table>
+<thead>
+<tr><th>Type</th><th>Size (bits)</th><th>Min value</th><th>Max value</th></tr>
+</thead>
+<tbody>
+<tr><td>Char</td><td>4</td><td>-128</td><td>127</td></tr>
+</tbody>
+</table>
+<h2>Boolean Types</h2>
+<table>
+<thead>
+<tr><th>Type</th><th>Size (bits)</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td>Boolean</td><td>1</td><td>true or false</td></tr>
+</tbody>
+</table>
+<h2>Arrays</h2>
+<p>Arrays in Kotlin, like in many other programming languages, are a fundamental data structure that can be used to store multiple values of the same type in a single variable. Here are some reasons why we might use arrays in Kotlin:</p>
+<p>Efficient Storage: Arrays allow you to store multiple items of the same type in a single variable, which can make your code more efficient and easier to read.</p>
+<p>Indexed Access: Each element in an array has a unique index, starting from 0. This allows for quick access to any element in the array, which can be very useful in certain algorithms.</p>
+<p>Iteration: Arrays can be easily iterated over, which is useful when you want to perform an operation on each element in the collection.</p>
+<p>Fixed Size: Arrays have a fixed size once they are created. This can be useful when you know exactly how many elements you need to store.</p>
+<p>Interoperability: Kotlin's Array class provides interoperability with Java and other JVM languages. This is important when working in a mixed-language codebase.</p>
+<p>Here's a simple example of how to declare and initialize an array in Kotlin:</p>
+<pre><code>val numbers = arrayOf(1, 2, 3, 4, 5)
+</code></pre>
+<p>And here's how you might access elements and iterate over an array:</p>
+<pre><code>val firstNumber = numbers[0] // Access the first element
+
+for (number in numbers) { // Iterate over the array
+    println(number)
+}
+</code></pre>
+<p>Remember, while arrays can be very useful, they are not always the best tool for the job. Kotlin also provides other collection types, like List, Set, and Map, which might be more appropriate depending on your specific needs.</p>
+<p>In Kotlin, there are two types of arrays: primitive arrays and class arrays.</p>
+<ol>
+<li>
+<p>Primitive Arrays:</p>
+<ul>
+<li>Primitive arrays are used to store elements of primitive data types such as Int, Long, Float, etc.</li>
+<li>These arrays are more memory-efficient as they directly store the values in a contiguous memory block.</li>
+<li>Primitive arrays cannot store null values. They always have default values based on the data type (e.g., 0 for Int, false for Boolean).</li>
+<li>Primitive arrays have a fixed size that cannot be changed once created.</li>
+</ul>
+</li>
+<li>
+<p>Class Arrays:</p>
+<ul>
+<li>Class arrays are used to store elements of class types or nullable types.</li>
+<li>Class arrays store references to objects rather than the actual values.</li>
+<li>Class arrays can store null values.</li>
+<li>Class arrays have a dynamic size and can be resized using functions like <code>Array.copyOf()</code> or <code>Array.resize()</code>.</li>
+</ul>
+</li>
+</ol>
+<p>Here's an example to illustrate the difference:</p>
+<pre><code class="language-kotlinplay">// Primitive array
+val primitiveArray: IntArray = intArrayOf(1, 2, 3)
+println(primitiveArray[0]) // Output: 1
+
+// Class array
+val classArray: Array&lt;Int?&gt; = arrayOf(1, 2, null)
+println(classArray[0]) // Output: 1
+</code></pre>
+<p>In the above example, <code>primitiveArray</code> is a primitive array of type <code>IntArray</code> that stores integer values directly. On the other hand, <code>classArray</code> is a class array of type <code>Array&lt;Int?&gt;</code> that stores references to <code>Int</code> objects, including a null value.</p>
+<p>It's important to choose the appropriate array type based on your requirements to optimize memory usage and handle nullable values effectively.</p>
+
+            </div>
+        </article>
+        <nav role="navigation" aria-label="Post navigation">
+            <p><a href="index.html" aria-label="Back to home page">← Back to Home</a></p>
+        </nav>
+        <div class="comments-section">
+            <script src="https://utteranc.es/client.js"
+                    repo="volkanozdamar/blog"
+                    issue-term="title"
+                    theme="github-dark"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+</main>
+    <footer class="site-footer">
+        <div class="license-notice">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+            </a>
+            <p>Unless otherwise stated, all blog content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
