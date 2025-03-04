@@ -11,6 +11,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://volkanozdamar.com/tr/archive.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://volkanozdamar.com/my-blog-has-a-new-theme.html</loc>
     <lastmod>2025-03-04T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -103,6 +108,12 @@
   <url>
     <loc>https://volkanozdamar.com/hello-world.html</loc>
     <lastmod>2018-08-10T00:00:00+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://volkanozdamar.com/tr/merhaba.html</loc>
+    <lastmod>2025-03-05T00:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

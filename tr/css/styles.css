@@ -1,0 +1,508 @@
+/* Common styles for blog templates */
+body {
+    font-family: 'Chakra Petch', sans-serif;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #E8AF17;
+    color: #000000;
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/* Navigation styles */
+.main-navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.main-navigation li {
+    margin: 0;
+}
+
+.main-navigation a {
+    color: #000000;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.main-navigation a:hover,
+.main-navigation a:focus {
+    background-color: #000000;
+    color: #E8AF17;
+    text-decoration: none;
+}
+
+.main-navigation i {
+    font-size: 1.1em;
+}
+
+/* Post list styles */
+.post-list {
+    list-style: none;
+    padding: 0;
+}
+
+.post-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border: 1px solid #000000;
+    background-color: #E8AF17;
+    color: #000000;
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    border-radius: 5px;
+}
+
+/* YouTube post styling */
+.youtube-post {
+    background-color: #b2071d;
+    color: white;
+}
+
+.youtube-post a {
+    color: white;
+}
+
+.youtube-post:hover,
+.youtube-post a:focus {
+    background-color: darkred;
+    color: white;
+}
+
+.youtube-post .post-title,
+.youtube-post .post-date,
+.instagram-post .post-title,
+.instagram-post .post-date {
+    color: white;
+}
+
+/* Instagram post styling */
+.instagram-post {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    color: white;
+}
+
+.instagram-post a {
+    color: white;
+}
+
+.instagram-post:hover,
+.instagram-post a:focus {
+    background: linear-gradient(45deg, #833AB4, #C13584, #E1306C, #FD1D1D, #405DE6, #5851DB);
+    color: white;
+}
+
+.post-item a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    color: #000000;
+    outline: none;
+}
+
+.post-item:hover,
+.post-item a:focus {
+    background-color: #000000;
+    text-decoration: none;
+    color: #E8AF17;
+    border-radius: 5px;
+}
+
+.post-title {
+    margin: 0;
+    font-size: 1.5em;
+    color: inherit;
+    flex: 1;
+}
+
+.post-date {
+    color: inherit;
+    font-size: 0.9em;
+    margin-left: auto;
+    white-space: nowrap;
+    text-align: right;
+}
+
+/* Post content styles */
+.post-header {
+    border-bottom: 1px solid #000000;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.post-header h1 {
+    margin: 0;
+    flex: 1;
+}
+
+.post-header .post-date {
+    white-space: nowrap;
+}
+
+.archive-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.year-section {
+    margin-bottom: 2rem;
+}
+
+.year-heading {
+    border-bottom: 1px solid #000000;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.post-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0;
+}
+
+.post-entry a {
+    flex-grow: 1;
+    margin-right: 1rem;
+}
+
+.post-entry .post-date {
+    flex-shrink: 0;
+    text-align: right;
+    color: #000000;
+}
+
+.site-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.site-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.post-content {
+    margin-top: 20px;
+    .comments-section {
+        margin-top: 2rem;
+        padding: 1rem;
+        border-top: 1px solid #000000;
+    }
+}
+
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+}
+
+/* Common link styles */
+a {
+    color: #000000;
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+.post-item:hover .post-title,
+.post-item:hover .post-date,
+.post-item a:focus .post-title,
+.post-item a:focus .post-date {
+    color: #E8AF17;
+}
+
+/* Pagination styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.pagination a,
+.pagination span {
+    padding: 0.5rem 1rem;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    color: #000000;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.pagination a:hover,
+.pagination a:focus {
+    background-color: #000000;
+    color: #E8AF17;
+    text-decoration: none;
+}
+
+.pagination [disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-info {
+    font-weight: 500;
+}
+
+/* Skip to main content link for keyboard users */
+.skip-to-main {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 1em;
+    background-color: #FFFFFF;
+    color: #000000;
+    text-decoration: none;
+}
+
+.skip-to-main:focus {
+    left: 50%;
+    transform: translateX(-50%);
+    outline: 3px solid #000000;
+    outline-offset: 3px;
+    text-decoration: none;
+    font-weight: bold;
+}
+/* Kotlin Playground styles */
+.compiler-info__open-editor-link,
+.compiler-info__target,
+.compiler-info__version {
+    color: #000000 !important;
+}
+/* Kotlin Playground dark mode styles */
+.kotlin-playground {
+    background-color: #E8AF17 !important;
+    color: #000000 !important;
+}
+
+.CodeMirror {
+    background-color: #E8AF17 !important;
+    color: #000000 !important;
+}
+
+.CodeMirror-gutters {
+    background-color: black !important;
+    border-right: 1px solid #555 !important;
+}
+
+.CodeMirror-linenumber {
+    background-color: black!important;
+    color: #E8AF17 !important;
+}
+
+.compiler-info {
+    background-color: black !important;
+    color: #E8AF17 !important;
+}
+
+.code-output {
+    background-color: #E8AF17!important;
+    color: #000000!important;
+}
+
+.run-button {
+    color: white !important;
+}
+
+
+.compiler-info_crosslink
+.compiler-info__open-editor-link,
+.compiler-info__target,
+.compiler-info__version {
+    background-color: #000000;
+    color: #E8AF17 !important;
+}
+
+.executable-fragment  {
+    border: 1px solid #000000!important;
+}
+
+.utterances {
+    background: #000000 !important;
+}
+.utterances-frame {
+    background: #000000 !important;
+}
+/* Tag styles */
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+    justify-content: flex-end;
+}
+
+.tag {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    background-color: #000000;
+    color: #E8AF17;
+    border-radius: 3px;
+    font-size: 0.8em;
+    transition: all 0.3s ease;
+}
+
+.tag a {
+    color: #E8AF17;
+    text-decoration: none;
+}
+
+.tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.youtube-post .tag {
+    background-color: #ffffff;
+    color: #b2071d;
+}
+
+.youtube-post .tag a {
+    color: #b2071d;
+}
+
+.post-item:hover .tag,
+.post-item a:focus .tag {
+    background-color: #E8AF17;
+    color: #000000;
+}
+
+.post-item:hover .tag a,
+.post-item a:focus .tag a {
+    color: #000000;
+}
+
+.youtube-post:hover .tag,
+.youtube-post a:focus .tag {
+    background-color: #ffffff;
+    color: darkred;
+}
+
+.youtube-post:hover .tag a,
+.youtube-post a:focus .tag a {
+    color: darkred;
+}
+/* Twitter post styling */
+.twitter-post {
+    background: #1DA1F2;
+    color: white;
+}
+
+.twitter-post a {
+    color: white;
+}
+
+.twitter-post:hover,
+.twitter-post a:focus {
+    background: #0d8bd9;
+    color: white;
+}
+
+.twitter-post .post-title,
+.twitter-post .post-date {
+    color: white;
+}
+
+blockquote {
+    margin: 1.5em 0;
+    padding: 1em 1.5em;
+    border-left: 4px solid #000000;
+    background-color: rgba(0, 0, 0, 0.05);
+    font-style: italic;
+}
+
+blockquote p {
+    margin: 0;
+}
+
+blockquote cite {
+    display: block;
+    margin-top: 0.5em;
+    font-size: 0.9em;
+    color: #666;
+    font-style: normal;
+}
+
+code, pre {
+    font-family: Inconsolata, Monaco, "Courier New", monospace;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    color: #E8AF17;
+    background-color: #000000;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 4px;
+    overflow-x: auto;
+    white-space: pre;
+}
+.site-footer {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid #000000;
+}
+
+.license-notice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.license-notice img {
+    margin: 0 auto;
+}
+
+.license-notice p {
+    margin: 0;
+    max-width: 600px;
+    text-align: center;
+}

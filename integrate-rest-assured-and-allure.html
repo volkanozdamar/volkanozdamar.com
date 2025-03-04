@@ -22,6 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.11.1/css/flag-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://unpkg.com/kotlin-playground@1" data-selector="code.language-kotlinplay"></script>
@@ -47,8 +48,8 @@
                     <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
                     <li><a href="archive.html"><i class="fas fa-archive"></i> Archive</a></li>
                     <li><a href="https://twitter.com/volkanozdamar" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
-                    <li><a href="https://bsky.app/profile/volkanozdamar.com" target="_blank"><i class="fas fa-cloud"></i> Bluesky</a></li>
                     <li><a href="https://github.com/volkanozdamar" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+                    <li><a href="tr/index.html"><i class="fi fi-tr"></i> Türkçe</a></li>
                 </ul>
             </nav>
     </header>
@@ -61,18 +62,21 @@
                 </div>
                 <div class="post-date" aria-label="Posted on 29-10-2019">29-10-2019</div>                 
             </div>
-            <div id="l2it-audio-player">
-                            <script>
-                    function initListen2It() {
-                        Listen2It.init({
-                            url: window.location.href,
-                            org_id: 'L0ZSy2WsVe',
-                            integration_id: '0YLYzZF0Sz',
-                            container: '#l2it-audio-player'
-                        });
-                    }
-                    function initialize(i,t){var n;i.getElementById(t)?initListen2It():((n=i.createElement("script")).id=t,n.async=!0,n.src="https://widget.getlisten2it.com/widget.min.js",n.onload=initListen2It,i.head.appendChild(n))}function initiateCall(){initialize(document,"listen2it-widget")}window.addEventListener?window.addEventListener("load",initiateCall,!1):window.attachEvent("load",initiateCall,!1);
-                </script>
+            <div class="support-and-audio" style="display: flex; gap: 20px; align-items: center; margin: 20px 0;">
+                <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="volkanozdamar" data-color="#000000" data-emoji=""  data-font="Bree" data-text="Buy me a coffee" data-outline-color="#ffffff" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
+                <div id="l2it-audio-player">
+                    <script>
+                        function initListen2It() {
+                            Listen2It.init({
+                                url: window.location.href,
+                                org_id: 'L0ZSy2WsVe',
+                                integration_id: '0YLYzZF0Sz',
+                                container: '#l2it-audio-player'
+                            });
+                        }
+                        function initialize(i,t){var n;i.getElementById(t)?initListen2It():((n=i.createElement("script")).id=t,n.async=!0,n.src="https://widget.getlisten2it.com/widget.min.js",n.onload=initListen2It,i.head.appendChild(n))}function initiateCall(){initialize(document,"listen2it-widget")}window.addEventListener?window.addEventListener("load",initiateCall,!1):window.attachEvent("load",initiateCall,!1);
+                    </script>
+                </div>
             </div>
             <div class="post-content">
                 <p>Rest Assured and Allure Report is two popular tool for testing.Rest Assured is using for API testing and Allure Report is using for create detailed reports about tests.To see our request and response more detailed using this tools we need to add a line to our Rest Assured tests.</p>
