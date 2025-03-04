@@ -4,10 +4,20 @@
   <link href="https://volkanozdamar.com/" rel="alternate" type="text/html"/>
   <link href="https://volkanozdamar.com/atom.xml" rel="self" type="application/atom+xml"/>
   <id>https://volkanozdamar.com/</id>
-  <updated>2025-02-11T00:00:00+03:00</updated>
+  <updated>2025-03-04T00:00:00+03:00</updated>
   <author>
     <name>Volkan Özdamar</name>
   </author>
+  <entry>
+    <title>My blog has new theme</title>
+    <link href="https://volkanozdamar.com/my-blog-has-new-theme.html" rel="alternate" type="text/html"/>
+    <id>https://volkanozdamar.com/my-blog-has-new-theme.html</id>
+    <published>2025-03-04T00:00:00+03:00</published>
+    <updated>2025-03-04T00:00:00+03:00</updated>
+    <category term="instagram"/>
+    <summary type="html"></summary>
+    <content type="html"></content>
+  </entry>
   <entry>
     <title>Create Test Scenarios with GitHub Copilot (Step-by-Step)</title>
     <link href="https://volkanozdamar.com/create-test-scenarios-with-github-copilot-(step-by-step).html" rel="alternate" type="text/html"/>
@@ -595,28 +605,6 @@ P = R/I
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Our test report should be located in allure-report folder and should look like below.&lt;/p&gt;
 &lt;img src=&quot;images/Integrate-Rest-Assured-and-Allure/allure-report.png&quot; alt=&quot;sample example&quot;&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Puppeteer supports Firefox now</title>
-    <link href="https://volkanozdamar.com/puppeteer-supports-firefox-now.html" rel="alternate" type="text/html"/>
-    <id>https://volkanozdamar.com/puppeteer-supports-firefox-now.html</id>
-    <published>2019-05-16T00:00:00+03:00</published>
-    <updated>2019-05-16T00:00:00+03:00</updated>
-    <category term="Chromedevtools"/>
-    <category term="Google"/>
-    <category term="Chrome"/>
-    <category term="Puppeteer"/>
-    <summary type="html">Puppeteer is browser test automation tool developed by Chrome Developer Team.It is announced Chrome Dev Summit 2017 first, and released at January 201...</summary>
-    <content type="html">&lt;p&gt;Puppeteer is browser test automation tool developed by Chrome Developer Team.It is announced Chrome Dev Summit 2017 first, and released at January 2018.This node based library increases popularity day by day.Puppeteer promises that ease to use , 100x faster test run , working with CI/CD pipelines like travis.To make quick intoduction to puppeteer please read my post about Puppeteer &lt;a href=&quot;https://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer/&quot;&gt;from this link&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Last week , in Google I/O ,Chrome developers announced new features of Puppeteer.By virtue of collabration of Mozilla , Puppeteer now support Firefox too.It is experimental phase now and 90% of project is done.You can easily find &lt;a href=&quot;https://aslushnikov.github.io/ispuppeteerfirefoxready/&quot;&gt;from this link&lt;/a&gt;  which API’s are ready.To write a script for firefox you need to change just one line after when you installed firefox-puppeteer.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;const puppeteer = require(&apos;puppeteer-firefox&apos;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Another improvement announced about mobile device profile set.Puppeteer comes with 100+ device profile to test your modern web pages with real device sizes.Also you can test your web pages with new “Offline Mode” support, without cutting your connection of device.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-language-javascript&quot;&gt;await page.setOfflineMode(true)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;If you want to learn more depth about new features watch video in below&lt;/p&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/MbnATLCuKI4?si=DSqyOdhXw7dzTeID&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen&gt;&lt;/iframe&gt;
 </content>
   </entry>
 </feed>
