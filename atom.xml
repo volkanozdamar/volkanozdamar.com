@@ -4,10 +4,73 @@
   <link href="https://volkanozdamar.com/" rel="alternate" type="text/html"/>
   <link href="https://volkanozdamar.com/atom.xml" rel="self" type="application/atom+xml"/>
   <id>https://volkanozdamar.com/</id>
-  <updated>2025-03-04T00:00:00+03:00</updated>
+  <updated>2025-03-13T00:00:00+03:00</updated>
   <author>
     <name>Volkan Özdamar</name>
   </author>
+  <entry>
+    <title>Send test results to Slack with Webhooks</title>
+    <link href="https://volkanozdamar.com/send-test-results-to-slack-with-webhooks.html" rel="alternate" type="text/html"/>
+    <id>https://volkanozdamar.com/send-test-results-to-slack-with-webhooks.html</id>
+    <published>2025-03-13T00:00:00+03:00</published>
+    <updated>2025-03-13T00:00:00+03:00</updated>
+    <category term="Slack"/>
+    <category term="Webhooks"/>
+    <category term="Test Automation"/>
+    <category term="CI/CD"/>
+    <summary type="html">In the fast-paced world of software development, observing your test results in real time and staying informed as a team is crucial. To keep track of ...</summary>
+    <content type="html">&lt;p&gt;In the fast-paced world of software development, observing your test results in real time and staying informed as a team is crucial. To keep track of the status of your tests, you can send test results to Slack using webhooks.&lt;/p&gt;
+&lt;h2&gt;What is a webhook?&lt;/h2&gt;
+&lt;p&gt;A webhook is a mechanism that allows you to send data from one application to another. In the context of test results, a webhook can be used to send test results from your test automation framework to Slack.&lt;/p&gt;
+&lt;h2&gt;Slack Apps&lt;/h2&gt;
+&lt;p&gt;Slack Apps are custom integrations that extend Slack&apos;s functionality. They can be built to perform specific tasks, automate workflows, or integrate external services with your Slack workspace. These apps can be either custom-built for your organization&apos;s needs or installed from the Slack App Directory.&lt;/p&gt;
+&lt;p&gt;First we need to add our Slack workspace called &lt;a href=&quot;https://slack.com/marketplace/A0F7XDUAZ-incoming-webhooks&quot;&gt;&amp;quot;Incoming Webhooks&amp;quot;&lt;/a&gt;.This app allows you to send messages from external sources to your Slack workspace, and you can set which channel you want to send the messages to.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/Send-Test-Results-to-Slack/slack-webhook.png&quot; alt=&quot;Webhook Slack&quot; /&gt;&lt;/p&gt;
+&lt;h2&gt;Adding dependencies to our code&lt;/h2&gt;
+&lt;p&gt;First we need to add our dependencies to our code.This solution working only TestNG v7 and above.&lt;/p&gt;
+&lt;p&gt;If you are using Maven&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;dependency&amp;gt;
+  &amp;lt;groupId&amp;gt;io.github.automationreddy&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;java-slack-notify&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;1.2.0&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you are using Gradle&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;implementation group: &apos;io.github.automationreddy&apos;, name: &apos;java-slack-notify&apos;, version: &apos;1.2.0&apos;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then we  need to add the following code to our test class.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@Listeners(TestNGSlackReporter.class)
+public class TestClass {
+  //ToDo
+ }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Lately we need to add the following code to related testng.xml file.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
+&amp;lt;!DOCTYPE suite SYSTEM &amp;quot;http://testng.org/testng-1.0.dtd&amp;quot;&amp;gt;
+&amp;lt;suite name=&amp;quot;Regression&amp;quot;&amp;gt;
+    &amp;lt;listeners&amp;gt;
+        &amp;lt;listener class-name=&amp;quot;io.github.automationreddy.testng.TestNGSlackReporter&amp;quot;/&amp;gt;
+    &amp;lt;/listeners&amp;gt;
+&amp;lt;/suite&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Creating the webhook URL and configuring settings
+Now, we need to create a webhook URL and make our settings.&lt;/p&gt;
+&lt;p&gt;From Slack, click on the &amp;quot;Incoming Webhooks&amp;quot; app.&lt;/p&gt;
+&lt;p&gt;On the left panel, click the &amp;quot;Add to Slack&amp;quot; button.&lt;/p&gt;
+&lt;p&gt;On the opening page, select a channel. Slack will generate a URL for you. Copy that URL and paste it into your slack.properties file.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/Send-Test-Results-to-Slack/create_url.gif&quot; alt=&quot;Webhook Slack&quot; /&gt;&lt;/p&gt;
+&lt;h2&gt;Properties&lt;/h2&gt;
+&lt;p&gt;Inside &lt;code&gt;src/main/resources&lt;/code&gt; folder create a file named as &lt;code&gt;slack.properties&lt;/code&gt;.
+Add variables as below.Second and third variables are optional.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;WEBHOOK_URL=paste_your_webhook_url_here
+NOTIFY_ONLY_ON_FAILURE=false 
+SHOW_FAILED_RESULTS_ONLY=false
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Results&lt;/h2&gt;
+&lt;p&gt;If everything is configured correctly, you will see your test results in the Slack channel.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/Send-Test-Results-to-Slack/result.png&quot; alt=&quot;Webhook Slack&quot; /&gt;&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>My blog has a new theme</title>
     <link href="https://volkanozdamar.com/my-blog-has-a-new-theme.html" rel="alternate" type="text/html"/>
@@ -559,52 +622,6 @@ Hence:
 P = R/I
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;[Note : This post combination of my notes from &lt;a href=&quot;https://learning.oreilly.com/library/view/the-art-of/9781491900536/&quot;&gt;The Art of Application Performance Testing, 2nd Edition&lt;/a&gt; written by Ian Molyneaux and my personal reviews.]&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Integrate Rest Assured and Allure</title>
-    <link href="https://volkanozdamar.com/integrate-rest-assured-and-allure.html" rel="alternate" type="text/html"/>
-    <id>https://volkanozdamar.com/integrate-rest-assured-and-allure.html</id>
-    <published>2019-10-29T00:00:00+03:00</published>
-    <updated>2019-10-29T00:00:00+03:00</updated>
-    <category term="Rest Assured"/>
-    <category term="Allure"/>
-    <summary type="html">Rest Assured and Allure Report is two popular tool for testing.Rest Assured is using for API testing and Allure Report is using for create detailed re...</summary>
-    <content type="html">&lt;p&gt;Rest Assured and Allure Report is two popular tool for testing.Rest Assured is using for API testing and Allure Report is using for create detailed reports about tests.To see our request and response more detailed using this tools we need to add a line to our Rest Assured tests.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;.filter(new AllureRestAssured())
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;First add maven dependeny in your pom.xml file.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-rest-assured --&amp;gt;
-&amp;lt;dependency&amp;gt;
-    &amp;lt;groupId&amp;gt;io.qameta.allure&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;allure-rest-assured&amp;lt;/artifactId&amp;gt;
-    &amp;lt;version&amp;gt;2.13.0&amp;lt;/version&amp;gt;
-&amp;lt;/dependency&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Simple example for how to use&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;    @Test
-    public void planetsCheck() {
-        Response response = given()
-                .filter(new AllureRestAssured())
-                .when()
-                .get(&amp;quot;https://swapi.co/api/&amp;quot;).then()
-                .extract().response();
-        Assert.assertEquals(response.statusCode(), 200);
-    }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Second way is with RequestSpecBuilder&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;spec = new RequestSpecBuilder()
-                .setContentType(ContentType.JSON)
-                ...
-                .addFilter(new AllureRestAssured())
-                ...
-                .build();
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;To create our report first run these command after test run.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;mvn clean test allure:report
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Our test report should be located in allure-report folder and should look like below.&lt;/p&gt;
-&lt;img src=&quot;images/Integrate-Rest-Assured-and-Allure/allure-report.png&quot; alt=&quot;sample example&quot;&gt;
 </content>
   </entry>
 </feed>

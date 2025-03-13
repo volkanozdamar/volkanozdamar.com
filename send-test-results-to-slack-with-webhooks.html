@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send test results to Slack with Webhooks</title>
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Send test results to Slack with Webhooks">
+    <meta property="og:description" content="A blog post by Volkan Özdamar">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://volkanozdamar.com/">
+    <meta property="og:image" content="https://volkanozdamar.com/images/logo.png">
+    <meta property="og:site_name" content="Volkan Özdamar's Blog">
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@volkanozdamar">
+    <meta name="twitter:title" content="Send test results to Slack with Webhooks">
+    <meta name="twitter:description" content="A blog post by Volkan Özdamar">
+    <meta name="twitter:image" content="https://volkanozdamar.com/images/logo.png">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.11.1/css/flag-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://unpkg.com/kotlin-playground@1" data-selector="code.language-kotlinplay"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6306708342544146"
+     crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "qicwcjewjc");
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    <header role="banner" class="site-header">
+        <div class="header-content">
+            <h1>Volkan Özdamar</h1>
+            <img src="images/logo.png" alt="Volkan Özdamar's Blog Logo" class="site-logo">
+        </div>
+            <nav class="main-navigation">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="archive.html"><i class="fas fa-archive"></i> Archive</a></li>
+                    <li><a href="https://github.com/volkanozdamar" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+                    <li><a href="https://www.buymeacoffee.com/volkanozdamar" target="_blank"><i class="fas fa-coffee"></i> Buy me a coffee</a></li>
+                    <li><a href="tr/index.html"><i class="fi fi-tr"></i> Türkçe</a></li>
+                </ul>
+            </nav>
+    </header>
+    <main id="main-content" role="main">        <article>
+            <div class="post-header">
+                <h1>Send test results to Slack with Webhooks</h1>
+                <div class="post-tags">
+                        <span class="tag"><a href="tags/Slack.html">Slack</a></span>
+                        <span class="tag"><a href="tags/Webhooks.html">Webhooks</a></span>
+                        <span class="tag"><a href="tags/Test Automation.html">Test Automation</a></span>
+                        <span class="tag"><a href="tags/CI/CD.html">CI/CD</a></span>
+                </div>
+                <div class="post-date" aria-label="Posted on 13-03-2025">13-03-2025</div>                 
+            </div>
+            <div class="support-and-audio" style="margin: 20px 0;">
+                <div id="l2it-audio-player">
+                    <script>
+                        function initListen2It() {
+                            Listen2It.init({
+                                url: window.location.href,
+                                org_id: 'L0ZSy2WsVe',
+                                integration_id: '0YLYzZF0Sz',
+                                container: '#l2it-audio-player'
+                            });
+                        }
+                        function initialize(i,t){var n;i.getElementById(t)?initListen2It():((n=i.createElement("script")).id=t,n.async=!0,n.src="https://widget.getlisten2it.com/widget.min.js",n.onload=initListen2It,i.head.appendChild(n))}function initiateCall(){initialize(document,"listen2it-widget")}window.addEventListener?window.addEventListener("load",initiateCall,!1):window.attachEvent("load",initiateCall,!1);
+                    </script>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>In the fast-paced world of software development, observing your test results in real time and staying informed as a team is crucial. To keep track of the status of your tests, you can send test results to Slack using webhooks.</p>
+<h2>What is a webhook?</h2>
+<p>A webhook is a mechanism that allows you to send data from one application to another. In the context of test results, a webhook can be used to send test results from your test automation framework to Slack.</p>
+<h2>Slack Apps</h2>
+<p>Slack Apps are custom integrations that extend Slack's functionality. They can be built to perform specific tasks, automate workflows, or integrate external services with your Slack workspace. These apps can be either custom-built for your organization's needs or installed from the Slack App Directory.</p>
+<p>First we need to add our Slack workspace called <a href="https://slack.com/marketplace/A0F7XDUAZ-incoming-webhooks">&quot;Incoming Webhooks&quot;</a>.This app allows you to send messages from external sources to your Slack workspace, and you can set which channel you want to send the messages to.</p>
+<p><img src="images/Send-Test-Results-to-Slack/slack-webhook.png" alt="Webhook Slack" /></p>
+<h2>Adding dependencies to our code</h2>
+<p>First we need to add our dependencies to our code.This solution working only TestNG v7 and above.</p>
+<p>If you are using Maven</p>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;io.github.automationreddy&lt;/groupId&gt;
+  &lt;artifactId&gt;java-slack-notify&lt;/artifactId&gt;
+  &lt;version&gt;1.2.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>If you are using Gradle</p>
+<pre><code>implementation group: 'io.github.automationreddy', name: 'java-slack-notify', version: '1.2.0'
+</code></pre>
+<p>Then we  need to add the following code to our test class.</p>
+<pre><code>@Listeners(TestNGSlackReporter.class)
+public class TestClass {
+  //ToDo
+ }
+</code></pre>
+<p>Lately we need to add the following code to related testng.xml file.</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;Regression&quot;&gt;
+    &lt;listeners&gt;
+        &lt;listener class-name=&quot;io.github.automationreddy.testng.TestNGSlackReporter&quot;/&gt;
+    &lt;/listeners&gt;
+&lt;/suite&gt;
+</code></pre>
+<p>Creating the webhook URL and configuring settings
+Now, we need to create a webhook URL and make our settings.</p>
+<p>From Slack, click on the &quot;Incoming Webhooks&quot; app.</p>
+<p>On the left panel, click the &quot;Add to Slack&quot; button.</p>
+<p>On the opening page, select a channel. Slack will generate a URL for you. Copy that URL and paste it into your slack.properties file.</p>
+<p><img src="images/Send-Test-Results-to-Slack/create_url.gif" alt="Webhook Slack" /></p>
+<h2>Properties</h2>
+<p>Inside <code>src/main/resources</code> folder create a file named as <code>slack.properties</code>.
+Add variables as below.Second and third variables are optional.</p>
+<pre><code>WEBHOOK_URL=paste_your_webhook_url_here
+NOTIFY_ONLY_ON_FAILURE=false 
+SHOW_FAILED_RESULTS_ONLY=false
+</code></pre>
+<h2>Results</h2>
+<p>If everything is configured correctly, you will see your test results in the Slack channel.</p>
+<p><img src="images/Send-Test-Results-to-Slack/result.png" alt="Webhook Slack" /></p>
+
+            </div>
+        </article>
+        <nav role="navigation" aria-label="Post navigation">
+            <p><a href="index.html" aria-label="Back to home page">← Back to Home</a></p>
+        </nav>
+        <div class="comments-section">
+            <script src="https://utteranc.es/client.js"
+                    repo="volkanozdamar/volkanozdamar.com"
+                    issue-term="title"
+                    theme="github-dark"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+</main>
+    <footer class="site-footer">
+        <div class="license-notice">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+            </a>
+            <p>Unless otherwise stated, all blog content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

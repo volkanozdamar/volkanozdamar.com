@@ -219,7 +219,54 @@ body {
 
 .post-content {
     margin-top: 20px;
-    .comments-section {
+    background-color: black;
+    color: #E8AF17;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.post-content a {
+    color: #E8AF17;
+    text-decoration: underline;
+}
+
+.post-content a:hover,
+.post-content a:focus {
+    color: #FFFFFF;
+}
+
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+    border: 2px solid #E8AF17;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+    color: #E8AF17;
+}
+
+.post-content code {
+    background-color: #E8AF17;
+    color: #000000;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+.post-content pre {
+    background-color: #E8AF17;
+    color: #000000;
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+.comments-section {
         margin-top: 2rem;
         padding: 1rem;
         border-top: 1px solid #000000;
@@ -319,12 +366,12 @@ a:focus {
 }
 
 .CodeMirror {
-    background-color: #E8AF17 !important;
-    color: #000000 !important;
+    background-color: black !important;
+    color: #E8AF17 !important;
 }
 
 .CodeMirror-gutters {
-    background-color: black !important;
+    background-color: #E8AF17 !important;
     border-right: 1px solid #555 !important;
 }
 
@@ -334,13 +381,13 @@ a:focus {
 }
 
 .compiler-info {
-    background-color: black !important;
-    color: #E8AF17 !important;
+    background-color: #E8AF17 !important;
+    color: #000000 !important;
 }
 
 .code-output {
-    background-color: #E8AF17!important;
-    color: #000000!important;
+    background-color: #000000 !important;
+    color: #E8AF17!important;
 }
 
 .run-button {
@@ -352,8 +399,8 @@ a:focus {
 .compiler-info__open-editor-link,
 .compiler-info__target,
 .compiler-info__version {
-    background-color: #000000;
-    color: #E8AF17 !important;
+    background-color: #E8AF17;
+    color: #000000 !important;
 }
 
 .executable-fragment  {
