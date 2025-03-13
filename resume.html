@@ -1,0 +1,199 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Volkan Özdamar</title>
+<style>
+body {
+    color: #000000;
+    background: #EEEEEE;
+    font: 1.1em "Times New Roman";
+    line-height: 1.2;
+    margin: 40px 0;
+}
+#resume {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 40px 60px;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-shadow: 2px 2px 4px #AAAAAA;
+    -webkit-box-shadow: 2px 2px 4px #AAAAAA;
+}
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 200%;
+    margin: 0;
+    padding: 0;
+}
+h2 {
+    border-bottom: 1px solid #000000;
+    text-transform: uppercase;
+    font-size: 130%;
+    margin: 1em 0 0 0;
+    padding: 0;
+}
+h3 {
+    font-size: 100%;
+    margin: 0.8em 0 0.3em 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+p {
+    margin: 0 0 0.5em 0;
+    padding: 0;
+    }
+ul {
+    padding: 0;
+    margin: 0 1.5em;
+    }
+/* ul immediately after h1 = contact list */
+h1 + ul {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    }
+h1 + ul > li {
+    display: inline;
+    white-space: pre;
+    list-style-type: none;
+}
+h1 + ul > li:after {
+    content: "  \2022  ";
+}
+h1 + ul > li:last-child:after {
+    content: "";
+}
+/* p immediately after contact list = summary */
+h1 + ul + p {
+    margin: 1em 0;
+}
+@media print {
+    body {
+        font-size: 10pt;
+        margin: 0;
+        padding: 0;
+        background: none;
+    }
+    #resume {
+        margin: 0;
+        padding: 0;
+        border: 0px;
+        background: none;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+    /* Do not underline abbr tags in PDF */
+    abbr {
+        text-decoration: none;
+        font-variant: none;
+    }
+    /* Make links black in PDF */
+    /* Move this outside the print block to apply this in HTML too */
+    a, a:link, a:visited, a:hover {
+        color: #000000;
+        text-decoration: underline;
+    }
+}
+@page {
+    /* Change margins and paper size of PDF */
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/@page */
+    size: letter;
+    margin: 0.5in 0.8in;
+}
+@media screen and (max-width: 800px) {
+    body {
+        font-size: 16pt;
+        margin: 0;
+        padding: 0;
+        background: #FFFFFF !important;
+    }
+    #resume {
+        margin: 0;
+        padding: 1em;
+        border: 0px;
+        background: none;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+}
+
+</style>
+</head>
+<body>
+<div id="resume">
+<!-- The (first) h1 will be used as the <title> of the HTML page -->
+<h1>Volkan Özdamar</h1>
+<!-- The unordered list immediately after the h1 will be formatted on a single
+line. It is intended to be used for contact details -->
+<ul>
+<li><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#118;&#111;&#108;&#107;&#97;&#110;&#64;&#118;&#111;&#108;&#107;&#97;&#110;&#111;&#122;&#100;&#97;&#109;&#97;&#114;&#46;&#99;&#111;&#109;">&#118;&#111;&#108;&#107;&#97;&#110;&#64;&#118;&#111;&#108;&#107;&#97;&#110;&#111;&#122;&#100;&#97;&#109;&#97;&#114;&#46;&#99;&#111;&#109;</a></li>
+<li>(90) 535-8401999</li>
+<li><a href="http://volkanozdamar.com">volkanozdamar.com</a></li>
+<li>Ankara , Türkiye</li>
+</ul>
+<!-- The paragraph after the h1 and ul and before the first h2 is optional. It
+is intended to be used for a short summary. -->
+<p>Highly experienced Software Quality Assurance Specialist with a proven track record in the information technology and services industry. Expertise in Test Automation, Selenium, REST Assured, and Java. Proven ability to deliver quality and compliance. Experience includes consultancy services for Allianz Türkiye, Quality Assurance Analyst roles at Sony Türkiye and Trendyol (part of Alibaba Group), and currently working remotely with D360 Bank as a B2B Contractor.</p>
+<h2>Experience</h2>
+<!-- You have to wrap the "left" and "right" half of these headings in spans by
+hand -->
+<h3><span>D360 Bank | Senior Quality Assurance Engineer </span> <span>Jan 2021 – Jan 2025 </span></h3>
+<ul>
+<li>Performed Backend (API) Testing and Automation with Postman and Rest Assured.   </li>
+<li>Conducted Android Application Testing with Espresso and Barista.   </li>
+<li>Conducted iOS Application Testing with XCUITest.   </li>
+<li>Performed Mobile Testing with Appium.   </li>
+</ul>
+<h3><span>Trendyol Group | QA Specialist </span> <span>Apr 2019 – Dec 2020 </span></h3>
+<ul>
+<li>Performed Backend (API) Testing and Automation with Postman and Rest Assured.   </li>
+<li>Created load tests with Locust.   </li>
+<li>Implemented regression tests.   </li>
+<li>Performed log tracking and monitoring with Kibana, Graylog, and NewRelic.   </li>
+<li>Experience with Kubernetes, Couchbase, and RabbitMQ.   </li>
+<li>Wrote test scenarios and performed analysis.   </li>
+<li>Resolved defects in JIRA. </li>
+</ul>
+<h3><span>Sony | Senior Quality Assurance Analyst</span><span>Mar 2018 – Mar 2019 </span></h3>
+<ul>
+<li>Worked in a multi-location and multi-team environment, both remotely and locally.   </li>
+<li>Performed Accessibility Testing with pa11y (WCAG 2.0).   </li>
+<li>Involved in CI/CD development and testing with Docker, Jenkins, and GitLab.   </li>
+<li>Performed Test Automation with Selenium, PHP, Behat Framework, and Browserstack.   </li>
+<li>Implemented functional and acceptance tests.   </li>
+<li>Implemented regression tests.   </li>
+<li>Wrote SQL queries.   </li>
+<li>Wrote test scenarios and performed analysis.   </li>
+<li>Tested for cross-browser compatibility.   </li>
+<li>Resolved defects in JIRA.</li>
+</ul>
+<h3><span>Allianz | Test Automation Specialist</span><span>Apr 2016 – Febr 2018</span></h3>
+<ul>
+<li>Performed Test Automation with Microfocus (formerly known as HP) Unified Functional Test (UFT).   </li>
+<li>Implemented functional and acceptance tests.   </li>
+<li>Implemented regression tests.   </li>
+<li>Familiar with performance tests via Microfocus (formerly known as HP) LoadRunner.   </li>
+<li>Wrote SQL queries.   </li>
+<li>Wrote test scenarios.   </li>
+<li>Tested for cross-browser compatibility and desktop applications.   </li>
+<li>Resolved defects in JIRA and Microfocus (formerly known as HP) Quality Center (QC).   </li>
+</ul>
+<h2>Education</h2>
+<h3><span>Eastern Mediterranean University </span> <span>2007 - 2013</span></h3>
+<ul>
+<li>GPA 2.45</li>
+<li>Bachelor&rsquo;s Degree, Information Technology </li>
+</ul>
+<h2>Skills</h2>
+<ul>
+<li>Testing &amp; Automation: Test Automation, Selenium, REST Assured, Microfocus Unified Functional Test (UFT), Espresso, Barista, XCUITest, Appium, Postman, JUnit, TestNG, Locust, JMeter, pa11y (WCAG 2.0), Behat Framework, Browserstack, CI/CD, Regression Testing, Functional Testing, Acceptance Testing, Load Testing</li>
+<li>Languages: Java, PHP, SQL, T-SQL, C#</li>
+<li>Tools &amp; Technologies: JIRA, Microfocus Quality Center (QC), Kibana, Graylog, NewRelic, Kubernetes, Couchbase, RabbitMQ, Docker, Jenkins, GitLab, Git, Espresso, Barista, XCUITest, Appium, ADO.NET, Team Foundation Server, Visual Studio, MS SQL Server</li>
+<li>Cloud &amp; Platforms: Google Cloud Platform, Android, iOS</li>
+<li>Methodologies: Three-Tier Architecture, Software Design Patterns</li>
+<li>Languages: English (Full Professional), Turkish (Native or Bilingual)</li>
+</ul></div>
+</body>
+</html>
