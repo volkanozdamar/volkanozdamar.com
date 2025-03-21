@@ -4,10 +4,53 @@
   <link href="https://volkanozdamar.com/" rel="alternate" type="text/html"/>
   <link href="https://volkanozdamar.com/atom.xml" rel="self" type="application/atom+xml"/>
   <id>https://volkanozdamar.com/</id>
-  <updated>2025-03-13T00:00:00+03:00</updated>
+  <updated>2025-03-21T00:00:00+03:00</updated>
   <author>
     <name>Volkan Özdamar</name>
   </author>
+  <entry>
+    <title>Vibe Coding from a QA Perspective</title>
+    <link href="https://volkanozdamar.com/vibe-coding-from-a-qa-perspective.html" rel="alternate" type="text/html"/>
+    <id>https://volkanozdamar.com/vibe-coding-from-a-qa-perspective.html</id>
+    <published>2025-03-21T00:00:00+03:00</published>
+    <updated>2025-03-21T00:00:00+03:00</updated>
+    <category term="AI"/>
+    <summary type="html">As you know, with the rise of LLMs, AI editors, and AI agents, we now have tools that allow us to write code declaratively, almost without needing to ...</summary>
+    <content type="html">&lt;p&gt;As you know, with the rise of LLMs, AI editors, and AI agents, we now have tools that allow us to write code declaratively, almost without needing to write code. Cursor, Windsurf, or my popular one, Trae IDE, are examples of AI-driven IDEs. Additionally, you can use GitHub Copilot add-ons with other popular IDEs.
+In recent days, I wanted to experiment with vibe coding. I first rebuilt the blog you are currently reading (volkanozdamar.com) from scratch using Hexo, Kotlin, Flexmark, and Freemarker. I also explored a few mobile projects. Although I attempted to write effective prompts, I eventually had to intervene using coding knowledge. Since it was necessary to manipulate line numbers, code blocks, class names, and variable names, the idea of &apos;zero coding knowledge requirement&apos; faded away. During this process, I frequently had to fix unnecessary additions or disrupted code logic. While I managed to produce functional projects, the resulting output, which still contained bugs and unoptimized code blocks, raised questions about its suitability for real-world use. As a QA, I also asked myself how such a product should be tested.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/image/bionic.png&quot; alt=&quot;Vibe Coding&quot; /&gt;&lt;/p&gt;
+&lt;h2&gt;Lack of Documentation and Planning&lt;/h2&gt;
+&lt;p&gt;I believe these projects are currently best suited for hobby purposes, small teams of one or two people, or as a quick prototyping solution. However, the lack of documentation and planning presents challenges for project clarity and testing processes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Test planning becomes guesswork.&lt;/li&gt;
+&lt;li&gt;Bugs are harder to track and reproduce.&lt;/li&gt;
+&lt;li&gt;Future maintenance becomes time-consuming and error-prone.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Inconsistent Code Quality&lt;/h2&gt;
+&lt;p&gt;While the functionality of the generated code is important, it also needs to be portable, refactorable, and secure. Code that lacks understandability, fails to follow best practices, or has not undergone a proper review leads to issues such as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Poor scalability and portability.&lt;/li&gt;
+&lt;li&gt;Security vulnerabilities.&lt;/li&gt;
+&lt;li&gt;Compatibility problems across different environments.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Unpredictable Outcomes&lt;/h2&gt;
+&lt;p&gt;As I experienced, vibe coding often produces unpredictable outcomes, including code breaks, misunderstandings, or unnecessary code additions. This results in:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Extended testing cycles.&lt;/li&gt;
+&lt;li&gt;Misaligned expectations between teams.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Insufficient Testing Coverage&lt;/h2&gt;
+&lt;p&gt;This coding paradigm lacks a focus on testing, as vibe coding typically prioritizes speed and development over quality assurance. Consequently, QA teams often identify gaps and bugs only after deployment, leading to costly post-release fixes. I believe this approach contradicts the principles of the shift-left mentality.&lt;/p&gt;
+&lt;h2&gt;Difficulty in Scaling&lt;/h2&gt;
+&lt;p&gt;Scaling issues arise when applications are released without understanding or optimizing the code. This neglect can lead to overlooked aspects such as:
+Performance under load.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The number of users the application can support.&lt;/li&gt;
+&lt;li&gt;The responses it might elicit under different scenarios.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;While in the current days vibe coding may be suitable for hobbies or rapid prototyping, it introduces significant risks for larger projects -in my opinion- :) . The lack of documentation, inconsistent code quality, insufficient testing, and scalability challenges undermine the reliability and maintainability of the final product. Combining AI tools with structured development practices ensures creativity and quality assurance can coexist for better outcomes.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Send test results to Slack with Webhooks</title>
     <link href="https://volkanozdamar.com/send-test-results-to-slack-with-webhooks.html" rel="alternate" type="text/html"/>
@@ -566,62 +609,6 @@ Edge is updating monthly and it is beta version.Stable and EE has same release c
 &lt;li&gt;Standardize CI&amp;amp;CD&lt;/li&gt;
 &lt;li&gt;Easy Portable &amp;amp; Scalable&lt;/li&gt;
 &lt;/ul&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Software Performance Testing</title>
-    <link href="https://volkanozdamar.com/software-performance-testing.html" rel="alternate" type="text/html"/>
-    <id>https://volkanozdamar.com/software-performance-testing.html</id>
-    <published>2019-12-25T00:00:00+03:00</published>
-    <updated>2019-12-25T00:00:00+03:00</updated>
-    <category term="Performance Testing"/>
-    <summary type="html">Performance testing is a process to touch every department of your companies and a vital part of software development.Either mobile-centric companies ...</summary>
-    <content type="html">&lt;p&gt;Performance testing is a process to touch every department of your companies and a vital part of software development.Either mobile-centric companies or web-centric companies , if your user can’t get what they want from you quickly , you will probably see your users when they are using your opponent company website or mobile app on their devices after their undesired experience.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;A well-performing application is one that lets the end user carry out a given task without undue perceived delay or irritation.Ian Molyneaux - The Art of Application Performance Testing [O&apos;Reilly]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Then , When and How you should start to performance testing? Before start to performance testing you should have some KPIs(Key Performance Indicators) to measure your performance.We can classify these KPIs , in the two main title.&lt;strong&gt;Service-Oriented indicators&lt;/strong&gt; are your applications availability and response time.&lt;strong&gt;Efficiency-Oriented indicators&lt;/strong&gt; are throughput and utilization capacity.&lt;/p&gt;
-&lt;p&gt;In the big picture , performance is combination of  data of your client , the application software  ,your hosting infrastructure and 3rd party dependencies or providers.Therefore additionally you need to End-User Monitoring , analyze the user and client behaviours beside of performance testing.In that part , you need to strict communication with your teams out of your tech stack like user experience team, seller team, accounting team, advertisement team and social media team.Even call center should know what it is and the purpose of this process, because when your site performance getting slow, first impact will rise over there.According to your use case scenarios , you need to collect data from these teams and analyze causes and effects about to your performance.&lt;/p&gt;
-&lt;h2&gt;&lt;strong&gt;The Reasons of Bad performance&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;Performance testing is not an activity you need to do before only deployment.It is a part of your whole software development lifecycle(SDLC) like every testing activity.You should start to think about your application performance at the design phase, to prevent time lost and unwanted situations.
-When you skip that part and try to scale before deployment to live , a few days will be descend over like a nightmare to your team.Shortly you need to shift-left your performance testing.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;A “performance by design” mindset lends itself to good performance, or at least the agility to change or reconfigure an application to cope with unexpected performance challenges. - The Art of Application Performance Testing [O&apos;Reilly]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2&gt;&lt;strong&gt;Questions for Scale your app&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;Performance Testing has not a standart approach.Still is it inside so many incognita.However , this question set will survive your team or yourself from the darkness.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;How many end users will actually use the application?&lt;/li&gt;
-&lt;li&gt;Where are these end users located?&lt;/li&gt;
-&lt;li&gt;How many of these end users will use it concurrently?&lt;/li&gt;
-&lt;li&gt;How will the end users connect to the application?&lt;/li&gt;
-&lt;li&gt;How many additional end users will require access to the application over time?&lt;/li&gt;
-&lt;li&gt;What will the final application landscape look like in terms of the number and location of the servers?&lt;/li&gt;
-&lt;li&gt;What effect will the application have on network capacity?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;&lt;strong&gt;Performance Testing Jargon&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;Like every discipline , performance testing have some terms and definitions.These are most common terms when you use performance test for scaling.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Duration&lt;/strong&gt; - Total time of test execution
-&lt;strong&gt;ThinkTime&lt;/strong&gt; - Estimated use time of real users
-&lt;strong&gt;Concurrent User&lt;/strong&gt; - A User group doing same transaction in same time
-&lt;strong&gt;Transaction&lt;/strong&gt; - A piece of software has start and end point for a purpose
-&lt;strong&gt;Simultaneous User&lt;/strong&gt; - A User group doing same transaction one by one independently
-&lt;strong&gt;Virtual User&lt;/strong&gt; - Simulated users by performance testing tool.We can calculate how many vuser we need with this short formula.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;vUsers Required = Total Number of Transactions/ TransactionPerHour 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;Pacing&lt;/strong&gt; - Delays added to our scenarios to control the execution rates.To calculate pacing we can use this way,&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;D = Duration
-B = Baseline time(total time taken by 1 Vu to complete 1 whole iteration)
-T = Total amount of Think time in the script
-I = Expected/Target iteration
-R = Residual time of the test window.
-R = ( D - (T + B)*I)
-P = Pacing interval
-Dividing the residual time by target iteration gives pacing interval
-Hence:
-P = R/I
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;[Note : This post combination of my notes from &lt;a href=&quot;https://learning.oreilly.com/library/view/the-art-of/9781491900536/&quot;&gt;The Art of Application Performance Testing, 2nd Edition&lt;/a&gt; written by Ian Molyneaux and my personal reviews.]&lt;/p&gt;
 </content>
   </entry>
 </feed>
