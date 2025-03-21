@@ -41,6 +41,7 @@ In recent days, I wanted to experiment with vibe coding. I first rebuilt the blo
 &lt;/ul&gt;
 &lt;h2&gt;Insufficient Testing Coverage&lt;/h2&gt;
 &lt;p&gt;This coding paradigm lacks a focus on testing, as vibe coding typically prioritizes speed and development over quality assurance. Consequently, QA teams often identify gaps and bugs only after deployment, leading to costly post-release fixes. I believe this approach contradicts the principles of the shift-left mentality.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/vibe-coding-in-aqa/leo.jpeg&quot; alt=&quot;Vibe Coding&quot; /&gt;&lt;/p&gt;
 &lt;h2&gt;Difficulty in Scaling&lt;/h2&gt;
 &lt;p&gt;Scaling issues arise when applications are released without understanding or optimizing the code. This neglect can lead to overlooked aspects such as:
 Performance under load.&lt;/p&gt;
