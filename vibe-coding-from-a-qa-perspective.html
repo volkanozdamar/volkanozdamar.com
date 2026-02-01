@@ -26,15 +26,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://unpkg.com/kotlin-playground@1" data-selector="code.language-kotlinplay"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6306708342544146"
-     crossorigin="anonymous"></script>
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "qicwcjewjc");
-    </script>
+    <script
+        src="https://app.rybbit.io/api/script.js"
+        data-site-id="e8e76932e5ff"
+        defer
+    ></script>
 </head>
 <body>
     <a href="#main-content" class="skip-to-main">Skip to main content</a>
@@ -77,35 +73,33 @@
                 </div>
             </div>
             <div class="post-content">
-                <p>As you know, with the rise of LLMs, AI editors, and AI agents, we now have tools that allow us to write code declaratively, almost without needing to write code. Cursor, Windsurf, or my popular one, Trae IDE, are examples of AI-driven IDEs. Additionally, you can use GitHub Copilot add-ons with other popular IDEs.
-In recent days, I wanted to experiment with vibe coding. I first rebuilt the blog you are currently reading (volkanozdamar.com) from scratch using Hexo, Kotlin, Flexmark, and Freemarker. I also explored a few mobile projects. Although I attempted to write effective prompts, I eventually had to intervene using coding knowledge. Since it was necessary to manipulate line numbers, code blocks, class names, and variable names, the idea of 'zero coding knowledge requirement' faded away. During this process, I frequently had to fix unnecessary additions or disrupted code logic. While I managed to produce functional projects, the resulting output, which still contained bugs and unoptimized code blocks, raised questions about its suitability for real-world use. As a QA, I also asked myself how such a product should be tested.</p>
-<p><img src="images/image/bionic.png" alt="Vibe Coding" /></p>
-<h2>Lack of Documentation and Planning</h2>
+                <p>As you know, with the rise of LLMs, AI editors, and AI agents, we now have tools that allow us to write code declaratively, almost without needing to write code. Cursor, Windsurf, or my popular one, Trae IDE, are examples of AI-driven IDEs. Additionally, you can use GitHub Copilot add-ons with other popular IDEs. In recent days, I wanted to experiment with vibe coding. I first rebuilt the blog you are currently reading (volkanozdamar.com) from scratch using Hexo, Kotlin, Flexmark, and Freemarker. I also explored a few mobile projects. Although I attempted to write effective prompts, I eventually had to intervene using coding knowledge. Since it was necessary to manipulate line numbers, code blocks, class names, and variable names, the idea of 'zero coding knowledge requirement' faded away. During this process, I frequently had to fix unnecessary additions or disrupted code logic. While I managed to produce functional projects, the resulting output, which still contained bugs and unoptimized code blocks, raised questions about its suitability for real-world use. As a QA, I also asked myself how such a product should be tested.</p>
+<img src="images/vibe-coding-from-a-qa-perspective/bionic.png" alt="Bionic">
+<h4>Lack of Documentation and Planning</h4>
 <p>I believe these projects are currently best suited for hobby purposes, small teams of one or two people, or as a quick prototyping solution. However, the lack of documentation and planning presents challenges for project clarity and testing processes:</p>
 <ul>
 <li>Test planning becomes guesswork.</li>
 <li>Bugs are harder to track and reproduce.</li>
 <li>Future maintenance becomes time-consuming and error-prone.</li>
 </ul>
-<h2>Inconsistent Code Quality</h2>
+<h4>Inconsistent Code Quality</h4>
 <p>While the functionality of the generated code is important, it also needs to be portable, refactorable, and secure. Code that lacks understandability, fails to follow best practices, or has not undergone a proper review leads to issues such as:</p>
 <ul>
 <li>Poor scalability and portability.</li>
 <li>Security vulnerabilities.</li>
 <li>Compatibility problems across different environments.</li>
 </ul>
-<h2>Unpredictable Outcomes</h2>
+<h4>Unpredictable Outcomes</h4>
 <p>As I experienced, vibe coding often produces unpredictable outcomes, including code breaks, misunderstandings, or unnecessary code additions. This results in:</p>
 <ul>
 <li>Extended testing cycles.</li>
 <li>Misaligned expectations between teams.</li>
 </ul>
-<h2>Insufficient Testing Coverage</h2>
+<h4>Insufficient Testing Coverage</h4>
 <p>This coding paradigm lacks a focus on testing, as vibe coding typically prioritizes speed and development over quality assurance. Consequently, QA teams often identify gaps and bugs only after deployment, leading to costly post-release fixes. I believe this approach contradicts the principles of the shift-left mentality.</p>
-<p><img src="images/vibe-coding-in-aqa/leo.jpeg" alt="Vibe Coding" /></p>
-<h2>Difficulty in Scaling</h2>
-<p>Scaling issues arise when applications are released without understanding or optimizing the code. This neglect can lead to overlooked aspects such as:
-Performance under load.</p>
+<img src="images/vibe-coding-from-a-qa-perspective/leo.jpeg" alt="leo">
+<h4>Difficulty in Scaling</h4>
+<p>Scaling issues arise when applications are released without understanding or optimizing the code. This neglect can lead to overlooked aspects such as: Performance under load.</p>
 <ul>
 <li>The number of users the application can support.</li>
 <li>The responses it might elicit under different scenarios.</li>

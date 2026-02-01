@@ -26,15 +26,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://unpkg.com/kotlin-playground@1" data-selector="code.language-kotlinplay"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6306708342544146"
-     crossorigin="anonymous"></script>
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "qicwcjewjc");
-    </script>
+    <script
+        src="https://app.rybbit.io/api/script.js"
+        data-site-id="e8e76932e5ff"
+        defer
+    ></script>
 </head>
 <body>
     <a href="#main-content" class="skip-to-main">Skip to main content</a>
@@ -81,32 +77,32 @@
             </div>
             <div class="post-content">
                 <p>In the fast-paced world of software development, observing your test results in real time and staying informed as a team is crucial. To keep track of the status of your tests, you can send test results to Slack using webhooks.</p>
-<h2>What is a webhook?</h2>
+<h4>What is a webhook?</h4>
 <p>A webhook is a mechanism that allows you to send data from one application to another. In the context of test results, a webhook can be used to send test results from your test automation framework to Slack.</p>
-<h2>Slack Apps</h2>
+<h4>Slack Apps</h4>
 <p>Slack Apps are custom integrations that extend Slack's functionality. They can be built to perform specific tasks, automate workflows, or integrate external services with your Slack workspace. These apps can be either custom-built for your organization's needs or installed from the Slack App Directory.</p>
-<p>First we need to add our Slack workspace called <a href="https://slack.com/marketplace/A0F7XDUAZ-incoming-webhooks">&quot;Incoming Webhooks&quot;</a>.This app allows you to send messages from external sources to your Slack workspace, and you can set which channel you want to send the messages to.</p>
-<p><img src="images/Send-Test-Results-to-Slack/slack-webhook.png" alt="Webhook Slack" /></p>
-<h2>Adding dependencies to our code</h2>
+<p>First we need to add our Slack workspace called &quot;Incoming Webhooks&quot;.This app allows you to send messages from external sources to your Slack workspace, and you can set which channel you want to send the messages to.</p>
+<img src="images/send-test-results-to-slack-with-webhooks/slack-webhook.png" alt="Result">
+<h4>Adding dependencies to our code</h4>
 <p>First we need to add our dependencies to our code.This solution working only TestNG v7 and above.</p>
 <p>If you are using Maven</p>
-<pre><code>&lt;dependency&gt;
+<pre><code class="language-language-java">&lt;dependency&gt;
   &lt;groupId&gt;io.github.automationreddy&lt;/groupId&gt;
   &lt;artifactId&gt;java-slack-notify&lt;/artifactId&gt;
   &lt;version&gt;1.2.0&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre>
 <p>If you are using Gradle</p>
-<pre><code>implementation group: 'io.github.automationreddy', name: 'java-slack-notify', version: '1.2.0'
+<pre><code class="language-language-java">implementation group: 'io.github.automationreddy', name: 'java-slack-notify', version: '1.2.0'
 </code></pre>
-<p>Then we  need to add the following code to our test class.</p>
-<pre><code>@Listeners(TestNGSlackReporter.class)
+<p>Then we need to add the following code to our test class.</p>
+<pre><code class="language-language-java">@Listeners(TestNGSlackReporter.class)
 public class TestClass {
-  //ToDo
- }
-</code></pre>
-<p>Lately we need to add the following code to related testng.xml file.</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+//ToDo
+}
+Lately we need to add the following code to related testng.xml file.
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;Regression&quot;&gt;
     &lt;listeners&gt;
@@ -114,22 +110,20 @@ public class TestClass {
     &lt;/listeners&gt;
 &lt;/suite&gt;
 </code></pre>
-<p>Creating the webhook URL and configuring settings
-Now, we need to create a webhook URL and make our settings.</p>
+<p>Creating the webhook URL and configuring settings Now, we need to create a webhook URL and make our settings.</p>
 <p>From Slack, click on the &quot;Incoming Webhooks&quot; app.</p>
 <p>On the left panel, click the &quot;Add to Slack&quot; button.</p>
-<p>On the opening page, select a channel. Slack will generate a URL for you. Copy that URL and paste it into your slack.properties file.</p>
-<p><img src="images/Send-Test-Results-to-Slack/create_url.gif" alt="Webhook Slack" /></p>
-<h2>Properties</h2>
-<p>Inside <code>src/main/resources</code> folder create a file named as <code>slack.properties</code>.
-Add variables as below.Second and third variables are optional.</p>
-<pre><code>WEBHOOK_URL=paste_your_webhook_url_here
-NOTIFY_ONLY_ON_FAILURE=false 
+<p>On the opening page, select a channel. Slack will generate a URL for you. Copy that URL and paste it into your <code>slack.properties</code> file.</p>
+<img src="images/send-test-results-to-slack-with-webhooks/create_url.gif" alt="Webhook Slack Url Creation">
+<h4>Properties</h4>
+<p>Inside <code>src/main/resources</code> folder create a file named as <code>slack.properties</code>. Add variables as below.Second and third variables are optional.</p>
+<pre><code class="language-language-java">WEBHOOK_URL=paste_your_webhook_url_here
+NOTIFY_ONLY_ON_FAILURE=false
 SHOW_FAILED_RESULTS_ONLY=false
 </code></pre>
-<h2>Results</h2>
+<h4><strong>Results</strong></h4>
 <p>If everything is configured correctly, you will see your test results in the Slack channel.</p>
-<p><img src="images/Send-Test-Results-to-Slack/result.png" alt="Webhook Slack" /></p>
+<img src="images/send-test-results-to-slack-with-webhooks/slack-webhook.png" alt="Webhook Slack Result">
 
             </div>
         </article>

@@ -16,35 +16,33 @@
     <updated>2025-03-21T00:00:00+03:00</updated>
     <category term="AI"/>
     <summary type="html">As you know, with the rise of LLMs, AI editors, and AI agents, we now have tools that allow us to write code declaratively, almost without needing to ...</summary>
-    <content type="html">&lt;p&gt;As you know, with the rise of LLMs, AI editors, and AI agents, we now have tools that allow us to write code declaratively, almost without needing to write code. Cursor, Windsurf, or my popular one, Trae IDE, are examples of AI-driven IDEs. Additionally, you can use GitHub Copilot add-ons with other popular IDEs.
-In recent days, I wanted to experiment with vibe coding. I first rebuilt the blog you are currently reading (volkanozdamar.com) from scratch using Hexo, Kotlin, Flexmark, and Freemarker. I also explored a few mobile projects. Although I attempted to write effective prompts, I eventually had to intervene using coding knowledge. Since it was necessary to manipulate line numbers, code blocks, class names, and variable names, the idea of &apos;zero coding knowledge requirement&apos; faded away. During this process, I frequently had to fix unnecessary additions or disrupted code logic. While I managed to produce functional projects, the resulting output, which still contained bugs and unoptimized code blocks, raised questions about its suitability for real-world use. As a QA, I also asked myself how such a product should be tested.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;images/image/bionic.png&quot; alt=&quot;Vibe Coding&quot; /&gt;&lt;/p&gt;
-&lt;h2&gt;Lack of Documentation and Planning&lt;/h2&gt;
+    <content type="html">&lt;p&gt;As you know, with the rise of LLMs, AI editors, and AI agents, we now have tools that allow us to write code declaratively, almost without needing to write code. Cursor, Windsurf, or my popular one, Trae IDE, are examples of AI-driven IDEs. Additionally, you can use GitHub Copilot add-ons with other popular IDEs. In recent days, I wanted to experiment with vibe coding. I first rebuilt the blog you are currently reading (volkanozdamar.com) from scratch using Hexo, Kotlin, Flexmark, and Freemarker. I also explored a few mobile projects. Although I attempted to write effective prompts, I eventually had to intervene using coding knowledge. Since it was necessary to manipulate line numbers, code blocks, class names, and variable names, the idea of &apos;zero coding knowledge requirement&apos; faded away. During this process, I frequently had to fix unnecessary additions or disrupted code logic. While I managed to produce functional projects, the resulting output, which still contained bugs and unoptimized code blocks, raised questions about its suitability for real-world use. As a QA, I also asked myself how such a product should be tested.&lt;/p&gt;
+&lt;img src=&quot;images/vibe-coding-from-a-qa-perspective/bionic.png&quot; alt=&quot;Bionic&quot;&gt;
+&lt;h4&gt;Lack of Documentation and Planning&lt;/h4&gt;
 &lt;p&gt;I believe these projects are currently best suited for hobby purposes, small teams of one or two people, or as a quick prototyping solution. However, the lack of documentation and planning presents challenges for project clarity and testing processes:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Test planning becomes guesswork.&lt;/li&gt;
 &lt;li&gt;Bugs are harder to track and reproduce.&lt;/li&gt;
 &lt;li&gt;Future maintenance becomes time-consuming and error-prone.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Inconsistent Code Quality&lt;/h2&gt;
+&lt;h4&gt;Inconsistent Code Quality&lt;/h4&gt;
 &lt;p&gt;While the functionality of the generated code is important, it also needs to be portable, refactorable, and secure. Code that lacks understandability, fails to follow best practices, or has not undergone a proper review leads to issues such as:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Poor scalability and portability.&lt;/li&gt;
 &lt;li&gt;Security vulnerabilities.&lt;/li&gt;
 &lt;li&gt;Compatibility problems across different environments.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Unpredictable Outcomes&lt;/h2&gt;
+&lt;h4&gt;Unpredictable Outcomes&lt;/h4&gt;
 &lt;p&gt;As I experienced, vibe coding often produces unpredictable outcomes, including code breaks, misunderstandings, or unnecessary code additions. This results in:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Extended testing cycles.&lt;/li&gt;
 &lt;li&gt;Misaligned expectations between teams.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Insufficient Testing Coverage&lt;/h2&gt;
+&lt;h4&gt;Insufficient Testing Coverage&lt;/h4&gt;
 &lt;p&gt;This coding paradigm lacks a focus on testing, as vibe coding typically prioritizes speed and development over quality assurance. Consequently, QA teams often identify gaps and bugs only after deployment, leading to costly post-release fixes. I believe this approach contradicts the principles of the shift-left mentality.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;images/vibe-coding-in-aqa/leo.jpeg&quot; alt=&quot;Vibe Coding&quot; /&gt;&lt;/p&gt;
-&lt;h2&gt;Difficulty in Scaling&lt;/h2&gt;
-&lt;p&gt;Scaling issues arise when applications are released without understanding or optimizing the code. This neglect can lead to overlooked aspects such as:
-Performance under load.&lt;/p&gt;
+&lt;img src=&quot;images/vibe-coding-from-a-qa-perspective/leo.jpeg&quot; alt=&quot;leo&quot;&gt;
+&lt;h4&gt;Difficulty in Scaling&lt;/h4&gt;
+&lt;p&gt;Scaling issues arise when applications are released without understanding or optimizing the code. This neglect can lead to overlooked aspects such as: Performance under load.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The number of users the application can support.&lt;/li&gt;
 &lt;li&gt;The responses it might elicit under different scenarios.&lt;/li&gt;
@@ -64,32 +62,32 @@ Performance under load.&lt;/p&gt;
     <category term="CI/CD"/>
     <summary type="html">In the fast-paced world of software development, observing your test results in real time and staying informed as a team is crucial. To keep track of ...</summary>
     <content type="html">&lt;p&gt;In the fast-paced world of software development, observing your test results in real time and staying informed as a team is crucial. To keep track of the status of your tests, you can send test results to Slack using webhooks.&lt;/p&gt;
-&lt;h2&gt;What is a webhook?&lt;/h2&gt;
+&lt;h4&gt;What is a webhook?&lt;/h4&gt;
 &lt;p&gt;A webhook is a mechanism that allows you to send data from one application to another. In the context of test results, a webhook can be used to send test results from your test automation framework to Slack.&lt;/p&gt;
-&lt;h2&gt;Slack Apps&lt;/h2&gt;
+&lt;h4&gt;Slack Apps&lt;/h4&gt;
 &lt;p&gt;Slack Apps are custom integrations that extend Slack&apos;s functionality. They can be built to perform specific tasks, automate workflows, or integrate external services with your Slack workspace. These apps can be either custom-built for your organization&apos;s needs or installed from the Slack App Directory.&lt;/p&gt;
-&lt;p&gt;First we need to add our Slack workspace called &lt;a href=&quot;https://slack.com/marketplace/A0F7XDUAZ-incoming-webhooks&quot;&gt;&amp;quot;Incoming Webhooks&amp;quot;&lt;/a&gt;.This app allows you to send messages from external sources to your Slack workspace, and you can set which channel you want to send the messages to.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;images/Send-Test-Results-to-Slack/slack-webhook.png&quot; alt=&quot;Webhook Slack&quot; /&gt;&lt;/p&gt;
-&lt;h2&gt;Adding dependencies to our code&lt;/h2&gt;
+&lt;p&gt;First we need to add our Slack workspace called &amp;quot;Incoming Webhooks&amp;quot;.This app allows you to send messages from external sources to your Slack workspace, and you can set which channel you want to send the messages to.&lt;/p&gt;
+&lt;img src=&quot;images/send-test-results-to-slack-with-webhooks/slack-webhook.png&quot; alt=&quot;Result&quot;&gt;
+&lt;h4&gt;Adding dependencies to our code&lt;/h4&gt;
 &lt;p&gt;First we need to add our dependencies to our code.This solution working only TestNG v7 and above.&lt;/p&gt;
 &lt;p&gt;If you are using Maven&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;dependency&amp;gt;
+&lt;pre&gt;&lt;code class=&quot;language-language-java&quot;&gt;&amp;lt;dependency&amp;gt;
   &amp;lt;groupId&amp;gt;io.github.automationreddy&amp;lt;/groupId&amp;gt;
   &amp;lt;artifactId&amp;gt;java-slack-notify&amp;lt;/artifactId&amp;gt;
   &amp;lt;version&amp;gt;1.2.0&amp;lt;/version&amp;gt;
 &amp;lt;/dependency&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;If you are using Gradle&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;implementation group: &apos;io.github.automationreddy&apos;, name: &apos;java-slack-notify&apos;, version: &apos;1.2.0&apos;
+&lt;pre&gt;&lt;code class=&quot;language-language-java&quot;&gt;implementation group: &apos;io.github.automationreddy&apos;, name: &apos;java-slack-notify&apos;, version: &apos;1.2.0&apos;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Then we  need to add the following code to our test class.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@Listeners(TestNGSlackReporter.class)
+&lt;p&gt;Then we need to add the following code to our test class.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-language-java&quot;&gt;@Listeners(TestNGSlackReporter.class)
 public class TestClass {
-  //ToDo
- }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Lately we need to add the following code to related testng.xml file.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
+//ToDo
+}
+Lately we need to add the following code to related testng.xml file.
+
+&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
 &amp;lt;!DOCTYPE suite SYSTEM &amp;quot;http://testng.org/testng-1.0.dtd&amp;quot;&amp;gt;
 &amp;lt;suite name=&amp;quot;Regression&amp;quot;&amp;gt;
     &amp;lt;listeners&amp;gt;
@@ -97,22 +95,20 @@ public class TestClass {
     &amp;lt;/listeners&amp;gt;
 &amp;lt;/suite&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Creating the webhook URL and configuring settings
-Now, we need to create a webhook URL and make our settings.&lt;/p&gt;
+&lt;p&gt;Creating the webhook URL and configuring settings Now, we need to create a webhook URL and make our settings.&lt;/p&gt;
 &lt;p&gt;From Slack, click on the &amp;quot;Incoming Webhooks&amp;quot; app.&lt;/p&gt;
 &lt;p&gt;On the left panel, click the &amp;quot;Add to Slack&amp;quot; button.&lt;/p&gt;
-&lt;p&gt;On the opening page, select a channel. Slack will generate a URL for you. Copy that URL and paste it into your slack.properties file.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;images/Send-Test-Results-to-Slack/create_url.gif&quot; alt=&quot;Webhook Slack&quot; /&gt;&lt;/p&gt;
-&lt;h2&gt;Properties&lt;/h2&gt;
-&lt;p&gt;Inside &lt;code&gt;src/main/resources&lt;/code&gt; folder create a file named as &lt;code&gt;slack.properties&lt;/code&gt;.
-Add variables as below.Second and third variables are optional.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;WEBHOOK_URL=paste_your_webhook_url_here
-NOTIFY_ONLY_ON_FAILURE=false 
+&lt;p&gt;On the opening page, select a channel. Slack will generate a URL for you. Copy that URL and paste it into your &lt;code&gt;slack.properties&lt;/code&gt; file.&lt;/p&gt;
+&lt;img src=&quot;images/send-test-results-to-slack-with-webhooks/create_url.gif&quot; alt=&quot;Webhook Slack Url Creation&quot;&gt;
+&lt;h4&gt;Properties&lt;/h4&gt;
+&lt;p&gt;Inside &lt;code&gt;src/main/resources&lt;/code&gt; folder create a file named as &lt;code&gt;slack.properties&lt;/code&gt;. Add variables as below.Second and third variables are optional.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-language-java&quot;&gt;WEBHOOK_URL=paste_your_webhook_url_here
+NOTIFY_ONLY_ON_FAILURE=false
 SHOW_FAILED_RESULTS_ONLY=false
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2&gt;Results&lt;/h2&gt;
+&lt;h4&gt;&lt;strong&gt;Results&lt;/strong&gt;&lt;/h4&gt;
 &lt;p&gt;If everything is configured correctly, you will see your test results in the Slack channel.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;images/Send-Test-Results-to-Slack/result.png&quot; alt=&quot;Webhook Slack&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;images/send-test-results-to-slack-with-webhooks/slack-webhook.png&quot; alt=&quot;Webhook Slack Result&quot;&gt;
 </content>
   </entry>
   <entry>
