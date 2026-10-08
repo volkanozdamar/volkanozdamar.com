@@ -6,16 +6,17 @@
     <title>Pull the wires of Chrome with Puppeteer</title>
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="Pull the wires of Chrome with Puppeteer">
-    <meta property="og:description" content="A blog post by Volkan Özdamar">
+    <meta property="og:description" content="Everybody knows that , Chrome is market leader and its developer tools are better than other browsers’.It is useful for software developers and software testers.Honestly ; I’m using Mozilla Firefox…">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://volkanozdamar.com/">
+    <meta property="og:url" content="https://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer.html">
     <meta property="og:image" content="https://volkanozdamar.com/images/logo.png">
     <meta property="og:site_name" content="Volkan Özdamar's Blog">
+    <meta property="article:published_time" content="2018-08-18T00:00:00+03:00">
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@volkanozdamar">
     <meta name="twitter:title" content="Pull the wires of Chrome with Puppeteer">
-    <meta name="twitter:description" content="A blog post by Volkan Özdamar">
+    <meta name="twitter:description" content="Everybody knows that , Chrome is market leader and its developer tools are better than other browsers’.It is useful for software developers and software testers.Honestly ; I’m using Mozilla Firefox…">
     <meta name="twitter:image" content="https://volkanozdamar.com/images/logo.png">
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="apple-touch-icon" href="images/logo.png">
@@ -146,6 +147,28 @@ puppeteer.launch().then(async browser =&gt; {
 
             </div>
         </article>
+        <div class="photo-share" aria-label="Share">
+            <button type="button" id="copy-link" data-url="https://volkanozdamar.com/pull-the-wires-of-chrome-with-puppeteer.html" data-copied="Copied!"><i class="fas fa-link"></i> <span>Copy link</span></button>
+            <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fvolkanozdamar.com%2Fpull-the-wires-of-chrome-with-puppeteer.html" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> X</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fvolkanozdamar.com%2Fpull-the-wires-of-chrome-with-puppeteer.html" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fvolkanozdamar.com%2Fpull-the-wires-of-chrome-with-puppeteer.html" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://wa.me/?text=https%3A%2F%2Fvolkanozdamar.com%2Fpull-the-wires-of-chrome-with-puppeteer.html" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+    <script>
+        document.getElementById('copy-link').addEventListener('click', function () {
+            var button = this, label = button.querySelector('span'), text = label.textContent;
+            var url = button.dataset.url;
+            // On phones, open the native share sheet (Instagram, Messages, ...) when available
+            if (navigator.share && window.matchMedia('(pointer: coarse)').matches) {
+                navigator.share({ url: url }).catch(function () {});
+                return;
+            }
+            navigator.clipboard.writeText(url).then(function () {
+                label.textContent = button.dataset.copied;
+                setTimeout(function () { label.textContent = text; }, 2000);
+            });
+        });
+    </script>
         <nav role="navigation" aria-label="Post navigation">
             <p><a href="index.html" aria-label="Back to home page">← Back to Home</a></p>
         </nav>
