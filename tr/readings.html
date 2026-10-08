@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My blog has a new theme</title>
+    <title>Okumalar</title>
     <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="My blog has a new theme">
+    <meta property="og:title" content="Okumalar">
     <meta property="og:description" content="A blog post by Volkan Özdamar">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://volkanozdamar.com/">
@@ -14,7 +14,7 @@
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@volkanozdamar">
-    <meta name="twitter:title" content="My blog has a new theme">
+    <meta name="twitter:title" content="Okumalar">
     <meta name="twitter:description" content="A blog post by Volkan Özdamar">
     <meta name="twitter:image" content="https://volkanozdamar.com/images/logo.png">
     <link rel="icon" type="image/png" href="images/logo.png">
@@ -41,53 +41,46 @@
         </div>
             <nav class="main-navigation">
                 <ul>
-                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="archive.html"><i class="fas fa-archive"></i> Archive</a></li>
-                    <li><a href="readings.html"><i class="fas fa-book"></i> Readings</a></li>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Ana Sayfa</a></li>
+                    <li><a href="archive.html"><i class="fas fa-archive"></i> Arşiv</a></li>
+                    <li><a href="readings.html"><i class="fas fa-book"></i> Okumalar</a></li>
                     <li><a href="https://github.com/volkanozdamar" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
-                    <li><a href="tr/index.html"><i class="fi fi-tr"></i> Türkçe</a></li>
+                    <li><a href="../index.html"><i class="fi fi-gb"></i> English</a></li>
                 </ul>
             </nav>
     </header>
-    <main id="main-content" role="main">        <article>
-            <div class="post-header">
-                <h1>My blog has a new theme</h1>
-                <div class="post-tags">
-                        <span class="tag"><a href="tags/instagram.html">instagram</a></span>
+    <main id="main-content" role="main">    <div class="archive-content books-content" role="region" aria-label="Okumalar">
+        <section class="year-section" aria-labelledby="currently-reading">
+            <h2 id="currently-reading" class="year-heading"><i class="fas fa-book-open"></i> Şu An Okuduklarım</h2>
+        <ul class="book-list">
+            <li class="book-item">
+                <a href="https://www.goodreads.com/book/show/44799260" target="_blank" rel="noopener">
+                    <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1554567850l/44799260._SX98_.jpg" alt="Japonizm" class="book-cover" loading="lazy">
+                </a>
+                <div class="book-info">
+                    <a href="https://www.goodreads.com/book/show/44799260" target="_blank" rel="noopener" class="book-title">Japonizm</a>
+                    <span class="book-author">Erin Niimi Longhurst</span>
+                    
                 </div>
-                <div class="post-date" aria-label="Posted on 04-03-2025">04-03-2025</div>                 
-            </div>
-            <div class="support-and-audio" style="margin: 20px 0;">
-                <div id="l2it-audio-player">
-                    <script>
-                        function initListen2It() {
-                            Listen2It.init({
-                                url: window.location.href,
-                                org_id: 'L0ZSy2WsVe',
-                                integration_id: '0YLYzZF0Sz',
-                                container: '#l2it-audio-player'
-                            });
-                        }
-                        function initialize(i,t){var n;i.getElementById(t)?initListen2It():((n=i.createElement("script")).id=t,n.async=!0,n.src="https://widget.getlisten2it.com/widget.min.js",n.onload=initListen2It,i.head.appendChild(n))}function initiateCall(){initialize(document,"listen2it-widget")}window.addEventListener?window.addEventListener("load",initiateCall,!1):window.attachEvent("load",initiateCall,!1);
-                    </script>
+            </li>
+            <li class="book-item">
+                <a href="https://www.goodreads.com/book/show/216848047" target="_blank" rel="noopener">
+                    <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1733340973l/216848047._SX98_.jpg" alt="AI Engineering: Building Applications with Foundation Models" class="book-cover" loading="lazy">
+                </a>
+                <div class="book-info">
+                    <a href="https://www.goodreads.com/book/show/216848047" target="_blank" rel="noopener" class="book-title">AI Engineering: Building Applications with Foundation Models</a>
+                    <span class="book-author">Chip Huyen</span>
+                    
                 </div>
-            </div>
-            <div class="post-content">
-                
-            </div>
-        </article>
-        <nav role="navigation" aria-label="Post navigation">
-            <p><a href="index.html" aria-label="Back to home page">← Back to Home</a></p>
-        </nav>
-        <div class="comments-section">
-            <script src="https://utteranc.es/client.js"
-                    repo="volkanozdamar/volkanozdamar.com"
-                    issue-term="title"
-                    theme="github-dark"
-                    crossorigin="anonymous"
-                    async>
-            </script>
-        </div>
+            </li>
+        </ul>
+        </section>
+        <section class="year-section" aria-labelledby="read">
+            <h2 id="read" class="year-heading"><i class="fas fa-check"></i> Okuduklarım</h2>
+        <p class="book-empty">Henüz listelenecek kitap yok.</p>
+        </section>
+        <p class="book-source"><a href="https://www.goodreads.com/volkanozdamar" target="_blank" rel="noopener"><i class="fab fa-goodreads"></i> Goodreads</a></p>
+    </div>
 </main>
     <footer class="site-footer">
         <div class="license-notice">
