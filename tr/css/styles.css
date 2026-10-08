@@ -287,6 +287,47 @@ body {
     margin-top: 1rem;
 }
 
+.album-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+}
+
+.album-card a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.album-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.album-card-title {
+    font-weight: 600;
+}
+
+.album-card-info {
+    font-size: 0.9rem;
+}
+
+.photo-album-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
 .photo-share-link {
     display: inline-block;
     margin-top: 0.5rem;
