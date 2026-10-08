@@ -336,6 +336,35 @@ body {
     margin-top: 1.5rem;
 }
 
+/* Post pages: "Back to Home" on the left, share buttons on the right, on one row (wraps on narrow screens) */
+.post-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.post-actions .photo-share {
+    margin-top: 0;
+    margin-left: auto;
+    justify-content: flex-end;
+}
+
+/* On phones the back button and the share buttons are centered, each group on its own row */
+@media (max-width: 760px) {
+    .post-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .post-actions .photo-share {
+        margin-left: 0;
+        justify-content: center;
+    }
+}
+
 .photo-share-link {
     display: inline-block;
     margin-top: 0.5rem;
@@ -355,7 +384,8 @@ body {
 }
 
 .photo-share a,
-.photo-share button {
+.photo-share button,
+.post-back {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
@@ -373,7 +403,9 @@ body {
 .photo-share a:hover,
 .photo-share a:focus,
 .photo-share button:hover,
-.photo-share button:focus {
+.photo-share button:focus,
+.post-back:hover,
+.post-back:focus {
     background-color: #000000;
     color: #E8AF17;
 }
