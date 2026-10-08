@@ -19,8 +19,15 @@ body {
     margin: 1rem 0;
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
+    gap: 0.25rem;
+    /* All 6 items on one row on wide screens; narrow screens wrap (see the media query below) */
+    flex-wrap: nowrap;
+}
+
+@media (max-width: 760px) {
+    .main-navigation ul {
+        flex-wrap: wrap;
+    }
 }
 
 .main-navigation li {
@@ -30,7 +37,8 @@ body {
 .main-navigation a {
     color: #000000;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    white-space: nowrap;
+    padding: 0.5rem 0.75rem;
     border-radius: 4px;
     transition: all 0.3s ease;
     display: inline-flex;
