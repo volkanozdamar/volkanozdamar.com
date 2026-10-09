@@ -636,6 +636,11 @@ a:focus {
     justify-content: flex-end;
 }
 
+/* Keep the tags off the card's right border, in line with the date above */
+.post-item .post-tags {
+    padding: 0 10px;
+}
+
 .tag {
     display: inline-block;
     padding: 0.2rem 0.5rem;
