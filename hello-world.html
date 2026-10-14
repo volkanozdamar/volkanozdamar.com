@@ -175,7 +175,7 @@
             </div>
         </div>
         <script>
-            // Starts the ride whenever the lane scrolls into view; with "reduce motion" the bike is parked instead
+            // Rides over and over while the lane is in view, starting from the left edge each time it scrolls back in; with "reduce motion" the bike is parked instead
             (function () {
                 var lane = document.querySelector('.bike-lane');
                 if (!lane) return;
@@ -183,18 +183,9 @@
                     lane.classList.add('parked');
                     return;
                 }
-                var ready = true;
                 function check() {
                     var rect = lane.getBoundingClientRect();
-                    var visible = rect.top < window.innerHeight && rect.bottom > 0;
-                    if (visible && ready) {
-                        ready = false;
-                        lane.classList.remove('ride');
-                        void lane.offsetWidth; // restarts the animation
-                        lane.classList.add('ride');
-                    } else if (!visible) {
-                        ready = true;
-                    }
+                    lane.classList.toggle('ride', rect.top < window.innerHeight && rect.bottom > 0);
                 }
                 window.addEventListener('scroll', check, { passive: true });
                 window.addEventListener('resize', check);

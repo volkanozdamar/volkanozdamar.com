@@ -961,11 +961,18 @@ code, pre {
     }
 }
 
-/* A cyclist pulling a "Look out for cyclists" banner across the bottom of the footer, left to right */
+/* A cyclist pulling a "Look out for cyclists" banner across the bottom of the footer, from the window's
+   left edge to its right edge. The lane breaks out of the 800px content column to the full window width */
+html {
+    overflow-x: hidden;
+}
+
 .bike-lane {
     position: relative;
     height: 80px;
     margin-top: 1rem;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
     overflow: hidden;
     color: var(--ink);
 }
@@ -979,14 +986,14 @@ code, pre {
     transform: translateX(-100%);
 }
 
-/* From just past the left edge of the lane to just past its right edge */
+/* From just past the left edge of the window to just past its right edge, then a short pause before the next ride */
 .bike-lane.ride .bike-rider {
-    animation: bike-ride 9s linear forwards;
+    animation: bike-ride 14s linear infinite;
 }
 
 @keyframes bike-ride {
-    from { left: 0; transform: translateX(-100%); }
-    to { left: 100%; transform: translateX(0); }
+    0% { left: 0; transform: translateX(-100%); }
+    85%, 100% { left: 100%; transform: translateX(0); }
 }
 
 /* "Reduce motion": the bike stands still in the middle of the lane */
