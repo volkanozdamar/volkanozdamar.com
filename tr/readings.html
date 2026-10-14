@@ -18,6 +18,14 @@
     <meta name="twitter:title" content="Okumalar">
     <meta name="twitter:description" content="A blog post by Volkan Özdamar">
     <meta name="twitter:image" content="https://volkanozdamar.com/images/logo.png">
+    <script>
+        // Applied before the page is drawn, so a visitor who chose the light theme never sees a dark flash
+        (function () {
+            var theme = null;
+            try { theme = localStorage.getItem('theme'); } catch (e) {}
+            document.documentElement.setAttribute('data-theme', theme === 'light' ? 'light' : 'dark');
+        })();
+    </script>
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -113,6 +121,64 @@
             <p>Unless otherwise stated, all blog content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
         </div>
     </footer>
+        <button type="button" class="pull-cord" aria-label="Açık/koyu tema" title="Çek: açık/koyu tema">
+        <span class="pull-cord-line"></span>
+        <span class="pull-cord-knob"></span>
+        <span class="pull-cord-note" aria-hidden="true">
+            <span class="note-on">Işıkları yak</span>
+            <span class="note-off">Işıkları söndür</span>
+        </span>
+    </button>
+    <script>
+        function toggleTheme() {
+            var theme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+            try { localStorage.setItem('theme', theme); } catch (e) {}
+        }
+
+        // The cord follows the pointer while it's dragged down; letting go far enough (or a click/tap) pulls it
+        document.querySelectorAll('.pull-cord').forEach(function (cord) {
+            var line = cord.querySelector('.pull-cord-line');
+            var startY = null;
+            var pulledByDrag = false;
+
+            function pull() {
+                cord.classList.add('pulled');
+                setTimeout(function () { cord.classList.remove('pulled'); }, 250);
+                toggleTheme();
+            }
+
+            cord.addEventListener('pointerdown', function (e) {
+                startY = e.clientY;
+                try { cord.setPointerCapture(e.pointerId); } catch (err) {}
+                cord.classList.add('dragging');
+            });
+            cord.addEventListener('pointermove', function (e) {
+                if (startY === null) return;
+                line.style.height = 'calc(var(--cord-length) + ' + Math.max(0, Math.min(e.clientY - startY, 60)) + 'px)';
+            });
+            function release(e) {
+                if (startY === null) return;
+                var distance = e.clientY - startY;
+                startY = null;
+                cord.classList.remove('dragging');
+                line.style.height = '';
+                if (distance > 25) {
+                    pulledByDrag = true;
+                    pull();
+                }
+            }
+            cord.addEventListener('pointerup', release);
+            cord.addEventListener('pointercancel', release);
+            cord.addEventListener('click', function () {
+                if (pulledByDrag) {
+                    pulledByDrag = false;
+                    return;
+                }
+                pull();
+            });
+        });
+    </script>
     <script src="js/main.js"></script>
 </body>
 </html>

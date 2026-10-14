@@ -1,12 +1,31 @@
 /* Common styles for blog templates */
+/* Theme colors. Dark is the default; the light theme is the original yellow look.
+   The dark theme swaps the two: black where the site is yellow, yellow where it is black. */
+:root,
+:root[data-theme="dark"] {
+    --primary: #000000;
+    --ink: #E8AF17;
+    --muted: #b8a26a;
+    --quote-bg: rgba(232, 175, 23, 0.08);
+    color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+    --primary: #E8AF17;
+    --ink: #000000;
+    --muted: #666;
+    --quote-bg: rgba(0, 0, 0, 0.05);
+    color-scheme: light;
+}
+
 body {
     font-family: 'Chakra Petch', sans-serif;
     line-height: 1.6;
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #E8AF17;
-    color: #000000;
+    background-color: var(--primary);
+    color: var(--ink);
     font-size: 16px;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
@@ -35,7 +54,7 @@ body {
 }
 
 .main-navigation a {
-    color: #000000;
+    color: var(--ink);
     text-decoration: none;
     white-space: nowrap;
     padding: 0.5rem 0.75rem;
@@ -48,8 +67,8 @@ body {
 
 .main-navigation a:hover,
 .main-navigation a:focus {
-    background-color: #000000;
-    color: #E8AF17;
+    background-color: var(--ink);
+    color: var(--primary);
     text-decoration: none;
 }
 
@@ -66,9 +85,9 @@ body {
 .post-item {
     margin-bottom: 20px;
     padding-bottom: 20px;
-    border: 1px solid #000000;
-    background-color: #E8AF17;
-    color: #000000;
+    border: 1px solid var(--ink);
+    background-color: var(--primary);
+    color: var(--ink);
     font-size: 16px;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
@@ -120,15 +139,15 @@ body {
     align-items: center;
     padding: 10px;
     transition: background-color 0.3s ease;
-    color: #000000;
+    color: var(--ink);
     outline: none;
 }
 
 .post-item:hover,
 .post-item a:focus {
-    background-color: #000000;
+    background-color: var(--ink);
     text-decoration: none;
-    color: #E8AF17;
+    color: var(--primary);
     border-radius: 5px;
 }
 
@@ -149,10 +168,10 @@ body {
 
 /* Post content styles */
 .post-header {
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid var(--ink);
     margin-bottom: 20px;
     padding-bottom: 10px;
-    color: #000000;
+    color: var(--ink);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -180,7 +199,7 @@ body {
 }
 
 .year-heading {
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid var(--ink);
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
 }
@@ -201,7 +220,7 @@ body {
 .post-entry .post-date {
     flex-shrink: 0;
     text-align: right;
-    color: #000000;
+    color: var(--ink);
 }
 
 .book-list {
@@ -390,10 +409,10 @@ body {
     align-items: center;
     gap: 0.4rem;
     padding: 0.4rem 0.8rem;
-    border: 1px solid #000000;
+    border: 1px solid var(--ink);
     border-radius: 4px;
     background: transparent;
-    color: #000000;
+    color: var(--ink);
     font: inherit;
     font-size: 0.9rem;
     text-decoration: none;
@@ -406,8 +425,8 @@ body {
 .photo-share button:focus,
 .post-back:hover,
 .post-back:focus {
-    background-color: #000000;
-    color: #E8AF17;
+    background-color: var(--ink);
+    color: var(--primary);
 }
 
 .site-header {
@@ -433,14 +452,14 @@ body {
 
 .post-content {
     margin-top: 20px;
-    background-color: black;
-    color: #E8AF17;
+    background-color: var(--ink);
+    color: var(--primary);
     padding: 20px;
     border-radius: 5px;
 }
 
 .post-content a {
-    color: #E8AF17;
+    color: var(--primary);
     text-decoration: underline;
 }
 
@@ -454,7 +473,7 @@ body {
     height: auto;
     display: block;
     margin: 1rem auto;
-    border: 2px solid #E8AF17;
+    border: 2px solid var(--primary);
 }
 
 .post-content h1,
@@ -463,19 +482,19 @@ body {
 .post-content h4,
 .post-content h5,
 .post-content h6 {
-    color: #E8AF17;
+    color: var(--primary);
 }
 
 .post-content code {
-    background-color: #E8AF17;
-    color: #000000;
+    background-color: var(--primary);
+    color: var(--ink);
     padding: 2px 5px;
     border-radius: 3px;
 }
 
 .post-content pre {
-    background-color: #E8AF17;
-    color: #000000;
+    background-color: var(--primary);
+    color: var(--ink);
     padding: 1rem;
     border-radius: 5px;
     overflow-x: auto;
@@ -483,7 +502,7 @@ body {
 .comments-section {
         margin-top: 2rem;
         padding: 1rem;
-        border-top: 1px solid #000000;
+        border-top: 1px solid var(--ink);
     }
 }
 
@@ -496,7 +515,7 @@ body {
 
 /* Common link styles */
 a {
-    color: #000000;
+    color: var(--ink);
     text-decoration: none;
     outline: none;
 }
@@ -510,7 +529,7 @@ a:focus {
 .post-item:hover .post-date,
 .post-item a:focus .post-title,
 .post-item a:focus .post-date {
-    color: #E8AF17;
+    color: var(--primary);
 }
 
 /* Pagination styles */
@@ -525,17 +544,17 @@ a:focus {
 .pagination a,
 .pagination span {
     padding: 0.5rem 1rem;
-    border: 1px solid #000000;
+    border: 1px solid var(--ink);
     border-radius: 4px;
-    color: #000000;
+    color: var(--ink);
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
 .pagination a:hover,
 .pagination a:focus {
-    background-color: #000000;
-    color: #E8AF17;
+    background-color: var(--ink);
+    color: var(--primary);
     text-decoration: none;
 }
 
@@ -571,37 +590,37 @@ a:focus {
 .compiler-info__open-editor-link,
 .compiler-info__target,
 .compiler-info__version {
-    color: #000000 !important;
+    color: var(--ink) !important;
 }
 /* Kotlin Playground dark mode styles */
 .kotlin-playground {
-    background-color: #E8AF17 !important;
-    color: #000000 !important;
+    background-color: var(--primary) !important;
+    color: var(--ink) !important;
 }
 
 .CodeMirror {
-    background-color: black !important;
-    color: #E8AF17 !important;
+    background-color: var(--ink) !important;
+    color: var(--primary) !important;
 }
 
 .CodeMirror-gutters {
-    background-color: #E8AF17 !important;
+    background-color: var(--primary) !important;
     border-right: 1px solid #555 !important;
 }
 
 .CodeMirror-linenumber {
-    background-color: black!important;
-    color: #E8AF17 !important;
+    background-color: var(--ink)!important;
+    color: var(--primary) !important;
 }
 
 .compiler-info {
-    background-color: #E8AF17 !important;
-    color: #000000 !important;
+    background-color: var(--primary) !important;
+    color: var(--ink) !important;
 }
 
 .code-output {
-    background-color: #000000 !important;
-    color: #E8AF17!important;
+    background-color: var(--ink) !important;
+    color: var(--primary)!important;
 }
 
 .run-button {
@@ -613,12 +632,12 @@ a:focus {
 .compiler-info__open-editor-link,
 .compiler-info__target,
 .compiler-info__version {
-    background-color: #E8AF17;
-    color: #000000 !important;
+    background-color: var(--primary);
+    color: var(--ink) !important;
 }
 
 .executable-fragment  {
-    border: 1px solid #000000!important;
+    border: 1px solid var(--ink)!important;
 }
 
 .utterances {
@@ -644,15 +663,15 @@ a:focus {
 .tag {
     display: inline-block;
     padding: 0.2rem 0.5rem;
-    background-color: #000000;
-    color: #E8AF17;
+    background-color: var(--ink);
+    color: var(--primary);
     border-radius: 3px;
     font-size: 0.8em;
     transition: all 0.3s ease;
 }
 
 .tag a {
-    color: #E8AF17;
+    color: var(--primary);
     text-decoration: none;
 }
 
@@ -672,13 +691,13 @@ a:focus {
 
 .post-item:hover .tag,
 .post-item a:focus .tag {
-    background-color: #E8AF17;
-    color: #000000;
+    background-color: var(--primary);
+    color: var(--ink);
 }
 
 .post-item:hover .tag a,
 .post-item a:focus .tag a {
-    color: #000000;
+    color: var(--ink);
 }
 
 .youtube-post:hover .tag,
@@ -715,8 +734,8 @@ a:focus {
 blockquote {
     margin: 1.5em 0;
     padding: 1em 1.5em;
-    border-left: 4px solid #000000;
-    background-color: rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--ink);
+    background-color: var(--quote-bg);
     font-style: italic;
 }
 
@@ -728,7 +747,7 @@ blockquote cite {
     display: block;
     margin-top: 0.5em;
     font-size: 0.9em;
-    color: #666;
+    color: var(--muted);
     font-style: normal;
 }
 
@@ -741,8 +760,8 @@ code, pre {
     font-variant-east-asian: normal;
     font-weight: normal;
     font-stretch: normal;
-    color: #E8AF17;
-    background-color: #000000;
+    color: var(--primary);
+    background-color: var(--ink);
     max-width: 1000px;
     margin: 0 auto;
     border-radius: 4px;
@@ -753,7 +772,7 @@ code, pre {
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
-    border-top: 1px solid #000000;
+    border-top: 1px solid var(--ink);
 }
 
 .license-notice {
@@ -771,4 +790,143 @@ code, pre {
     margin: 0;
     max-width: 600px;
     text-align: center;
+}
+/* The logo is drawn in black on a transparent background; on the dark theme it's recolored to the
+   site's yellow (#E8AF17) on the black page. The filter turns any color black first, then yellow. */
+:root:not([data-theme="light"]) .site-logo {
+    background-color: transparent;
+    filter: brightness(0) saturate(100%) invert(82%) sepia(15%) saturate(3722%) hue-rotate(347deg) brightness(93%) contrast(94%);
+}
+
+/* Pull cord hanging from the top of the empty space right of the content; pull it to switch the theme */
+.pull-cord {
+    --cord-length: 140px;
+    position: fixed;
+    top: 0;
+    /* Halfway between the content (800px wide) and the window's right edge */
+    right: calc((100vw - 800px) / 4 - 12px);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 12px 12px;
+    background: none;
+    border: 0;
+    cursor: grab;
+    touch-action: none;
+    transform-origin: top center;
+    animation: cord-sway 5s ease-in-out infinite;
+}
+
+.pull-cord.dragging {
+    cursor: grabbing;
+    animation: none;
+}
+
+.pull-cord-line {
+    display: block;
+    width: 2px;
+    height: var(--cord-length);
+    background: var(--ink);
+    transition: height 0.2s ease;
+}
+
+.pull-cord.dragging .pull-cord-line {
+    transition: none;
+}
+
+.pull-cord.pulled .pull-cord-line {
+    height: calc(var(--cord-length) + 30px);
+}
+
+.pull-cord-knob {
+    display: block;
+    width: 14px;
+    height: 24px;
+    border-radius: 7px;
+    background: var(--ink);
+    box-shadow: inset -3px -3px 0 rgba(0, 0, 0, 0.25);
+}
+
+.pull-cord:hover .pull-cord-knob,
+.pull-cord:focus-visible .pull-cord-knob {
+    transform: scale(1.15);
+}
+
+.pull-cord:focus-visible {
+    outline: 2px dashed var(--ink);
+    outline-offset: 2px;
+}
+
+@keyframes cord-sway {
+    0%, 100% { transform: rotate(1.5deg); }
+    50% { transform: rotate(-1.5deg); }
+}
+
+.pull-cord-note {
+    position: absolute;
+    top: calc(var(--cord-length) + 30px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 9.5em;
+    color: var(--ink);
+    font-size: 0.85rem;
+    font-style: italic;
+    line-height: 1.3;
+    text-align: center;
+    pointer-events: none;
+}
+
+.pull-cord-note::before {
+    content: "↑";
+    display: block;
+    font-style: normal;
+}
+
+.pull-cord-note .note-off,
+:root[data-theme="light"] .pull-cord-note .note-on {
+    display: none;
+}
+
+:root[data-theme="light"] .pull-cord-note .note-off {
+    display: inline;
+}
+
+/* No room beside the content: a short cord in the top right corner, the note to its left,
+   and the header moved down a little to make space for it */
+@media (max-width: 1000px) {
+    .pull-cord {
+        --cord-length: 28px;
+        position: absolute;
+        right: 8px;
+    }
+
+    .pull-cord-note {
+        top: calc(var(--cord-length) + 2px);
+        left: auto;
+        right: 100%;
+        transform: none;
+        width: auto;
+        white-space: nowrap;
+        text-align: right;
+    }
+
+    .pull-cord-note::before {
+        content: none;
+    }
+
+    .pull-cord-note::after {
+        content: " →";
+        font-style: normal;
+    }
+
+    .site-header {
+        margin-top: 2.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pull-cord {
+        animation: none;
+    }
 }
