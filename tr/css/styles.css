@@ -961,111 +961,143 @@ code, pre {
     }
 }
 
-/* A cat chasing a ball of yarn along the bottom of the window, right to left, when the footer comes into view */
-.cat-chase {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 56px;
+/* A cyclist pulling a "Look out for cyclists" banner across the bottom of the footer, left to right */
+.bike-lane {
+    position: relative;
+    height: 80px;
+    margin-top: 1rem;
     overflow: hidden;
-    pointer-events: none;
-    z-index: 40;
-}
-
-.cat-chase-runner {
-    position: absolute;
-    bottom: 4px;
-    left: 100%;
-    display: none;
-    align-items: flex-end;
-    gap: 26px;
     color: var(--ink);
 }
 
-.cat-chase.run .cat-chase-runner {
+.bike-rider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     display: flex;
-    animation: cat-chase-across 7s linear forwards;
+    align-items: flex-end;
+    transform: translateX(-100%);
 }
 
-/* From just past the right edge to just past the left edge */
-@keyframes cat-chase-across {
-    from { transform: translateX(0); }
-    to { transform: translateX(calc(-100vw - 100% - 20px)); }
+/* From just past the left edge of the lane to just past its right edge */
+.bike-lane.ride .bike-rider {
+    animation: bike-ride 9s linear forwards;
 }
 
-.cat-chase .yarn {
-    margin-bottom: 1px;
-    overflow: visible;
+@keyframes bike-ride {
+    from { left: 0; transform: translateX(-100%); }
+    to { left: 100%; transform: translateX(0); }
 }
 
-/* The yarn rolls to the left (counterclockwise) and bounces a little */
-.cat-chase.run .yarn-ball {
-    transform-origin: 15px 15px;
-    animation: yarn-roll 0.7s linear infinite;
+/* "Reduce motion": the bike stands still in the middle of the lane */
+.bike-lane.parked .bike-rider {
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.cat-chase.run .yarn {
-    animation: yarn-bounce 0.35s ease-in-out infinite alternate;
+.bike-banner {
+    margin-bottom: 32px;
+    padding: 0.15rem 0.6rem;
+    border: 2px solid var(--ink);
+    background: var(--primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    white-space: nowrap;
+    transform-origin: right center;
 }
 
-@keyframes yarn-roll {
-    to { transform: rotate(-360deg); }
+.bike-rope {
+    width: 16px;
+    margin-bottom: 42.5px;
+    border-top: 1.5px solid var(--ink);
 }
 
-@keyframes yarn-bounce {
-    from { transform: translateY(0); }
-    to { transform: translateY(-4px); }
+.bike-lane.ride .bike-banner {
+    animation: bike-banner-flutter 0.5s ease-in-out infinite alternate;
 }
 
-.cat-chase .cat-eye {
+@keyframes bike-banner-flutter {
+    from { transform: skewY(-2deg); }
+    to { transform: skewY(2deg); }
+}
+
+/* Wheels and the crank turn, the legs push the pedals */
+.bike .bike-wheel,
+.bike .bike-crank {
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+.bike-lane.ride .bike-wheel {
+    animation: bike-spin 0.8s linear infinite;
+}
+
+.bike-lane.ride .bike-crank {
+    animation: bike-spin 1s linear infinite;
+}
+
+.bike .bike-leg {
+    transform-origin: 36px 29px;
+}
+
+.bike .bike-shin {
+    transform-origin: 46px 43px;
+}
+
+/* Lights are off on the light theme; on the dark theme the front light shines ahead and the rear light glows red */
+.bike .bike-beam {
+    opacity: 0;
+}
+
+.bike .bike-light-front {
     fill: var(--primary);
 }
 
-/* Running gait: the leg pairs swing back and forth, the body bobs and the tail sways */
-.cat-chase .cat line {
-    transform-box: fill-box;
-    transform-origin: top center;
+.bike .bike-light-rear {
+    fill: #7a1d1d;
 }
 
-.cat-chase.run .cat .leg-a {
-    animation: cat-leg 0.3s ease-in-out infinite alternate;
+:root:not([data-theme="light"]) .bike .bike-beam {
+    opacity: 1;
 }
 
-.cat-chase.run .cat .leg-b {
-    animation: cat-leg 0.3s ease-in-out infinite alternate-reverse;
+:root:not([data-theme="light"]) .bike .bike-light-front {
+    fill: #fff6d5;
+    stroke: #fff6d5;
+    filter: drop-shadow(0 0 2px #fff6d5);
 }
 
-.cat-chase.run .cat-body {
-    animation: cat-bob 0.15s ease-in-out infinite alternate;
+:root:not([data-theme="light"]) .bike .bike-light-rear {
+    fill: #ff2b2b;
+    filter: drop-shadow(0 0 3px #ff2b2b);
 }
 
-.cat-chase .cat-tail {
-    transform-box: fill-box;
-    transform-origin: left bottom;
+.bike-lane.ride .bike-leg-front {
+    animation: bike-thigh 0.5s ease-in-out infinite alternate;
 }
 
-.cat-chase.run .cat-tail {
-    animation: cat-tail 0.6s ease-in-out infinite alternate;
+.bike-lane.ride .bike-leg-back {
+    animation: bike-thigh 0.5s ease-in-out infinite alternate-reverse;
 }
 
-@keyframes cat-leg {
-    from { transform: rotate(-28deg); }
-    to { transform: rotate(28deg); }
+.bike-lane.ride .bike-leg-front .bike-shin {
+    animation: bike-knee 0.5s ease-in-out infinite alternate;
 }
 
-@keyframes cat-bob {
-    from { transform: translateY(0); }
-    to { transform: translateY(-1.5px); }
+.bike-lane.ride .bike-leg-back .bike-shin {
+    animation: bike-knee 0.5s ease-in-out infinite alternate-reverse;
 }
 
-@keyframes cat-tail {
-    from { transform: rotate(-12deg); }
-    to { transform: rotate(10deg); }
+@keyframes bike-spin {
+    to { transform: rotate(360deg); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .cat-chase {
-        display: none;
-    }
+@keyframes bike-thigh {
+    from { transform: rotate(-14deg); }
+    to { transform: rotate(14deg); }
+}
+
+@keyframes bike-knee {
+    from { transform: rotate(18deg); }
+    to { transform: rotate(-18deg); }
 }

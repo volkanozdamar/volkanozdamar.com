@@ -110,6 +110,80 @@
                 <div class="license-notice">
             <p>© 2026 Volkan Özdamar · Unless otherwise noted, posts are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, photos under <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> and code samples under the <a rel="license" href="https://opensource.org/license/mit">MIT License</a>.</p>
         </div>
+        <div class="bike-lane" aria-hidden="true">
+            <div class="bike-rider">
+                <span class="bike-banner">Look out for cyclists</span>
+                <span class="bike-rope"></span>
+                <svg class="bike" viewBox="0 0 132 74" width="132" height="74">
+                    <defs>
+                        <linearGradient id="bike-beam-gradient" x1="0" x2="1" y1="0" y2="0">
+                            <stop offset="0" stop-color="#fff6d5" stop-opacity="0.75"/>
+                            <stop offset="1" stop-color="#fff6d5" stop-opacity="0"/>
+                        </linearGradient>
+                    </defs>
+                    <polygon class="bike-beam" points="79,41 132,30 132,62 79,46" fill="url(#bike-beam-gradient)"/>
+                    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path class="bike-tow" d="M0 31 H32" stroke-width="1.5"/>
+                        <g class="bike-wheel">
+                            <circle cx="20" cy="64" r="9"/>
+                            <path d="M20 55 V73 M11 64 H29 M13.6 57.6 L26.4 70.4 M13.6 70.4 L26.4 57.6" stroke-width="1"/>
+                        </g>
+                        <g class="bike-wheel">
+                            <circle cx="80" cy="64" r="9"/>
+                            <path d="M80 55 V73 M71 64 H89 M73.6 57.6 L86.4 70.4 M73.6 70.4 L86.4 57.6" stroke-width="1"/>
+                        </g>
+                        <path d="M20 64 L38.5 63 L37.9 54 Z"/>
+                        <path d="M14 52 H34 M20 64 L17 52" stroke-width="1.8"/>
+                        <path d="M37.9 54 Q56 35 74.5 49"/>
+                        <path d="M73 40 L74.6 49 Q77 56 80 64"/>
+                        <path d="M38.5 63 L36.5 31"/>
+                        <path d="M32.5 30.5 H39" stroke-width="2.5"/>
+                        <path d="M73 40 L71 28 C73.5 24 72.5 21 68.5 21 H64.5"/>
+                        <line class="bike-crank" x1="38" y1="58" x2="38" y2="68"/>
+                        <g class="bike-leg bike-leg-back" opacity="0.55">
+                            <line x1="36" y1="29" x2="46" y2="43"/>
+                            <line class="bike-shin" x1="46" y1="43" x2="39" y2="65"/>
+                        </g>
+                        <path d="M36 29 L54 15 M54 17 L65.5 21.5"/>
+                        <g class="bike-leg bike-leg-front">
+                            <line x1="36" y1="29" x2="46" y2="43"/>
+                            <line class="bike-shin" x1="46" y1="43" x2="39" y2="65"/>
+                        </g>
+                    </g>
+                    <circle cx="57" cy="9" r="4.5" fill="currentColor"/>
+                    <rect class="bike-light-front" x="75" y="40.5" width="5" height="5" rx="1.5" stroke="currentColor" stroke-width="1.2"/>
+                    <rect class="bike-light-rear" x="11" y="50" width="4" height="4" rx="1"/>
+                </svg>
+            </div>
+        </div>
+        <script>
+            // Starts the ride whenever the lane scrolls into view; with "reduce motion" the bike is parked instead
+            (function () {
+                var lane = document.querySelector('.bike-lane');
+                if (!lane) return;
+                if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    lane.classList.add('parked');
+                    return;
+                }
+                var ready = true;
+                function check() {
+                    var rect = lane.getBoundingClientRect();
+                    var visible = rect.top < window.innerHeight && rect.bottom > 0;
+                    if (visible && ready) {
+                        ready = false;
+                        lane.classList.remove('ride');
+                        void lane.offsetWidth; // restarts the animation
+                        lane.classList.add('ride');
+                    } else if (!visible) {
+                        ready = true;
+                    }
+                }
+                window.addEventListener('scroll', check, { passive: true });
+                window.addEventListener('resize', check);
+                window.addEventListener('load', check);
+                check();
+            })();
+        </script>
     </footer>
     <button type="button" class="pull-cord" aria-label="Light/dark theme" title="Pull: light/dark theme">
         <span class="pull-cord-line"></span>
@@ -168,63 +242,6 @@
                 pull();
             });
         });
-    </script>
-    <div class="cat-chase" aria-hidden="true">
-        <div class="cat-chase-runner">
-            <svg class="yarn" viewBox="0 0 30 30" width="30" height="30">
-                <g class="yarn-ball">
-                    <circle cx="15" cy="15" r="12" fill="#d94f70"/>
-                    <g fill="none" stroke="#8f2142" stroke-width="1.4" stroke-linecap="round">
-                        <path d="M5 11 Q15 5 25 11"/>
-                        <path d="M4 16 Q15 9 26 16"/>
-                        <path d="M6 21 Q15 14 24 21"/>
-                        <path d="M11 4 Q7 15 12 26"/>
-                    </g>
-                </g>
-            </svg>
-            <svg class="cat" viewBox="0 0 80 50" width="80" height="50">
-                <g fill="currentColor">
-                    <path class="cat-tail" d="M60 26 C70 24 72 12 78 8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-                    <g class="cat-legs-front" stroke="currentColor" stroke-width="4" stroke-linecap="round">
-                        <line class="leg-a" x1="24" y1="32" x2="20" y2="46"/>
-                        <line class="leg-b" x1="28" y1="32" x2="32" y2="46"/>
-                    </g>
-                    <g class="cat-legs-back" stroke="currentColor" stroke-width="4" stroke-linecap="round">
-                        <line class="leg-a" x1="52" y1="32" x2="48" y2="46"/>
-                        <line class="leg-b" x1="56" y1="32" x2="60" y2="46"/>
-                    </g>
-                    <g class="cat-body">
-                        <ellipse cx="40" cy="27" rx="22" ry="9"/>
-                        <circle cx="17" cy="21" r="9"/>
-                        <polygon points="9,17 10,6 17,13"/>
-                        <polygon points="18,12 24,4 25,15"/>
-                        <circle class="cat-eye" cx="13" cy="20" r="1.6"/>
-                    </g>
-                </g>
-            </svg>
-        </div>
-    </div>
-    <script>
-        // Runs once each time the visitor reaches the bottom of the page
-        (function () {
-            var stage = document.querySelector('.cat-chase');
-            var footer = document.querySelector('.site-footer');
-            if (!stage || !footer || !('IntersectionObserver' in window)) return;
-            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-            var ready = true;
-            new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting && ready && !stage.classList.contains('run')) {
-                        ready = false;
-                        stage.classList.add('run');
-                        // Same length as the cat-chase-across animation (7s)
-                        setTimeout(function () { stage.classList.remove('run'); }, 7100);
-                    } else if (!entry.isIntersecting) {
-                        ready = true;
-                    }
-                });
-            }, { threshold: 0.6 }).observe(footer);
-        })();
     </script>
     <script src="../js/main.js"></script>
 </body>
