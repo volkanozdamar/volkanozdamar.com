@@ -136,14 +136,11 @@
         </div>
 </main>
     <footer class="site-footer">
-        <div class="license-notice">
-            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
-                <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
-            </a>
-            <p>Unless otherwise stated, all blog content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+                <div class="license-notice">
+            <p>© 2026 Volkan Özdamar · Unless otherwise noted, posts are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, photos under <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> and code samples under the <a rel="license" href="https://opensource.org/license/mit">MIT License</a>.</p>
         </div>
     </footer>
-        <button type="button" class="pull-cord" aria-label="Light/dark theme" title="Pull: light/dark theme">
+    <button type="button" class="pull-cord" aria-label="Light/dark theme" title="Pull: light/dark theme">
         <span class="pull-cord-line"></span>
         <span class="pull-cord-knob"></span>
         <span class="pull-cord-note" aria-hidden="true">
@@ -200,6 +197,63 @@
                 pull();
             });
         });
+    </script>
+    <div class="cat-chase" aria-hidden="true">
+        <div class="cat-chase-runner">
+            <svg class="yarn" viewBox="0 0 30 30" width="30" height="30">
+                <g class="yarn-ball">
+                    <circle cx="15" cy="15" r="12" fill="#d94f70"/>
+                    <g fill="none" stroke="#8f2142" stroke-width="1.4" stroke-linecap="round">
+                        <path d="M5 11 Q15 5 25 11"/>
+                        <path d="M4 16 Q15 9 26 16"/>
+                        <path d="M6 21 Q15 14 24 21"/>
+                        <path d="M11 4 Q7 15 12 26"/>
+                    </g>
+                </g>
+            </svg>
+            <svg class="cat" viewBox="0 0 80 50" width="80" height="50">
+                <g fill="currentColor">
+                    <path class="cat-tail" d="M60 26 C70 24 72 12 78 8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                    <g class="cat-legs-front" stroke="currentColor" stroke-width="4" stroke-linecap="round">
+                        <line class="leg-a" x1="24" y1="32" x2="20" y2="46"/>
+                        <line class="leg-b" x1="28" y1="32" x2="32" y2="46"/>
+                    </g>
+                    <g class="cat-legs-back" stroke="currentColor" stroke-width="4" stroke-linecap="round">
+                        <line class="leg-a" x1="52" y1="32" x2="48" y2="46"/>
+                        <line class="leg-b" x1="56" y1="32" x2="60" y2="46"/>
+                    </g>
+                    <g class="cat-body">
+                        <ellipse cx="40" cy="27" rx="22" ry="9"/>
+                        <circle cx="17" cy="21" r="9"/>
+                        <polygon points="9,17 10,6 17,13"/>
+                        <polygon points="18,12 24,4 25,15"/>
+                        <circle class="cat-eye" cx="13" cy="20" r="1.6"/>
+                    </g>
+                </g>
+            </svg>
+        </div>
+    </div>
+    <script>
+        // Runs once each time the visitor reaches the bottom of the page
+        (function () {
+            var stage = document.querySelector('.cat-chase');
+            var footer = document.querySelector('.site-footer');
+            if (!stage || !footer || !('IntersectionObserver' in window)) return;
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            var ready = true;
+            new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting && ready && !stage.classList.contains('run')) {
+                        ready = false;
+                        stage.classList.add('run');
+                        // Same length as the cat-chase-across animation (7s)
+                        setTimeout(function () { stage.classList.remove('run'); }, 7100);
+                    } else if (!entry.isIntersecting) {
+                        ready = true;
+                    }
+                });
+            }, { threshold: 0.6 }).observe(footer);
+        })();
     </script>
     <script src="js/main.js"></script>
 </body>

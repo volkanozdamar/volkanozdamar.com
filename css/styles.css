@@ -306,8 +306,48 @@ body {
     margin: 0;
 }
 
+/* "AI-generated" tag on photos whose .md sets ai_generated: true */
+.photo-ai-badge {
+    display: inline-block;
+    margin: 0.75rem 0 0;
+    padding: 0.1rem 0.6rem;
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
 .photo-title {
     margin: 0 0 0.75rem;
+}
+
+/* Images added to posts with {{ img }} */
+.post-figure {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.post-figure img {
+    max-width: 100%;
+    height: auto;
+}
+
+.post-figure figcaption {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.post-figure .photo-ai-badge {
+    margin: 0;
+}
+
+.post-figure-credit {
+    font-size: 0.8rem;
+    opacity: 0.8;
 }
 
 .photo-description {
@@ -775,20 +815,10 @@ code, pre {
     border-top: 1px solid var(--ink);
 }
 
-.license-notice {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-}
-
-.license-notice img {
-    margin: 0 auto;
-}
-
 .license-notice p {
-    margin: 0;
+    margin: 0 auto;
     max-width: 600px;
+    font-size: 0.9rem;
     text-align: center;
 }
 /* The logo is drawn in black on a transparent background; on the dark theme it's recolored to the
@@ -928,5 +958,114 @@ code, pre {
 @media (prefers-reduced-motion: reduce) {
     .pull-cord {
         animation: none;
+    }
+}
+
+/* A cat chasing a ball of yarn along the bottom of the window, right to left, when the footer comes into view */
+.cat-chase {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 56px;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 40;
+}
+
+.cat-chase-runner {
+    position: absolute;
+    bottom: 4px;
+    left: 100%;
+    display: none;
+    align-items: flex-end;
+    gap: 26px;
+    color: var(--ink);
+}
+
+.cat-chase.run .cat-chase-runner {
+    display: flex;
+    animation: cat-chase-across 7s linear forwards;
+}
+
+/* From just past the right edge to just past the left edge */
+@keyframes cat-chase-across {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-100vw - 100% - 20px)); }
+}
+
+.cat-chase .yarn {
+    margin-bottom: 1px;
+    overflow: visible;
+}
+
+/* The yarn rolls to the left (counterclockwise) and bounces a little */
+.cat-chase.run .yarn-ball {
+    transform-origin: 15px 15px;
+    animation: yarn-roll 0.7s linear infinite;
+}
+
+.cat-chase.run .yarn {
+    animation: yarn-bounce 0.35s ease-in-out infinite alternate;
+}
+
+@keyframes yarn-roll {
+    to { transform: rotate(-360deg); }
+}
+
+@keyframes yarn-bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-4px); }
+}
+
+.cat-chase .cat-eye {
+    fill: var(--primary);
+}
+
+/* Running gait: the leg pairs swing back and forth, the body bobs and the tail sways */
+.cat-chase .cat line {
+    transform-box: fill-box;
+    transform-origin: top center;
+}
+
+.cat-chase.run .cat .leg-a {
+    animation: cat-leg 0.3s ease-in-out infinite alternate;
+}
+
+.cat-chase.run .cat .leg-b {
+    animation: cat-leg 0.3s ease-in-out infinite alternate-reverse;
+}
+
+.cat-chase.run .cat-body {
+    animation: cat-bob 0.15s ease-in-out infinite alternate;
+}
+
+.cat-chase .cat-tail {
+    transform-box: fill-box;
+    transform-origin: left bottom;
+}
+
+.cat-chase.run .cat-tail {
+    animation: cat-tail 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes cat-leg {
+    from { transform: rotate(-28deg); }
+    to { transform: rotate(28deg); }
+}
+
+@keyframes cat-bob {
+    from { transform: translateY(0); }
+    to { transform: translateY(-1.5px); }
+}
+
+@keyframes cat-tail {
+    from { transform: rotate(-12deg); }
+    to { transform: rotate(10deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cat-chase {
+        display: none;
     }
 }
