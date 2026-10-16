@@ -821,6 +821,63 @@ code, pre {
     font-size: 0.9rem;
     text-align: center;
 }
+
+.license-notice .privacy-links {
+    margin-top: 0.5rem;
+}
+
+/* Analytics consent banner, pinned to the bottom of the screen until the visitor answers */
+.consent-banner {
+    position: fixed;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 1000;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 1rem 1.25rem;
+    background: var(--primary);
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    font-size: 0.9rem;
+}
+
+.consent-banner[hidden] {
+    display: none;
+}
+
+.consent-banner p {
+    margin: 0 0 0.75rem;
+}
+
+.consent-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+/* Both choices look the same so neither is nudged */
+.consent-button {
+    font: inherit;
+    padding: 0.4rem 1.1rem;
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.consent-button:hover,
+.consent-button:focus-visible {
+    background: var(--ink);
+    color: var(--primary);
+}
+
+.privacy-content h3 {
+    margin-top: 1.5rem;
+}
 /* The logo is drawn in black on a transparent background; on the dark theme it's recolored to the
    site's yellow (#E8AF17) on the black page. The filter turns any color black first, then yellow. */
 :root:not([data-theme="light"]) .site-logo {

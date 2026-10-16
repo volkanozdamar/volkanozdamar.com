@@ -35,11 +35,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://unpkg.com/kotlin-playground@1" data-selector="code.language-kotlinplay"></script>
-    <script
-        src="https://app.rybbit.io/api/script.js"
-        data-site-id="e8e76932e5ff"
-        defer
-    ></script>
 </head>
 <body>
     <a href="#main-content" class="skip-to-main">Skip to main content</a>
@@ -162,6 +157,10 @@
     <footer class="site-footer">
                 <div class="license-notice">
             <p>© 2026 Volkan Özdamar · Unless otherwise noted, posts are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, photos under <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> and code samples under the <a rel="license" href="https://opensource.org/license/mit">MIT License</a>.</p>
+            <p class="privacy-links">
+                <a href="privacy.html">Privacy and Cookie Policy</a>
+                · <a href="#" class="consent-reopen">Cookie preferences</a>
+            </p>
         </div>
         <div class="bike-lane" aria-hidden="true">
             <div class="bike-rider">
@@ -286,6 +285,62 @@
                 pull();
             });
         });
+    </script>
+    <div class="consent-banner" role="dialog" aria-live="polite" aria-label="Cookie preferences" hidden>
+        <p>I'd like to collect anonymous visit statistics with <strong>Rybbit</strong>, a cookieless, privacy-focused analytics tool, to see which posts are read. It only runs if you agree. Details: <a href="privacy.html">Privacy and Cookie Policy</a>.</p>
+        <div class="consent-actions">
+            <button type="button" class="consent-button" data-consent="denied">Decline</button>
+            <button type="button" class="consent-button" data-consent="granted">Accept</button>
+        </div>
+    </div>
+    <script>
+        (function () {
+            var KEY = 'analytics-consent';
+            var banner = document.querySelector('.consent-banner');
+
+            function getConsent() {
+                try { return localStorage.getItem(KEY); } catch (e) { return null; }
+            }
+
+            function loadRybbit() {
+                if (document.getElementById('rybbit-script')) return;
+                var s = document.createElement('script');
+                s.id = 'rybbit-script';
+                s.src = 'https://app.rybbit.io/api/script.js';
+                s.setAttribute('data-site-id', 'e8e76932e5ff');
+                s.defer = true;
+                document.head.appendChild(s);
+            }
+
+            banner.querySelectorAll('[data-consent]').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var choice = button.getAttribute('data-consent');
+                    var previous = getConsent();
+                    try { localStorage.setItem(KEY, choice); } catch (e) {}
+                    banner.hidden = true;
+                    if (choice === 'granted') {
+                        loadRybbit();
+                    } else if (previous === 'granted') {
+                        // Withdrawn: reload so the already running tracker stops
+                        location.reload();
+                    }
+                });
+            });
+
+            document.querySelectorAll('.consent-reopen').forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    banner.hidden = false;
+                });
+            });
+
+            var consent = getConsent();
+            if (consent === 'granted') {
+                loadRybbit();
+            } else if (consent !== 'denied') {
+                banner.hidden = false;
+            }
+        })();
     </script>
     <script src="js/main.js"></script>
 </body>
