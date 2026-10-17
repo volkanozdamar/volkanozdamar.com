@@ -4,7 +4,7 @@
   <link href="https://volkanozdamar.com/" rel="alternate" type="text/html"/>
   <link href="https://volkanozdamar.com/atom.xml" rel="self" type="application/atom+xml"/>
   <id>https://volkanozdamar.com/</id>
-  <updated>2025-03-21T00:00:00+03:00</updated>
+  <updated>2025-03-21T00:00:00Z</updated>
   <author>
     <name>Volkan Özdamar</name>
   </author>
@@ -12,8 +12,8 @@
     <title>Vibe Coding from a QA Perspective</title>
     <link href="https://volkanozdamar.com/vibe-coding-from-a-qa-perspective.html" rel="alternate" type="text/html"/>
     <id>https://volkanozdamar.com/vibe-coding-from-a-qa-perspective.html</id>
-    <published>2025-03-21T00:00:00+03:00</published>
-    <updated>2025-03-21T00:00:00+03:00</updated>
+    <published>2025-03-21T00:00:00Z</published>
+    <updated>2025-03-21T00:00:00Z</updated>
     <category term="AI"/>
     <summary type="html">As you know, with the rise of LLMs, AI editors, and AI agents, we now have tools that allow us to write code declaratively, almost without needing to ...</summary>
     <content type="html">&lt;p&gt;As you know, with the rise of LLMs, AI editors, and AI agents, we now have tools that allow us to write code declaratively, almost without needing to write code. Cursor, Windsurf, or my popular one, Trae IDE, are examples of AI-driven IDEs. Additionally, you can use GitHub Copilot add-ons with other popular IDEs. In recent days, I wanted to experiment with vibe coding. I first rebuilt the blog you are currently reading (volkanozdamar.com) from scratch using Hexo, Kotlin, Flexmark, and Freemarker. I also explored a few mobile projects. Although I attempted to write effective prompts, I eventually had to intervene using coding knowledge. Since it was necessary to manipulate line numbers, code blocks, class names, and variable names, the idea of &apos;zero coding knowledge requirement&apos; faded away. During this process, I frequently had to fix unnecessary additions or disrupted code logic. While I managed to produce functional projects, the resulting output, which still contained bugs and unoptimized code blocks, raised questions about its suitability for real-world use. As a QA, I also asked myself how such a product should be tested.&lt;/p&gt;
@@ -54,8 +54,8 @@
     <title>Send test results to Slack with Webhooks</title>
     <link href="https://volkanozdamar.com/send-test-results-to-slack-with-webhooks.html" rel="alternate" type="text/html"/>
     <id>https://volkanozdamar.com/send-test-results-to-slack-with-webhooks.html</id>
-    <published>2025-03-13T00:00:00+03:00</published>
-    <updated>2025-03-13T00:00:00+03:00</updated>
+    <published>2025-03-13T00:00:00Z</published>
+    <updated>2025-03-13T00:00:00Z</updated>
     <category term="Slack"/>
     <category term="Webhooks"/>
     <category term="Test Automation"/>
@@ -115,8 +115,8 @@ SHOW_FAILED_RESULTS_ONLY=false
     <title>My blog has a new theme</title>
     <link href="https://volkanozdamar.com/my-blog-has-a-new-theme.html" rel="alternate" type="text/html"/>
     <id>https://volkanozdamar.com/my-blog-has-a-new-theme.html</id>
-    <published>2025-03-04T00:00:00+03:00</published>
-    <updated>2025-03-04T00:00:00+03:00</updated>
+    <published>2025-03-04T00:00:00Z</published>
+    <updated>2025-03-04T00:00:00Z</updated>
     <category term="instagram"/>
     <summary type="html"></summary>
     <content type="html"></content>
@@ -125,8 +125,8 @@ SHOW_FAILED_RESULTS_ONLY=false
     <title>Create Test Scenarios with GitHub Copilot (Step-by-Step)</title>
     <link href="https://volkanozdamar.com/create-test-scenarios-with-github-copilot-(step-by-step).html" rel="alternate" type="text/html"/>
     <id>https://volkanozdamar.com/create-test-scenarios-with-github-copilot-(step-by-step).html</id>
-    <published>2025-02-11T00:00:00+03:00</published>
-    <updated>2025-02-11T00:00:00+03:00</updated>
+    <published>2025-02-11T00:00:00Z</published>
+    <updated>2025-02-11T00:00:00Z</updated>
     <category term="youtube"/>
     <summary type="html"></summary>
     <content type="html"></content>
@@ -135,8 +135,8 @@ SHOW_FAILED_RESULTS_ONLY=false
     <title>Kotlin Variables and Data Types</title>
     <link href="https://volkanozdamar.com/kotlin-variables-and-data-types.html" rel="alternate" type="text/html"/>
     <id>https://volkanozdamar.com/kotlin-variables-and-data-types.html</id>
-    <published>2024-02-24T00:00:00+03:00</published>
-    <updated>2024-02-24T00:00:00+03:00</updated>
+    <published>2024-02-24T00:00:00Z</published>
+    <updated>2024-02-24T00:00:00Z</updated>
     <category term="Kotlin"/>
     <summary type="html">In Kotlin, like many other programming languages, we use variables to store and manipulate data. These variables act as containers that hold individua...</summary>
     <content type="html">&lt;h1&gt;Define Variables&lt;/h1&gt;
@@ -329,8 +329,8 @@ println(classArray[0]) // Output: 1
     <title>What is Kotlin?</title>
     <link href="https://volkanozdamar.com/what-is-kotlin?.html" rel="alternate" type="text/html"/>
     <id>https://volkanozdamar.com/what-is-kotlin?.html</id>
-    <published>2022-01-02T00:00:00+03:00</published>
-    <updated>2022-01-02T00:00:00+03:00</updated>
+    <published>2022-01-02T00:00:00Z</published>
+    <updated>2022-01-02T00:00:00Z</updated>
     <category term="Kotlin"/>
     <summary type="html">Hi, this will become a short &amp;quot;What it is&amp;quot; article about Kotlin.I&apos;m planning to learn Kotlin together with you in this blog in the following ...</summary>
     <content type="html">&lt;p&gt;Hi, this will become a short &amp;quot;What it is&amp;quot; article about Kotlin.I&apos;m planning to learn Kotlin together with you in this blog in the following posts.Shortly, it is a JVM language. Like other JVM languages, it&apos;s structured on the Java Language and comes with some additional features. At the end of the day, it creates Java bytecode for you. This means you can use all Java libraries with Kotlin or vice-versa.Then, what makes Kotlin special and so popular compared to the others? Let’s see the main features.&lt;/p&gt;
@@ -359,8 +359,8 @@ println(classArray[0]) // Output: 1
     <title>Run your Crossbrowser Tests With Docker</title>
     <link href="https://volkanozdamar.com/run-your-crossbrowser-tests-with-docker.html" rel="alternate" type="text/html"/>
     <id>https://volkanozdamar.com/run-your-crossbrowser-tests-with-docker.html</id>
-    <published>2020-12-07T00:00:00+03:00</published>
-    <updated>2020-12-07T00:00:00+03:00</updated>
+    <published>2020-12-07T00:00:00Z</published>
+    <updated>2020-12-07T00:00:00Z</updated>
     <category term="Docker"/>
     <category term="Container"/>
     <category term="Selenium"/>
@@ -415,8 +415,8 @@ println(classArray[0]) // Output: 1
     <title>Monolithic vs. MicroService Architecture</title>
     <link href="https://volkanozdamar.com/monolithic-vs.-microservice-architecture.html" rel="alternate" type="text/html"/>
     <id>https://volkanozdamar.com/monolithic-vs.-microservice-architecture.html</id>
-    <published>2020-08-03T00:00:00+03:00</published>
-    <updated>2020-08-03T00:00:00+03:00</updated>
+    <published>2020-08-03T00:00:00Z</published>
+    <updated>2020-08-03T00:00:00Z</updated>
     <category term="Microservice"/>
     <summary type="html">Like an architecture history, software architecture has changed and evolved. First of all, people started to live in cave, then they build their shed ...</summary>
     <content type="html">&lt;p&gt;Like an architecture history, software architecture has changed and evolved. First of all, people started to live in cave, then they build their shed and tent, from them shed and tent to today&apos;s skyscraper and apartment, lots of come a long way.&lt;!-- more--&gt; Like this, our software architecture started to evolve from early 2005.Microservices start to rise behind the hill and with Cloud Services, Docker and container orchestration, we have a more distributed, more scalable, and reliable solutions more than from the past. Why we choose that way and Is the old way still applicable for us? Let see what is the differences between monolith and microservices.&lt;/p&gt;
@@ -472,8 +472,8 @@ This type of applications generally combination of single client, single server 
     <title>Basic Docker Commands</title>
     <link href="https://volkanozdamar.com/basic-docker-commands.html" rel="alternate" type="text/html"/>
     <id>https://volkanozdamar.com/basic-docker-commands.html</id>
-    <published>2020-06-28T00:00:00+03:00</published>
-    <updated>2020-06-28T00:00:00+03:00</updated>
+    <published>2020-06-28T00:00:00Z</published>
+    <updated>2020-06-28T00:00:00Z</updated>
     <category term="Docker"/>
     <category term="Container"/>
     <summary type="html">Before this, I explained &lt;a href=&quot;https://volkanozdamar.com/Just-Another-Docker-Related-Post/&quot;&gt;here&lt;/a&gt;, what is Docker, what is a container and why w...</summary>
@@ -573,8 +573,8 @@ Server: Docker Engine - Community
     <title>Just Another Docker Related Post</title>
     <link href="https://volkanozdamar.com/just-another-docker-related-post.html" rel="alternate" type="text/html"/>
     <id>https://volkanozdamar.com/just-another-docker-related-post.html</id>
-    <published>2020-05-11T00:00:00+03:00</published>
-    <updated>2020-05-11T00:00:00+03:00</updated>
+    <published>2020-05-11T00:00:00Z</published>
+    <updated>2020-05-11T00:00:00Z</updated>
     <category term="Docker"/>
     <category term="Container"/>
     <summary type="html">In 2013, a hosting company known as dotCloud, released an open-source project named as Docker and with that move they opened a new era in Computer Vir...</summary>
