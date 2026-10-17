@@ -826,22 +826,25 @@ code, pre {
     margin-top: 0.5rem;
 }
 
-/* Analytics consent banner, pinned to the bottom of the screen until the visitor answers */
+/* Analytics consent banner, centered on the screen over a dimmed page until the visitor answers */
 .consent-banner {
     position: fixed;
-    left: 1rem;
-    right: 1rem;
-    bottom: 1rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 1000;
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 1rem 1.25rem;
+    box-sizing: border-box;
+    width: min(640px, calc(100% - 2rem));
+    max-height: calc(100% - 2rem);
+    overflow-y: auto;
+    padding: 1.25rem 1.5rem;
     background: var(--primary);
     color: var(--ink);
     border: 1px solid var(--ink);
     border-radius: 6px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-    font-size: 0.9rem;
+    /* The second shadow dims the whole page behind the banner */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), 0 0 0 100vmax rgba(0, 0, 0, 0.6);
+    font-size: 0.95rem;
 }
 
 .consent-banner[hidden] {
