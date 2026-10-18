@@ -350,6 +350,28 @@ body {
     opacity: 0.8;
 }
 
+/* Link between a Turkish post and its English translation (PostTranslation.kt) */
+.post-translation-note {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin: 20px 0;
+    padding: 10px 14px;
+    border: 1px dashed var(--ink);
+    border-radius: 5px;
+    color: var(--ink);
+    font-size: 0.9rem;
+}
+
+.post-translation-note-top {
+    margin-top: 0;
+}
+
+.post-translation-note a {
+    color: inherit;
+    font-weight: 600;
+}
+
 /* Audio version of a Turkish post (templates/common/audio.ftl) */
 .post-audio {
     margin: 20px 0;

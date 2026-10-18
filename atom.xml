@@ -112,6 +112,22 @@ SHOW_FAILED_RESULTS_ONLY=false
 </content>
   </entry>
   <entry>
+    <title>Hello</title>
+    <link href="https://volkanozdamar.com/hello.html" rel="alternate" type="text/html"/>
+    <id>https://volkanozdamar.com/hello.html</id>
+    <published>2025-03-05T00:00:00Z</published>
+    <updated>2025-03-05T00:00:00Z</updated>
+    <category term="Notes"/>
+    <summary type="html">I&apos;ve been writing in English on this blog since 2018—though not very often. Lately, since I have some free time to test AI tools and explore their cap...</summary>
+    <content type="html">&lt;p&gt;I&apos;ve been writing in English on this blog since 2018—though not very often. Lately, since I have some free time to test AI tools and explore their capabilities—currently between jobs and looking for full-time work—I decided to act on something that&apos;s been on my mind for a while: revamp my blog&apos;s theme and add Turkish language support.&lt;/p&gt;
+&lt;p&gt;Previously, I hosted my blog on GitHub Pages using Hexo. However, since I&apos;m not particularly proficient in JavaScript and found managing themes and plugins a bit cumbersome, I ended up building what you see here entirely with Kotlin, FreeMarker, and Flexmark.&lt;/p&gt;
+&lt;p&gt;After experimenting with a few tools, using Trae AI together with Claude 3.5 Sonnet, I was able to build a functional static blog just by prompting and giving instructions. In about two days, it turned into a finished product. I achieved exactly what I wanted with very little actual coding on my part. That said, I don&apos;t think it&apos;s possible yet to get this kind of successful result without knowing any code at all. At times, I had to refer to specific HTML class names, or point directly to bugs in the code and tell it how to fix them. You still need coding knowledge, and articulating that clearly so a computer or AI can understand is a challenge in itself. There were plenty of hiccups where my prompts weren&apos;t clear enough, or the AI misunderstood, went off on its own tangent, messed up files, or ran operations in the wrong directories.&lt;/p&gt;
+&lt;p&gt;In the end, though I can&apos;t say how often I&apos;ll post, I now have a ready-to-use blog to start writing again.&lt;/p&gt;
+&lt;p&gt;As a result of this process, the blog now lets you listen to posts using listen2it, leave comments via Utterances.io, run Kotlin snippets with Kotlin Playground, and write posts in Markdown powered by Flexmark—all put together with Trae AI.&lt;/p&gt;
+&lt;p&gt;See you in the next posts!&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
     <title>My blog has a new theme</title>
     <link href="https://volkanozdamar.com/my-blog-has-a-new-theme.html" rel="alternate" type="text/html"/>
     <id>https://volkanozdamar.com/my-blog-has-a-new-theme.html</id>
@@ -567,45 +583,6 @@ Server: Docker Engine - Community
 &lt;p&gt;And todays last command coming for to reach performance stats for all containers&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;docker container stats 
 &lt;/code&gt;&lt;/pre&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Just Another Docker Related Post</title>
-    <link href="https://volkanozdamar.com/just-another-docker-related-post.html" rel="alternate" type="text/html"/>
-    <id>https://volkanozdamar.com/just-another-docker-related-post.html</id>
-    <published>2020-05-11T00:00:00Z</published>
-    <updated>2020-05-11T00:00:00Z</updated>
-    <category term="Docker"/>
-    <category term="Container"/>
-    <summary type="html">In 2013, a hosting company known as dotCloud, released an open-source project named as Docker and with that move they opened a new era in Computer Vir...</summary>
-    <content type="html">&lt;p&gt;In 2013, a hosting company known as dotCloud, released an open-source project named as Docker and with that move they opened a new era in Computer Virtualization and I.T. industry. This old company still continue its life at San Fransisco with a little change, they are known as now.&lt;a href=&quot;https://www.docker.com/blog/dotcloud-is-becoming-docker-inc/&quot;&gt;Docker Inc.&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;post-figure&quot;&gt;&lt;img src=&quot;https://volkanozdamar.com/images/Just-Another-Docker-Related-Post/hq.jpeg&quot; alt=&quot;&quot; loading=&quot;lazy&quot;&gt;&lt;figcaption&gt;&lt;span class=&quot;post-figure-credit&quot;&gt;Credit: Will Buckner&lt;/span&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;p&gt;As a term, Docker has two meaning for us. One of them is operaring system based virtualization technology to run containers -Docker Platform- , other is a tool for the building and sharing of containerized applications and services -Docker Engine-.&lt;/p&gt;
-&lt;h2&gt;&lt;strong&gt;Docker Platform Versions and Life Cycle&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;images/Just-Another-Docker-Related-Post/lifecycle.png&quot; alt=&quot;Docker LifeCycle&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;Docker LifeCycleDocker has two main version , Community Edition(CE) and Enterprise Edition(EE).CE is unpaid version of Docker and has two relase type,Egde and Stable.
-Edge is updating monthly and it is beta version.Stable and EE has same release cycle and updating with 3 months interval.Except that , E.E. has 1 year support and some additional features.&lt;/p&gt;
-&lt;h2&gt;&lt;strong&gt;Docker Images&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;Docker images read-only and immutable construction set , for creating the environment you want.You can create your customized images or directly download created images from Docker Hub or your own hosted a container image registry.&lt;/p&gt;
-&lt;h2&gt;&lt;strong&gt;Virtual Machines&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;End of 00&apos;s power of computer chips are increased and we create our infrastructure with Virtual Machine instead of real devices. With Virtual Machine(VM) technology, you can share your hardware resources on one computer with separated Virtual Machines. Each VM require reserved hard disk installed OS on this disk and virtual components reserved from the host machine. This reduced hardware costs however, maintenance cost increased cus managing this machine and reserve a resource for each machine needs to proficiency.&lt;/p&gt;
-&lt;h2&gt;&lt;strong&gt;Then , What is Containers ?&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;Simply containers, virtual layers to run your apps and services abstractly on each one on Docker with self-reliant off your host operating system.No matter, which operating system running on your computer, Docker runs your docker containers on your machine. Contrary to old VMs, containers run on the same machine and share the OS kernel with other containers. When doing that, Docker does not do Hardware-level process isolation, the processes of each container are isolating from each other. This feature makes Docker fast and more manageable beside on VMs.
- Just notice that Docker has two type containers, commonly preferred one is Linux containers and you can use this containers on every OS. Other alternative is Windows containers, uses Hyper-V* and works with Windows 10 Pro/Enterprise or Windows Server 2016.No concern if you have the other versions of Windows. With Virtual Box you can run Docker containers on your system but it will be a reason of a Lil&apos; bit headache for you.
-*On Windows , Hyper-V runs a Linux VM(Moby-LinuxVM) to run Docker and Linux containers.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;images/Just-Another-Docker-Related-Post/dockervsvm.png&quot; alt=&quot;Docker vs. Virtual Machine&quot; title=&quot;Docker vs. Virtual Machine&quot; /&gt;&lt;/p&gt;
-&lt;h2&gt;&lt;strong&gt;What is Inside of Containers ?&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;Containers has a real operating system and environment variables.We are defining which operating system should be run on with  which environment variables and  setup of our software projects and dependencies.&lt;/p&gt;
-&lt;h2&gt;&lt;strong&gt;Benefits of Containerization&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;images/Just-Another-Docker-Related-Post/landscape.png&quot; alt=&quot;CNCF Landscape&quot; title=&quot;CNCF Landscape&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;Docker popularity puts it  under a wide range support umberalla with tons of DevOps, CI /CD tools and cloud services.Additionally Docker provide some benefits coming  from its nature.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Environmental Isolation &lt;/li&gt;
-&lt;li&gt;Lightweight Virtualization&lt;/li&gt;
-&lt;li&gt;Raises productivity&lt;/li&gt;
-&lt;li&gt;Standardize CI&amp;amp;CD&lt;/li&gt;
-&lt;li&gt;Easy Portable &amp;amp; Scalable&lt;/li&gt;
-&lt;/ul&gt;
 </content>
   </entry>
 </feed>
