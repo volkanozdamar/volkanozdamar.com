@@ -30,7 +30,7 @@
     <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inconsolata:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.11.1/css/flag-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -40,17 +40,20 @@
     <a href="#main-content" class="skip-to-main">Skip to main content</a>
     <header role="banner" class="site-header">
         <div class="header-content">
-            <h1>Volkan Özdamar</h1>
-            <img src="images/logo.png" alt="Volkan Özdamar's Blog Logo" class="site-logo">
+            <div class="site-brand">
+                <a class="site-name" href="index.html">Volkan Özdamar</a>
+                <span class="site-prompt"><b>volkan</b>@blog:~/posts $<span class="site-cursor" aria-hidden="true"></span></span>
+            </div>
+            <img src="images/logo.png" alt="" class="site-logo">
         </div>
-            <nav class="main-navigation">
+            <nav class="main-navigation" aria-label="Main">
                 <ul>
-                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="archive.html"><i class="fas fa-archive"></i> Archive</a></li>
-                    <li><a href="readings.html"><i class="fas fa-book"></i> Readings</a></li>
-                    <li><a href="photos/"><i class="fas fa-camera"></i> Photos</a></li>
-                    <li><a href="https://github.com/volkanozdamar" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
-                    <li><a href="tr/index.html"><i class="fi fi-tr"></i> Türkçe</a></li>
+                    <li><a href="index.html">./home</a></li>
+                    <li><a href="archive.html">./archive</a></li>
+                    <li><a href="readings.html">./readings</a></li>
+                    <li><a href="photos/">./photos</a></li>
+                    <li><a class="external" href="https://github.com/volkanozdamar" target="_blank" rel="noopener">github</a></li>
+                    <li><a href="tr/index.html" hreflang="tr" lang="tr"><i class="fi fi-tr" aria-hidden="true"></i>tr</a></li>
                 </ul>
             </nav>
     </header>
@@ -84,72 +87,86 @@
                 <p>Everybody knows that , Chrome is market leader and its developer tools are better than other browsers’.It is useful for software developers and software testers.Honestly ; I’m using Mozilla Firefox more than 10 years ,but Chrome is heading straight for the top every day.</p>
 <p>Last year , Chrome Team announced headless mode. Headless mode allows to us , running Chrome without GUI.Before that , everybody was using PhantomJs for headless test automation.Now we have got the powerful alternative to test and create automations , Puppeteer is an official tool for Chrome Headless by Google Chrome team.With Puppeteer you can use many features of Chrome Dev Tools with Chrome Headless.If it is not tl;dr for you , you can learn more on puppeteer’s GitHub page. Now , let’s get install puppeteer on our machine.</p>
 <h3>What we need :</h3>
-<pre><code>Node 8+
-Cup of Coffeé
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang"></span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code><span class="code-line"><span class="code-ln" aria-hidden="true">1</span>Node 8+
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">2</span>Cup of Coffeé
+</span></code></pre></figure>
 <p>Yes we just need node, cus puppeteer includes its own -latest- chromium.Create a directory where you want to work.All steps are working on Mac and Windows10(use powershell).(I didn’t try on Linux :) )</p>
-<pre><code class="language-language-bash">$ mkdir puppeteerworkspace
-$ cd puppeteerworkspace
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang">bash</span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code class="language-bash"><span class="code-line"><span class="code-ln" aria-hidden="true">1</span><span class="tk-p">$ </span>mkdir puppeteerworkspace
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">2</span><span class="tk-p">$ </span>cd puppeteerworkspace
+</span></code></pre></figure>
 <p>Then install Puppeteer with npm.</p>
-<pre><code class="language-language-bash">npm i --save puppeteer
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang">bash</span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code class="language-bash"><span class="code-line"><span class="code-ln" aria-hidden="true">1</span>npm i --save puppeteer
+</span></code></pre></figure>
 <p>It’s time to roll up our sleeves.Let’s try to take screenshot of my page.As a default , puppeteer taking screenshot of the whole page.If we write “fullPage:false” in our script ,it will get just visible part of page.</p>
-<pre><code class="language-language-javascript">const puppeteer = require('puppeteer');
-
-(async () =&gt; {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.goto('http://volkanozdamar.com');
-  await page.screenshot({path: 'mainpage.png',fullPage:false});
-  await browser.close();
-})();
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang">javascript</span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code class="language-javascript"><span class="code-line"><span class="code-ln" aria-hidden="true">1</span><span class="tk-k">const</span> puppeteer = require(<span class="tk-s">'puppeteer'</span>);
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">2</span>
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">3</span>(<span class="tk-k">async</span> () =&gt; {
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">4</span>  <span class="tk-k">const</span> browser = <span class="tk-k">await</span> puppeteer.launch();
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">5</span>  <span class="tk-k">const</span> page = <span class="tk-k">await</span> browser.newPage();
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">6</span>  <span class="tk-k">await</span> page.goto(<span class="tk-s">'http://volkanozdamar.com'</span>);
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">7</span>  <span class="tk-k">await</span> page.screenshot({path: <span class="tk-s">'mainpage.png'</span>,fullPage:<span class="tk-k">false</span>});
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">8</span>  <span class="tk-k">await</span> browser.close();
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">9</span>})();
+</span></code></pre></figure>
 <p>However, how we decide our screen size?Using setViewPort() function we can change our screen size.Additionally, we export the page as pdf.</p>
-<pre><code class="language-language-javascript">const puppeteer = require('puppeteer');
-
-(async () =&gt; {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.setViewport({width:1920,height:1080});
-  await page.goto('http://volkanozdamar.com');
-  await page.pdf({path: 'homepage.pdf', format: 'A4'});
-  await browser.close();
-})();
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang">javascript</span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code class="language-javascript"><span class="code-line"><span class="code-ln" aria-hidden="true">1</span><span class="tk-k">const</span> puppeteer = require(<span class="tk-s">'puppeteer'</span>);
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">2</span>
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">3</span>(<span class="tk-k">async</span> () =&gt; {
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">4</span>  <span class="tk-k">const</span> browser = <span class="tk-k">await</span> puppeteer.launch();
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">5</span>  <span class="tk-k">const</span> page = <span class="tk-k">await</span> browser.newPage();
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">6</span>  <span class="tk-k">await</span> page.setViewport({width:1920,height:1080});
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">7</span>  <span class="tk-k">await</span> page.goto(<span class="tk-s">'http://volkanozdamar.com'</span>);
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">8</span>  <span class="tk-k">await</span> page.pdf({path: <span class="tk-s">'homepage.pdf'</span>, format: <span class="tk-s">'A4'</span>});
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">9</span>  <span class="tk-k">await</span> browser.close();
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">10</span>})();
+</span></code></pre></figure>
 <h3>Mobile Screen Sizes</h3>
 <p>What if we want to emulate mobile page?How we will memorize all screen sizes for all devices?Don’t worry, puppeteer has predefined device sizes inside.You can find those devices in “DeviceDescriptors.js”.Also you can create your own devices.Below code ; sample for iphone6.</p>
-<pre><code class="language-language-javascript">const puppeteer = require('puppeteer');
-const devices = require('puppeteer/DeviceDescriptors');
-const iPhone = devices['iPhone 6'];
-
-puppeteer.launch().then(async browser =&gt; {
-  const page = await browser.newPage();
-  await page.emulate(iPhone);
-  await page.goto('https://www.google.com');
-  await page.screenshot({path: 'mainpage.png',fullPage:false});
-  await browser.close();
-});
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang">javascript</span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code class="language-javascript"><span class="code-line"><span class="code-ln" aria-hidden="true">1</span><span class="tk-k">const</span> puppeteer = require(<span class="tk-s">'puppeteer'</span>);
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">2</span><span class="tk-k">const</span> devices = require(<span class="tk-s">'puppeteer/DeviceDescriptors'</span>);
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">3</span><span class="tk-k">const</span> iPhone = devices[<span class="tk-s">'iPhone 6'</span>];
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">4</span>
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">5</span>puppeteer.launch().then(<span class="tk-k">async</span> browser =&gt; {
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">6</span>  <span class="tk-k">const</span> page = <span class="tk-k">await</span> browser.newPage();
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">7</span>  <span class="tk-k">await</span> page.emulate(iPhone);
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">8</span>  <span class="tk-k">await</span> page.goto(<span class="tk-s">'https://www.google.com'</span>);
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">9</span>  <span class="tk-k">await</span> page.screenshot({path: <span class="tk-s">'mainpage.png'</span>,fullPage:<span class="tk-k">false</span>});
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">10</span>  <span class="tk-k">await</span> browser.close();
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">11</span>});
+</span></code></pre></figure>
 <p>Beside all these, if you don’t want to as a headless , just write these lines,</p>
 <p>const browser = await puppeteer.launch({headless: false}); // default is true</p>
 <h3>Interacting with WebElements</h3>
 <p>To interact with a web element, Puppeteer using queryselector.I create a script making a Google Search.</p>
-<pre><code class="language-language-javascript">const puppeteer = require('puppeteer');
-
-(async () =&gt; {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.goto('https://google.com');
-  await page.type('#lst-ib','Puppeteer');
-  await page.click('input[name=&quot;btnK&quot;]');
-  await browser.close();
-})();
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang">javascript</span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code class="language-javascript"><span class="code-line"><span class="code-ln" aria-hidden="true">1</span><span class="tk-k">const</span> puppeteer = require(<span class="tk-s">'puppeteer'</span>);
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">2</span>
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">3</span>(<span class="tk-k">async</span> () =&gt; {
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">4</span>  <span class="tk-k">const</span> browser = <span class="tk-k">await</span> puppeteer.launch();
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">5</span>  <span class="tk-k">const</span> page = <span class="tk-k">await</span> browser.newPage();
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">6</span>  <span class="tk-k">await</span> page.goto(<span class="tk-s">'https://google.com'</span>);
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">7</span>  <span class="tk-k">await</span> page.type(<span class="tk-s">'#lst-ib'</span>,<span class="tk-s">'Puppeteer'</span>);
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">8</span>  <span class="tk-k">await</span> page.click(<span class="tk-s">'input[name=&quot;btnK&quot;]'</span>);
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">9</span>  <span class="tk-k">await</span> browser.close();
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">10</span>})();
+</span></code></pre></figure>
 <p>These are short notes and my first look for Puppeteer -also first English post on my blog 🍺 — .I will write another post about puppeteer in the following times.Until that time EOF.(End of FUN!)</p>
 
             </div>
         </article>
+        <script>
+            // Copy button of the code blocks (CodeBlocks.kt): copies the code without line numbers and shell prompts
+            document.querySelectorAll('.code-copy').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var code = button.closest('.code-block').querySelector('code').cloneNode(true);
+                    code.querySelectorAll('.code-ln, .tk-p').forEach(function (node) { node.remove(); });
+                    navigator.clipboard.writeText(code.textContent.replace(/\n$/, '')).then(function () {
+                        var label = button.textContent;
+                        button.textContent = button.dataset.copied;
+                        setTimeout(function () { button.textContent = label; }, 1500);
+                    });
+                });
+            });
+        </script>
         <div class="post-actions">
             <nav role="navigation" aria-label="Post navigation">
                 <a href="index.html" class="post-back" aria-label="Back to home page"><i class="fas fa-chevron-left"></i> Back to Home</a>

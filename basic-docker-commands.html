@@ -30,7 +30,7 @@
     <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inconsolata:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.11.1/css/flag-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -40,17 +40,20 @@
     <a href="#main-content" class="skip-to-main">Skip to main content</a>
     <header role="banner" class="site-header">
         <div class="header-content">
-            <h1>Volkan Özdamar</h1>
-            <img src="images/logo.png" alt="Volkan Özdamar's Blog Logo" class="site-logo">
+            <div class="site-brand">
+                <a class="site-name" href="index.html">Volkan Özdamar</a>
+                <span class="site-prompt"><b>volkan</b>@blog:~/posts $<span class="site-cursor" aria-hidden="true"></span></span>
+            </div>
+            <img src="images/logo.png" alt="" class="site-logo">
         </div>
-            <nav class="main-navigation">
+            <nav class="main-navigation" aria-label="Main">
                 <ul>
-                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="archive.html"><i class="fas fa-archive"></i> Archive</a></li>
-                    <li><a href="readings.html"><i class="fas fa-book"></i> Readings</a></li>
-                    <li><a href="photos/"><i class="fas fa-camera"></i> Photos</a></li>
-                    <li><a href="https://github.com/volkanozdamar" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
-                    <li><a href="tr/index.html"><i class="fi fi-tr"></i> Türkçe</a></li>
+                    <li><a href="index.html">./home</a></li>
+                    <li><a href="archive.html">./archive</a></li>
+                    <li><a href="readings.html">./readings</a></li>
+                    <li><a href="photos/">./photos</a></li>
+                    <li><a class="external" href="https://github.com/volkanozdamar" target="_blank" rel="noopener">github</a></li>
+                    <li><a href="tr/index.html" hreflang="tr" lang="tr"><i class="fi fi-tr" aria-hidden="true"></i>tr</a></li>
                 </ul>
             </nav>
     </header>
@@ -82,54 +85,54 @@
                 <p>Before this, I explained <a href="https://volkanozdamar.com/Just-Another-Docker-Related-Post/">here</a>, what is Docker, what is a container and why we are using it. I skip to installation because docker installation has differences in each operating system. You can follow the official installation document from <a href="https://docs.docker.com/engine/install/">here</a></p>
 <h2><strong>INFO Commands</strong></h2>
 <p>When you did to installation successfully, we can start to use docker. Open terminal or PowerShell and write these lines.</p>
-<pre><code>docker version
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang"></span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code><span class="code-line"><span class="code-ln" aria-hidden="true">1</span>docker version
+</span></code></pre></figure>
 <p>This command will give you information about the version of your system and docker engine.</p>
-<pre><code>Client: Docker Engine - Community
- Version:           19.03.8
- API version:       1.40
- Go version:        go1.12.17
- Git commit:        afacb8b
- Built:             Wed Mar 11 01:21:11 2020
- OS/Arch:           darwin/amd64
- Experimental:      false
-
-Server: Docker Engine - Community
- Engine:
-  Version:          19.03.8
-  API version:      1.40 (minimum version 1.12)
-  Go version:       go1.12.17
-  Git commit:       afacb8b
-  Built:            Wed Mar 11 01:29:16 2020
-  OS/Arch:          linux/amd64
-  Experimental:     false
- containerd:
-  Version:          v1.2.13
-  GitCommit:        7ad184331fa3e55e52b890ea95e65ba581ae3429
- runc:
-  Version:          1.0.0-rc10
-  GitCommit:        dc9208a3303feef5b3839f4323d9beb36df0a9dd
- docker-init:
-  Version:          0.18.0
-  GitCommit:        fec3683
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang"></span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code><span class="code-line"><span class="code-ln" aria-hidden="true">1</span>Client: Docker Engine - Community
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">2</span> Version:           19.03.8
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">3</span> API version:       1.40
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">4</span> Go version:        go1.12.17
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">5</span> Git commit:        afacb8b
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">6</span> Built:             Wed Mar 11 01:21:11 2020
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">7</span> OS/Arch:           darwin/amd64
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">8</span> Experimental:      false
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">9</span>
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">10</span>Server: Docker Engine - Community
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">11</span> Engine:
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">12</span>  Version:          19.03.8
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">13</span>  API version:      1.40 (minimum version 1.12)
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">14</span>  Go version:       go1.12.17
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">15</span>  Git commit:       afacb8b
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">16</span>  Built:            Wed Mar 11 01:29:16 2020
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">17</span>  OS/Arch:          linux/amd64
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">18</span>  Experimental:     false
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">19</span> containerd:
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">20</span>  Version:          v1.2.13
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">21</span>  GitCommit:        7ad184331fa3e55e52b890ea95e65ba581ae3429
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">22</span> runc:
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">23</span>  Version:          1.0.0-rc10
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">24</span>  GitCommit:        dc9208a3303feef5b3839f4323d9beb36df0a9dd
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">25</span> docker-init:
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">26</span>  Version:          0.18.0
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">27</span>  GitCommit:        fec3683
+</span></code></pre></figure>
 <p>Another info command is &quot;docker info&quot; shows you informations about configuration values for engine</p>
-<pre><code>docker info
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang"></span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code><span class="code-line"><span class="code-ln" aria-hidden="true">1</span>docker info
+</span></code></pre></figure>
 <p>But what about if we write only “docker”.When we type to terminal or PowerShell only “docker” it prints to us an informative explanation about docker management commands, commands and their options.</p>
 <p>Simply we manage docker image and container like that</p>
-<pre><code>docker &lt;command&gt; &lt;sub-command&gt;
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang"></span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code><span class="code-line"><span class="code-ln" aria-hidden="true">1</span>docker &lt;command&gt; &lt;sub-command&gt;
+</span></code></pre></figure>
 <p>For instance, if we want to run a container we need to write</p>
-<pre><code>docker container run
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang"></span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code><span class="code-line"><span class="code-ln" aria-hidden="true">1</span>docker container run
+</span></code></pre></figure>
 <p>also, we can use this without command, but this is naming as an old way now.</p>
-<pre><code>docker run
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang"></span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code><span class="code-line"><span class="code-ln" aria-hidden="true">1</span>docker run
+</span></code></pre></figure>
 <h2><strong>Container Management Commands</strong></h2>
 <p>Container management command for creation, deletion start and stop for container.To explain that i choose to create nginx container.</p>
-<pre><code>docker container run --publish 80:80 --detach  --name webhost nginx
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang"></span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code><span class="code-line"><span class="code-ln" aria-hidden="true">1</span>docker container run --publish 80:80 --detach  --name webhost nginx
+</span></code></pre></figure>
 <p>**  --detach or -d option runs container in the background.</p>
 <p><img src="images/Basic-Docker-Commands/nginx.gif" alt="Nginx Container Creation" title="Nginx Container Creation" /></p>
 <p>With this command Docker doing</p>
@@ -141,37 +144,51 @@ Server: Docker Engine - Community
 <li>Starts container</li>
 </ul>
 <p>After container created , you can list all working containers , you should see your container as up and running</p>
-<pre><code>docker container ls // or docker ps (old way)
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang"></span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code><span class="code-line"><span class="code-ln" aria-hidden="true">1</span>docker container ls // or docker ps (old way)
+</span></code></pre></figure>
 <p>with -a flag you can list stopped container also.</p>
-<pre><code>docker container ls -a
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang"></span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code><span class="code-line"><span class="code-ln" aria-hidden="true">1</span>docker container ls -a
+</span></code></pre></figure>
 <p>If you want to learn details of your container configs , inspect command prints it as json</p>
-<pre><code>docker container inspect webhost
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang"></span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code><span class="code-line"><span class="code-ln" aria-hidden="true">1</span>docker container inspect webhost
+</span></code></pre></figure>
 <p>If we want to stop our container just need to write a command below with our container name.Remember , our container name was webhost.(When you don't give a name a container , docker gives a random name for it.BTW, you can also use first 3 digits of your container id instead of name)</p>
-<pre><code>docker container stop webhost
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang"></span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code><span class="code-line"><span class="code-ln" aria-hidden="true">1</span>docker container stop webhost
+</span></code></pre></figure>
 <p>To re-run stopped container we change stop as start .</p>
-<pre><code>docker container start webhost
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang"></span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code><span class="code-line"><span class="code-ln" aria-hidden="true">1</span>docker container start webhost
+</span></code></pre></figure>
 <p><img src="images/Basic-Docker-Commands/removecontainer.gif" alt="Remove Container" title="Remove Container" /></p>
 <p>And lastly when we want to remove docker container , we use to 'rm' command.Before remove a container , you need to stop it.Docker gives a warning to prevent deletion of working containers like above.</p>
-<pre><code>docker container rm webhost
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang"></span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code><span class="code-line"><span class="code-ln" aria-hidden="true">1</span>docker container rm webhost
+</span></code></pre></figure>
 <h2><strong>Logs and Tasks Management</strong></h2>
 <p>If we used --detach and -d , still we can reach logs of the running container</p>
-<pre><code>docker container logs webhost
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang"></span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code><span class="code-line"><span class="code-ln" aria-hidden="true">1</span>docker container logs webhost
+</span></code></pre></figure>
 <p>and for the process list in one container.</p>
-<pre><code>docker container top &lt;containername&gt; 
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang"></span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code><span class="code-line"><span class="code-ln" aria-hidden="true">1</span>docker container top &lt;containername&gt; 
+</span></code></pre></figure>
 <p>And todays last command coming for to reach performance stats for all containers</p>
-<pre><code>docker container stats 
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang"></span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code><span class="code-line"><span class="code-ln" aria-hidden="true">1</span>docker container stats 
+</span></code></pre></figure>
 
             </div>
         </article>
+        <script>
+            // Copy button of the code blocks (CodeBlocks.kt): copies the code without line numbers and shell prompts
+            document.querySelectorAll('.code-copy').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var code = button.closest('.code-block').querySelector('code').cloneNode(true);
+                    code.querySelectorAll('.code-ln, .tk-p').forEach(function (node) { node.remove(); });
+                    navigator.clipboard.writeText(code.textContent.replace(/\n$/, '')).then(function () {
+                        var label = button.textContent;
+                        button.textContent = button.dataset.copied;
+                        setTimeout(function () { button.textContent = label; }, 1500);
+                    });
+                });
+            });
+        </script>
         <div class="post-actions">
             <nav role="navigation" aria-label="Post navigation">
                 <a href="index.html" class="post-back" aria-label="Back to home page"><i class="fas fa-chevron-left"></i> Back to Home</a>

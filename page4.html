@@ -30,7 +30,7 @@
     <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inconsolata:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.11.1/css/flag-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -40,65 +40,88 @@
     <a href="#main-content" class="skip-to-main">Skip to main content</a>
     <header role="banner" class="site-header">
         <div class="header-content">
-            <h1>Volkan Özdamar</h1>
-            <img src="images/logo.png" alt="Volkan Özdamar's Blog Logo" class="site-logo">
+            <div class="site-brand">
+                <a class="site-name" href="index.html">Volkan Özdamar</a>
+                <span class="site-prompt"><b>volkan</b>@blog:~ $<span class="site-cursor" aria-hidden="true"></span></span>
+            </div>
+            <img src="images/logo.png" alt="" class="site-logo">
         </div>
-            <nav class="main-navigation">
+            <nav class="main-navigation" aria-label="Main">
                 <ul>
-                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="archive.html"><i class="fas fa-archive"></i> Archive</a></li>
-                    <li><a href="readings.html"><i class="fas fa-book"></i> Readings</a></li>
-                    <li><a href="photos/"><i class="fas fa-camera"></i> Photos</a></li>
-                    <li><a href="https://github.com/volkanozdamar" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
-                    <li><a href="tr/index.html"><i class="fi fi-tr"></i> Türkçe</a></li>
+                    <li><a href="index.html" aria-current="page">./home</a></li>
+                    <li><a href="archive.html">./archive</a></li>
+                    <li><a href="readings.html">./readings</a></li>
+                    <li><a href="photos/">./photos</a></li>
+                    <li><a class="external" href="https://github.com/volkanozdamar" target="_blank" rel="noopener">github</a></li>
+                    <li><a href="tr/index.html" hreflang="tr" lang="tr"><i class="fi fi-tr" aria-hidden="true"></i>tr</a></li>
                 </ul>
             </nav>
     </header>
     <main id="main-content" role="main">        <nav role="navigation" aria-label="Blog posts">
             <ul class="post-list">
-                <li class="post-item ">
-                    <a href="what's-happening-inside-of-webdriver's-engine-bonnet.html" aria-label="Read What's happening inside of WebDriver's engine bonnet?" >
+                <li class="post-item">
+                    <a class="post-card" href="what's-happening-inside-of-webdriver's-engine-bonnet.html" aria-label="Read What's happening inside of WebDriver's engine bonnet?" >
+                        <div class="post-card-meta">
+                            <time datetime="2018-08-31">2018-08-31</time>
+                            <span>1 min read</span>
+                            
+                        </div>
                         <h2 class="post-title">What's happening inside of WebDriver's engine bonnet?</h2>
-                        <div class="post-date" aria-label="Posted on 31-08-2018">31-08-2018</div>
+                        
+                        <div class="post-tags">
+                                <span class="tag">selenium</span>
+                        </div>
                     </a>
-                    <div class="post-tags">
-                            <span class="tag">selenium</span>
-                    </div>
                 </li>
-                <li class="post-item ">
-                    <a href="install-all-selenium-webdrivers-with-one-command.html" aria-label="Read Install All Selenium WebDrivers with One Command" >
+                <li class="post-item">
+                    <a class="post-card" href="install-all-selenium-webdrivers-with-one-command.html" aria-label="Read Install All Selenium WebDrivers with One Command" >
+                        <div class="post-card-meta">
+                            <time datetime="2018-08-21">2018-08-21</time>
+                            <span>1 min read</span>
+                            
+                        </div>
                         <h2 class="post-title">Install All Selenium WebDrivers with One Command</h2>
-                        <div class="post-date" aria-label="Posted on 21-08-2018">21-08-2018</div>
+                        
+                        <div class="post-tags">
+                                <span class="tag">Chrome</span>
+                                <span class="tag">Firefox</span>
+                                <span class="tag">Edge</span>
+                                <span class="tag">Selenium</span>
+                                <span class="tag">IE</span>
+                                <span class="tag">Opera</span>
+                        </div>
                     </a>
-                    <div class="post-tags">
-                            <span class="tag">Chrome</span>
-                            <span class="tag">Firefox</span>
-                            <span class="tag">Edge</span>
-                            <span class="tag">Selenium</span>
-                            <span class="tag">IE</span>
-                            <span class="tag">Opera</span>
-                    </div>
                 </li>
-                <li class="post-item ">
-                    <a href="pull-the-wires-of-chrome-with-puppeteer.html" aria-label="Read Pull the wires of Chrome with Puppeteer" >
+                <li class="post-item">
+                    <a class="post-card" href="pull-the-wires-of-chrome-with-puppeteer.html" aria-label="Read Pull the wires of Chrome with Puppeteer" >
+                        <div class="post-card-meta">
+                            <time datetime="2018-08-18">2018-08-18</time>
+                            <span>3 min read</span>
+                            
+                        </div>
                         <h2 class="post-title">Pull the wires of Chrome with Puppeteer</h2>
-                        <div class="post-date" aria-label="Posted on 18-08-2018">18-08-2018</div>
+                        
+                        <div class="post-tags">
+                                <span class="tag">Chromedevtools</span>
+                                <span class="tag">Google</span>
+                                <span class="tag">Chrome</span>
+                                <span class="tag">Puppeteer</span>
+                        </div>
                     </a>
-                    <div class="post-tags">
-                            <span class="tag">Chromedevtools</span>
-                            <span class="tag">Google</span>
-                            <span class="tag">Chrome</span>
-                            <span class="tag">Puppeteer</span>
-                    </div>
                 </li>
-                <li class="post-item ">
-                    <a href="hello-world.html" aria-label="Read Hello World" >
+                <li class="post-item">
+                    <a class="post-card" href="hello-world.html" aria-label="Read Hello World" >
+                        <div class="post-card-meta">
+                            <time datetime="2018-08-10">2018-08-10</time>
+                            <span>1 min read</span>
+                            
+                        </div>
                         <h2 class="post-title">Hello World</h2>
-                        <div class="post-date" aria-label="Posted on 10-08-2018">10-08-2018</div>
+                        
+                        <div class="post-tags">
+                                <span class="tag">Notes</span>
+                        </div>
                     </a>
-                    <div class="post-tags">
-                            <span class="tag">Notes</span>
-                    </div>
                 </li>
 
             </ul>

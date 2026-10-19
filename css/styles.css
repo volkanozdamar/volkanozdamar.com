@@ -7,6 +7,7 @@
     --ink: #E8AF17;
     --muted: #b8a26a;
     --quote-bg: rgba(232, 175, 23, 0.08);
+    --font-mono: Inconsolata, Monaco, "Courier New", monospace;
     color-scheme: dark;
 }
 
@@ -31,22 +32,14 @@ body {
     -ms-text-size-adjust: 100%;
 }
 
-/* Navigation styles */
+/* Navigation: the pages written as paths (./home, ./archive), in mono; the current page is filled like a hover */
 .main-navigation ul {
     list-style: none;
     padding: 0;
-    margin: 1rem 0;
+    margin: 0;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
     gap: 0.25rem;
-    /* All 6 items on one row on wide screens; narrow screens wrap (see the media query below) */
-    flex-wrap: nowrap;
-}
-
-@media (max-width: 760px) {
-    .main-navigation ul {
-        flex-wrap: wrap;
-    }
 }
 
 .main-navigation li {
@@ -57,63 +50,128 @@ body {
     color: var(--ink);
     text-decoration: none;
     white-space: nowrap;
-    padding: 0.5rem 0.75rem;
+    padding: 6px 12px;
     border-radius: 4px;
-    transition: all 0.3s ease;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    transition: background-color 0.2s ease, color 0.2s ease;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 6px;
 }
 
 .main-navigation a:hover,
-.main-navigation a:focus {
+.main-navigation a:focus,
+.main-navigation a[aria-current="page"] {
     background-color: var(--ink);
     color: var(--primary);
     text-decoration: none;
 }
 
-.main-navigation i {
-    font-size: 1.1em;
+.main-navigation a:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
 }
 
-/* Post list styles */
+.main-navigation .external::after {
+    content: "\2197";
+    margin-left: 2px;
+    font-size: 0.85em;
+}
+
+/* Post list: each post is a card, its date and reading time in mono above the title, then the tags */
 .post-list {
     list-style: none;
     padding: 0;
+    display: grid;
+    gap: 16px;
 }
 
 .post-item {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
     border: 1px solid var(--ink);
+    border-radius: 5px;
     background-color: var(--primary);
     color: var(--ink);
-    font-size: 16px;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    border-radius: 5px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.post-card {
+    display: block;
+    padding: 16px 20px;
+    color: inherit;
+    outline: none;
+}
+
+.post-card:hover,
+.post-card:focus {
+    text-decoration: none;
+}
+
+.post-item:hover,
+.post-item:focus-within {
+    background-color: var(--ink);
+    color: var(--primary);
+}
+
+.post-item:focus-within {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+}
+
+.post-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.post-item:hover .post-card-meta,
+.post-item:focus-within .post-card-meta {
+    color: inherit;
+}
+
+.post-card-kind {
+    padding: 0 6px;
+    border: 1px solid currentColor;
+    border-radius: 3px;
+}
+
+.post-title {
+    margin: 6px 0 4px;
+    font-size: 1.5em;
+    line-height: 1.25;
+    color: inherit;
+}
+
+.post-title::after {
+    content: " \2192";
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.post-item:hover .post-title::after,
+.post-item:focus-within .post-title::after {
+    opacity: 1;
+}
+
+.post-card-excerpt {
+    margin: 0 0 12px;
 }
 
 /* YouTube post styling */
-.youtube-post {
+.youtube-post,
+.youtube-post .post-card-meta {
     background-color: #b2071d;
     color: white;
 }
 
-.youtube-post a {
-    color: white;
-}
-
 .youtube-post:hover,
-.youtube-post a:focus {
+.youtube-post:focus-within,
+.youtube-post:hover .post-card-meta,
+.youtube-post:focus-within .post-card-meta {
     background-color: darkred;
-    color: white;
-}
-
-.youtube-post .post-title,
-.youtube-post .post-date,
-.instagram-post .post-title,
-.instagram-post .post-date {
     color: white;
 }
 
@@ -123,39 +181,14 @@ body {
     color: white;
 }
 
-.instagram-post a {
-    color: white;
-}
-
 .instagram-post:hover,
-.instagram-post a:focus {
+.instagram-post:focus-within {
     background: linear-gradient(45deg, #833AB4, #C13584, #E1306C, #FD1D1D, #405DE6, #5851DB);
     color: white;
 }
 
-.post-item a {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    transition: background-color 0.3s ease;
-    color: var(--ink);
-    outline: none;
-}
-
-.post-item:hover,
-.post-item a:focus {
-    background-color: var(--ink);
-    text-decoration: none;
-    color: var(--primary);
-    border-radius: 5px;
-}
-
-.post-title {
-    margin: 0;
-    font-size: 1.5em;
-    color: inherit;
-    flex: 1;
+.instagram-post .post-card-meta {
+    color: white;
 }
 
 .post-date {
@@ -350,8 +383,8 @@ body {
     opacity: 0.8;
 }
 
-/* Link between a Turkish post and its English translation (PostTranslation.kt) */
-.post-translation-note {
+/* Note: a dashed aside with a mono "// label", e.g. the link between a Turkish post and its English translation (PostTranslation.kt) */
+.post-note {
     display: flex;
     align-items: baseline;
     gap: 8px;
@@ -363,11 +396,18 @@ body {
     font-size: 0.9rem;
 }
 
-.post-translation-note-top {
+.post-note-top {
     margin-top: 0;
 }
 
-.post-translation-note a {
+.post-note-label {
+    flex: none;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.post-note a {
     color: inherit;
     font-weight: 600;
 }
@@ -627,43 +667,89 @@ body {
     color: var(--primary);
 }
 
+/* Site header: logo, name and a shell prompt showing the page as a path, then the navigation, closed by a rule */
 .site-header {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
     margin-bottom: 2rem;
-    padding: 1rem;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--ink);
 }
 
 .header-content {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    max-width: 600px;
-    margin: 0 auto;
+    gap: 12px;
 }
 
 .site-logo {
-    width: 60px;
-    height: 60px;
+    flex: none;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
 }
 
+.site-brand {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.site-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.site-prompt {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.site-prompt b {
+    color: var(--ink);
+    font-weight: 700;
+}
+
+.site-cursor {
+    display: inline-block;
+    width: 0.55em;
+    height: 1em;
+    margin-left: 2px;
+    vertical-align: -0.15em;
+    background-color: var(--ink);
+    animation: cursor-blink 1.1s steps(1) infinite;
+}
+
+@keyframes cursor-blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-cursor {
+        animation: none;
+    }
+}
+
+/* Article body: the rendered post as plain text on the page, h2 with a muted "## ", inline code and quotes on the tinted surface */
 .post-content {
     margin-top: 20px;
-    background-color: var(--ink);
-    color: var(--primary);
-    padding: 20px;
-    border-radius: 5px;
+    color: var(--ink);
 }
 
 .post-content a {
-    color: var(--primary);
+    color: inherit;
     text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 .post-content a:hover,
 .post-content a:focus {
-    color: #FFFFFF;
+    text-decoration-thickness: 2px;
 }
 
 .post-content img {
@@ -671,7 +757,6 @@ body {
     height: auto;
     display: block;
     margin: 1rem auto;
-    border: 2px solid var(--primary);
 }
 
 .post-content h1,
@@ -680,22 +765,157 @@ body {
 .post-content h4,
 .post-content h5,
 .post-content h6 {
-    color: var(--primary);
+    color: inherit;
+}
+
+.post-content h2 {
+    margin: 2rem 0 0.75rem;
+    font-size: 1.5em;
+    line-height: 1.25;
+}
+
+.post-content h2::before {
+    content: "## ";
+    font-family: var(--font-mono);
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.post-content h3 {
+    margin: 1.5rem 0 0.5rem;
+    font-size: 1.25em;
+    line-height: 1.3;
 }
 
 .post-content code {
-    background-color: var(--primary);
-    color: var(--ink);
-    padding: 2px 5px;
+    padding: 1px 6px;
+    border: 1px solid var(--ink);
     border-radius: 3px;
+    background-color: var(--quote-bg);
+    color: var(--ink);
+    font-size: 0.92em;
 }
 
 .post-content pre {
-    background-color: var(--primary);
+    border: 1px solid var(--ink);
+    background-color: var(--quote-bg);
     color: var(--ink);
     padding: 1rem;
-    border-radius: 5px;
+    border-radius: 4px;
     overflow-x: auto;
+}
+
+.post-content blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    border: 1px solid var(--ink);
+    border-radius: 5px;
+}
+
+/* Code block (CodeBlocks.kt): a bar with the language and a copy button over the code, with line numbers.
+   Highlighting stays in the two theme colours: bold keywords, dotted strings, muted comments. */
+.code-block {
+    margin: 1.5rem 0;
+    border: 1px solid var(--ink);
+    border-radius: 4px;
+    background-color: var(--primary);
+    color: var(--ink);
+    overflow: hidden;
+}
+
+.code-block-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 12px;
+    border-bottom: 1px solid var(--ink);
+    background-color: var(--quote-bg);
+    font-family: var(--font-mono);
+    font-size: 13px;
+}
+
+.code-block-lang {
+    margin-left: auto;
+    color: var(--muted);
+}
+
+.code-copy {
+    padding: 2px 8px;
+    border: 1px solid var(--ink);
+    border-radius: 3px;
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    cursor: pointer;
+}
+
+.code-copy:hover,
+.code-copy:focus-visible {
+    background-color: var(--ink);
+    color: var(--primary);
+}
+
+.code-copy:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+}
+
+.post-content .code-block pre {
+    max-width: none;
+    margin: 0;
+    padding: 1rem 0;
+    border: 0;
+    border-radius: 0;
+    background-color: var(--quote-bg);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+.post-content .code-block code {
+    display: block;
+    max-width: none;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    font-size: inherit;
+    background: none;
+    color: inherit;
+    overflow: visible;
+}
+
+.code-line {
+    display: block;
+    padding-right: 16px;
+}
+
+.code-ln {
+    display: inline-block;
+    width: 3ch;
+    margin-right: 16px;
+    padding-left: 12px;
+    text-align: right;
+    color: var(--muted);
+    user-select: none;
+}
+
+.tk-c {
+    color: var(--muted);
+    font-style: italic;
+}
+
+.tk-k {
+    font-weight: 700;
+}
+
+.tk-s {
+    text-decoration: underline dotted;
+    text-underline-offset: 3px;
+}
+
+.tk-p {
+    font-weight: 700;
+    user-select: none;
 }
 .comments-section {
         margin-top: 2rem;
@@ -721,13 +941,6 @@ a {
 a:hover,
 a:focus {
     text-decoration: underline;
-}
-
-.post-item:hover .post-title,
-.post-item:hover .post-date,
-.post-item a:focus .post-title,
-.post-item a:focus .post-date {
-    color: var(--primary);
 }
 
 /* Pagination styles */
@@ -853,9 +1066,22 @@ a:focus {
     justify-content: flex-end;
 }
 
-/* Keep the tags off the card's right border, in line with the date above */
+/* Tags on a post card: under the title, in mono, as #tag */
 .post-item .post-tags {
-    padding: 0 10px;
+    justify-content: flex-start;
+    margin: 8px 0 0;
+}
+
+.post-item .tag {
+    padding: 2px 8px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.post-item .tag::before {
+    content: "#";
+    opacity: 0.7;
 }
 
 .tag {
@@ -883,49 +1109,30 @@ a:focus {
     color: #b2071d;
 }
 
-.youtube-post .tag a {
-    color: #b2071d;
-}
-
 .post-item:hover .tag,
-.post-item a:focus .tag {
+.post-item:focus-within .tag {
     background-color: var(--primary);
     color: var(--ink);
 }
 
-.post-item:hover .tag a,
-.post-item a:focus .tag a {
-    color: var(--ink);
-}
-
 .youtube-post:hover .tag,
-.youtube-post a:focus .tag {
+.youtube-post:focus-within .tag {
     background-color: #ffffff;
     color: darkred;
 }
 
-.youtube-post:hover .tag a,
-.youtube-post a:focus .tag a {
-    color: darkred;
-}
 /* Twitter post styling */
-.twitter-post {
+.twitter-post,
+.twitter-post .post-card-meta {
     background: #1DA1F2;
     color: white;
 }
 
-.twitter-post a {
-    color: white;
-}
-
 .twitter-post:hover,
-.twitter-post a:focus {
+.twitter-post:focus-within,
+.twitter-post:hover .post-card-meta,
+.twitter-post:focus-within .post-card-meta {
     background: #0d8bd9;
-    color: white;
-}
-
-.twitter-post .post-title,
-.twitter-post .post-date {
     color: white;
 }
 

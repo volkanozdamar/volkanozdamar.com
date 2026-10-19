@@ -30,7 +30,7 @@
     <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inconsolata:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.11.1/css/flag-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -40,17 +40,20 @@
     <a href="#main-content" class="skip-to-main">Skip to main content</a>
     <header role="banner" class="site-header">
         <div class="header-content">
-            <h1>Volkan Özdamar</h1>
-            <img src="images/logo.png" alt="Volkan Özdamar's Blog Logo" class="site-logo">
+            <div class="site-brand">
+                <a class="site-name" href="index.html">Volkan Özdamar</a>
+                <span class="site-prompt"><b>volkan</b>@blog:~/posts $<span class="site-cursor" aria-hidden="true"></span></span>
+            </div>
+            <img src="images/logo.png" alt="" class="site-logo">
         </div>
-            <nav class="main-navigation">
+            <nav class="main-navigation" aria-label="Main">
                 <ul>
-                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="archive.html"><i class="fas fa-archive"></i> Archive</a></li>
-                    <li><a href="readings.html"><i class="fas fa-book"></i> Readings</a></li>
-                    <li><a href="photos/"><i class="fas fa-camera"></i> Photos</a></li>
-                    <li><a href="https://github.com/volkanozdamar" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
-                    <li><a href="tr/index.html"><i class="fi fi-tr"></i> Türkçe</a></li>
+                    <li><a href="index.html">./home</a></li>
+                    <li><a href="archive.html">./archive</a></li>
+                    <li><a href="readings.html">./readings</a></li>
+                    <li><a href="photos/">./photos</a></li>
+                    <li><a class="external" href="https://github.com/volkanozdamar" target="_blank" rel="noopener">github</a></li>
+                    <li><a href="tr/index.html" hreflang="tr" lang="tr"><i class="fi fi-tr" aria-hidden="true"></i>tr</a></li>
                 </ul>
             </nav>
     </header>
@@ -96,28 +99,28 @@
 </code></pre>
 <p>In Kotlin every thing is an object and we can say that on the contrary of Java , Kotlin has no primitive types.However in conversion from Kotlin code to bytecode , with some optimisations primitive types are converting as primitive java equivalances.</p>
 <p>Compare our example and it's decompiled version.You will see our varibles converted as Primitive Types.</p>
-<pre><code>import kotlin.Metadata;
-
-@Metadata(
-   mv = {1, 9, 0},
-   k = 2,
-   d1 = {&quot;\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u001a\u0006\u0010\u0000\u001a\u00020\u0001¨\u0006\u0002&quot;},
-   d2 = {&quot;main&quot;, &quot;&quot;, &quot;helloworld&quot;}
-)
-public final class MainKt {
-   public static final void main() {
-      String name = &quot;Volkan&quot;;
-      String surName = &quot;Özdamar&quot;;
-      double numberPi = 3.14;
-      double gravity = 9.81;
-   }
-
-   // $FF: synthetic method
-   public static void main(String[] var0) {
-      main();
-   }
-}
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang"></span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code><span class="code-line"><span class="code-ln" aria-hidden="true">1</span>import kotlin.Metadata;
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">2</span>
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">3</span>@Metadata(
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">4</span>   mv = {1, 9, 0},
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">5</span>   k = 2,
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">6</span>   d1 = {&quot;\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u001a\u0006\u0010\u0000\u001a\u00020\u0001¨\u0006\u0002&quot;},
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">7</span>   d2 = {&quot;main&quot;, &quot;&quot;, &quot;helloworld&quot;}
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">8</span>)
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">9</span>public final class MainKt {
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">10</span>   public static final void main() {
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">11</span>      String name = &quot;Volkan&quot;;
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">12</span>      String surName = &quot;Özdamar&quot;;
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">13</span>      double numberPi = 3.14;
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">14</span>      double gravity = 9.81;
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">15</span>   }
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">16</span>
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">17</span>   // $FF: synthetic method
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">18</span>   public static void main(String[] var0) {
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">19</span>      main();
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">20</span>   }
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">21</span>}
+</span></code></pre></figure>
 <h2>Why val is not immutable but readonly ?</h2>
 <p>The value you're assigned to the variable is used to create a new object.If you declare the variable using val, the reference to the object stays in the variable forever and can't be replaced. You can see <em>availableSpace</em> value depends to other variables value.Because of that is not immutable but read-only.</p>
 <pre><code class="language-kotlinplay">public class Box {
@@ -220,15 +223,15 @@ Paolo Montalto's post https://xabaras.medium.com/kotlin-val-is-read-only-not-imm
 <p>Fixed Size: Arrays have a fixed size once they are created. This can be useful when you know exactly how many elements you need to store.</p>
 <p>Interoperability: Kotlin's Array class provides interoperability with Java and other JVM languages. This is important when working in a mixed-language codebase.</p>
 <p>Here's a simple example of how to declare and initialize an array in Kotlin:</p>
-<pre><code>val numbers = arrayOf(1, 2, 3, 4, 5)
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang"></span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code><span class="code-line"><span class="code-ln" aria-hidden="true">1</span>val numbers = arrayOf(1, 2, 3, 4, 5)
+</span></code></pre></figure>
 <p>And here's how you might access elements and iterate over an array:</p>
-<pre><code>val firstNumber = numbers[0] // Access the first element
-
-for (number in numbers) { // Iterate over the array
-    println(number)
-}
-</code></pre>
+<figure class="code-block"><figcaption class="code-block-bar"><span class="code-block-lang"></span><button type="button" class="code-copy" data-copied="copied ✓">copy</button></figcaption><pre><code><span class="code-line"><span class="code-ln" aria-hidden="true">1</span>val firstNumber = numbers[0] // Access the first element
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">2</span>
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">3</span>for (number in numbers) { // Iterate over the array
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">4</span>    println(number)
+</span><span class="code-line"><span class="code-ln" aria-hidden="true">5</span>}
+</span></code></pre></figure>
 <p>Remember, while arrays can be very useful, they are not always the best tool for the job. Kotlin also provides other collection types, like List, Set, and Map, which might be more appropriate depending on your specific needs.</p>
 <p>In Kotlin, there are two types of arrays: primitive arrays and class arrays.</p>
 <ol>
@@ -265,6 +268,20 @@ println(classArray[0]) // Output: 1
 
             </div>
         </article>
+        <script>
+            // Copy button of the code blocks (CodeBlocks.kt): copies the code without line numbers and shell prompts
+            document.querySelectorAll('.code-copy').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var code = button.closest('.code-block').querySelector('code').cloneNode(true);
+                    code.querySelectorAll('.code-ln, .tk-p').forEach(function (node) { node.remove(); });
+                    navigator.clipboard.writeText(code.textContent.replace(/\n$/, '')).then(function () {
+                        var label = button.textContent;
+                        button.textContent = button.dataset.copied;
+                        setTimeout(function () { button.textContent = label; }, 1500);
+                    });
+                });
+            });
+        </script>
         <div class="post-actions">
             <nav role="navigation" aria-label="Post navigation">
                 <a href="index.html" class="post-back" aria-label="Back to home page"><i class="fas fa-chevron-left"></i> Back to Home</a>

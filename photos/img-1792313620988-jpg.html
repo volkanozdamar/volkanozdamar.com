@@ -32,7 +32,7 @@
     <link rel="apple-touch-icon" href="../images/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inconsolata:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.11.1/css/flag-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../css/styles.css">
@@ -42,17 +42,20 @@
     <a href="#main-content" class="skip-to-main">Skip to main content</a>
     <header role="banner" class="site-header">
         <div class="header-content">
-            <h1>Volkan Özdamar</h1>
-            <img src="../images/logo.png" alt="Volkan Özdamar's Blog Logo" class="site-logo">
+            <div class="site-brand">
+                <a class="site-name" href="../index.html">Volkan Özdamar</a>
+                <span class="site-prompt"><b>volkan</b>@blog:~/photos $<span class="site-cursor" aria-hidden="true"></span></span>
+            </div>
+            <img src="../images/logo.png" alt="" class="site-logo">
         </div>
-            <nav class="main-navigation">
+            <nav class="main-navigation" aria-label="Main">
                 <ul>
-                    <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="../archive.html"><i class="fas fa-archive"></i> Archive</a></li>
-                    <li><a href="../readings.html"><i class="fas fa-book"></i> Readings</a></li>
-                    <li><a href="../photos/"><i class="fas fa-camera"></i> Photos</a></li>
-                    <li><a href="https://github.com/volkanozdamar" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
-                    <li><a href="../tr/index.html"><i class="fi fi-tr"></i> Türkçe</a></li>
+                    <li><a href="../index.html">./home</a></li>
+                    <li><a href="../archive.html">./archive</a></li>
+                    <li><a href="../readings.html">./readings</a></li>
+                    <li><a href="../photos/" aria-current="page">./photos</a></li>
+                    <li><a class="external" href="https://github.com/volkanozdamar" target="_blank" rel="noopener">github</a></li>
+                    <li><a href="../tr/index.html" hreflang="tr" lang="tr"><i class="fi fi-tr" aria-hidden="true"></i>tr</a></li>
                 </ul>
             </nav>
     </header>
@@ -66,7 +69,7 @@
             
         
         <dl class="photo-meta">
-    <div><dt>Date</dt><dd>18-10-2026 16:33</dd></div>
+    <div><dt>Date</dt><dd>19-10-2026 10:53</dd></div>
     
     
     <div><dt>Aperture</dt><dd>f/2.4</dd></div>
