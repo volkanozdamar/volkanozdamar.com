@@ -1019,58 +1019,178 @@ a:focus {
     text-decoration: none;
     font-weight: bold;
 }
-/* Kotlin Playground styles */
-.compiler-info__open-editor-link,
-.compiler-info__target,
-.compiler-info__version {
-    color: var(--ink) !important;
-}
-/* Kotlin Playground dark mode styles */
-.kotlin-playground {
-    background-color: var(--primary) !important;
-    color: var(--ink) !important;
+/* Kotlin Playground (```kotlinplay) drawn like the code blocks: a bar with the language and a "run" button over the
+   code on the tinted surface, monochrome highlighting, the output under a rule and the compiler info as a footer.
+   The playground injects its own styles, so these need !important. */
+.executable-fragment-wrapper {
+    margin: 1.5rem 0 !important;
 }
 
-.CodeMirror {
+/* The playground is drawn inside the <pre> of the fence: drop that <pre>'s frame */
+.post-content pre:has(.executable-fragment-wrapper) {
+    margin: 1.5rem 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    overflow: visible;
+    white-space: normal;
+}
+
+.executable-fragment {
+    position: relative !important;
+    border: 1px solid var(--ink) !important;
+    border-radius: 4px 4px 0 0 !important;
+    background-color: var(--primary) !important;
+    color: var(--ink) !important;
+    overflow: hidden !important;
+}
+
+.executable-fragment::before {
+    content: "kotlin \00b7  playground";
+    display: block;
+    padding: 6px 12px;
+    border-bottom: 1px solid var(--ink);
+    background-color: var(--quote-bg);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 22px;
+}
+
+.executable-fragment .run-button {
+    top: 6px !important;
+    right: 12px !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 2px 8px !important;
+    border: 1px solid var(--ink) !important;
+    border-radius: 3px !important;
+    background: none !important;
+    color: var(--ink) !important;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 16px;
+    cursor: pointer;
+}
+
+.executable-fragment .run-button::after {
+    content: "run \25b6";
+}
+
+.executable-fragment .run-button:hover {
     background-color: var(--ink) !important;
     color: var(--primary) !important;
 }
 
-.CodeMirror-gutters {
-    background-color: var(--primary) !important;
-    border-right: 1px solid #555 !important;
+.executable-fragment .run-button._disabled {
+    opacity: 0.5;
 }
 
-.CodeMirror-linenumber {
-    background-color: var(--ink)!important;
-    color: var(--primary) !important;
-}
-
-.compiler-info {
-    background-color: var(--primary) !important;
+.executable-fragment .code-area,
+.executable-fragment .CodeMirror,
+.executable-fragment .CodeMirror-gutters,
+.executable-fragment .CodeMirror-linenumber {
+    background-color: var(--quote-bg) !important;
     color: var(--ink) !important;
 }
 
-.code-output {
-    background-color: var(--ink) !important;
-    color: var(--primary)!important;
+.executable-fragment .CodeMirror-gutters,
+.executable-fragment .CodeMirror-linenumber {
+    background-color: transparent !important;
+    border: 0 !important;
 }
 
-.run-button {
-    color: white !important;
+.executable-fragment .CodeMirror {
+    height: auto !important;
+    font-family: var(--font-mono) !important;
+    font-size: 15px !important;
+    line-height: 1.55 !important;
 }
 
+.executable-fragment .CodeMirror-lines {
+    margin: 0 !important;
+    padding: 1rem 0 !important;
+}
 
-.compiler-info_crosslink
-.compiler-info__open-editor-link,
-.compiler-info__target,
-.compiler-info__version {
-    background-color: var(--primary);
+.executable-fragment .CodeMirror-cursor {
+    border-left: 2px solid var(--ink) !important;
+}
+
+/* Highlighting in the theme's two colours only: bold keywords, dotted strings, muted comments */
+.executable-fragment .CodeMirror span[class*="cm-"] {
     color: var(--ink) !important;
 }
 
-.executable-fragment  {
-    border: 1px solid var(--ink)!important;
+.executable-fragment .CodeMirror .cm-keyword {
+    font-weight: 700;
+}
+
+.executable-fragment .CodeMirror .cm-string {
+    text-decoration: underline dotted;
+    text-underline-offset: 3px;
+}
+
+.executable-fragment .CodeMirror .cm-comment {
+    color: var(--muted) !important;
+    font-style: italic;
+}
+
+/* The program's output after "run" */
+.executable-fragment .output-wrapper,
+.executable-fragment .code-output {
+    border-top: 1px solid var(--ink) !important;
+    background-color: var(--primary) !important;
+    color: var(--ink) !important;
+    font-family: var(--font-mono) !important;
+    font-size: 14px !important;
+}
+
+.executable-fragment .code-output {
+    border-top: 0 !important;
+    padding: 12px 16px !important;
+}
+
+.executable-fragment .code-output .standard-output {
+    color: var(--ink) !important;
+}
+
+.executable-fragment .code-output .error-output,
+.executable-fragment .code-output .exception {
+    color: var(--ink) !important;
+    font-weight: 700;
+}
+
+.executable-fragment .console-close {
+    filter: none !important;
+}
+
+/* "Open in Playground · Target: JVM · Running on v…" under the snippet */
+.executable-fragment-wrapper .compiler-info {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    margin: 0 !important;
+    padding: 6px 12px !important;
+    border: 1px solid var(--ink) !important;
+    border-top: 0 !important;
+    border-radius: 0 0 4px 4px !important;
+    background-color: var(--primary) !important;
+    color: var(--ink) !important;
+    font-family: var(--font-mono) !important;
+    font-size: 12px !important;
+}
+
+.executable-fragment-wrapper .compiler-info__open-editor {
+    margin-right: auto !important;
+}
+
+.executable-fragment-wrapper .compiler-info__open-editor-link,
+.executable-fragment-wrapper .compiler-info__target,
+.executable-fragment-wrapper .compiler-info__version {
+    margin: 0 !important;
+    background: none !important;
+    color: var(--ink) !important;
+    font: inherit !important;
 }
 
 .utterances {
