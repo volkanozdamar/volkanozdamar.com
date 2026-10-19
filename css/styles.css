@@ -1166,6 +1166,8 @@ a:focus {
 
 /* "Open in Playground · Target: JVM · Running on v…" under the snippet */
 .executable-fragment-wrapper .compiler-info {
+    /* The playground hangs it below the snippet with position: absolute, over the text that follows; keep it in the flow */
+    position: static !important;
     display: flex !important;
     flex-wrap: wrap;
     gap: 4px 12px;
