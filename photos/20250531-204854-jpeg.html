@@ -42,7 +42,7 @@
     <a href="#main-content" class="skip-to-main">Skip to main content</a>
     <header role="banner" class="site-header">
         <div class="header-content">
-            <span class="site-prompt"><b>volkan</b>@blog:<span class="site-path">~/photos</span> $ <span class="site-typed"></span><span class="site-cursor" aria-hidden="true"></span></span>
+            <span class="site-prompt"><b>volkan</b>@blog:~/photos $ <span class="site-typed"></span><span class="site-cursor" aria-hidden="true"></span></span>
             <a class="site-brand" href="../index.html" aria-label="Volkan Özdamar">
                 <span class="site-name">Volkan Özdamar</span>
                 <img src="../images/logo.png" alt="" class="site-logo">
@@ -60,11 +60,10 @@
             </nav>
     </header>
     <script>
-        // The shell prompt types like a terminal: the rest of a Turkish path after ~/tr/, then on the home page a command
+        // On the home page the shell prompt types a command, like a terminal
         (function () {
-            var path = document.querySelector('.site-path'), typed = document.querySelector('.site-typed');
+            var typed = document.querySelector('.site-typed');
             var steps = [];
-            if (path && path.dataset.rest) steps.push({ el: path, text: path.dataset.rest, delay: 500 });
             if (typed && typed.dataset.command) steps.push({ el: typed, text: typed.dataset.command, delay: 2500 });
             var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             function run(i) {

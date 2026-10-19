@@ -728,11 +728,10 @@ body {
 .site-prompt {
     font-family: var(--font-mono);
     font-size: 13px;
-    color: var(--muted);
+    color: var(--ink);
 }
 
 .site-prompt b {
-    color: var(--ink);
     font-weight: 700;
 }
 
