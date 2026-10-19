@@ -677,9 +677,12 @@ body {
     border-bottom: 1px solid var(--ink);
 }
 
+/* The prompt on the left; the name and logo at the far right, centred on the same line */
 .header-content {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
     gap: 12px;
 }
 
@@ -692,14 +695,34 @@ body {
 
 .site-brand {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
     line-height: 1.2;
+    color: var(--ink);
+}
+
+.site-brand:hover,
+.site-brand:focus {
+    text-decoration: none;
+}
+
+.site-brand:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
 }
 
 .site-name {
     font-size: 20px;
     font-weight: 700;
     color: var(--ink);
+}
+
+/* On phones the prompt and the name don't fit on one line: only the logo stays next to the prompt */
+@media (max-width: 560px) {
+    .site-name {
+        display: none;
+    }
 }
 
 .site-prompt {
